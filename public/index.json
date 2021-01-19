@@ -1,0 +1,85 @@
+[
+{
+	"uri": "/1-deploy-infrastructure/",
+	"title": "Build Up Infrastructure",
+	"tags": [],
+	"description": "",
+	"content": "Contents:\n 1. Chuẩn bị Hạ tầng hệ thống 2. Thử nghiệm ứng dụng  1. Chuẩn bị Hạ tầng hệ thống Trong bài thực hành này, chúng ta sẽ sử dụng mô hình triển khai ứng dụng Share Note theo như bài thực hành Triển khai Ứng dụng ShareNote với Auto Scaling Group để phối hợp với AWS Backup nhằm sao lưu toàn bộ hạ tầng của chúng ta.\nSơ đồ tổng quan ứng dụng đã triển khai của chúng ta như sau:\n2. Thử nghiệm ứng dụng Hãy thử truy cập vào ứng dụng của bạn sau khi triển khai.\n"
+},
+{
+	"uri": "/4-testing/1-manual-backup/",
+	"title": "Create a Backup",
+	"tags": [],
+	"description": "",
+	"content": "Ở bước cuối cùng này, chúng ta sẽ tiến hành kiểm tra các hoạt động của AWS Backup bằng việc thực hiện Sao lưu, Khôi phục cũng như xem các thông báo được gửi đến sau khi tiến trình được hoàn tất.\nContents:\n Create a Backup for EBS Volume  Create a Backup for EBS Volume Để tạo một bảo sao lưu, chúng ta sẽ sử dụng chức năng Create On-demand Backup của AWS Backup.\n Truy cập vào AWS Backup Console. Ở Dashboard, chọn Create an on-demand Backup.  Trong trang Create an on-demand Backup, thiết lập các thông số cho bản sao lưu:  Resource: Chọn resource mà bạn muốn sao lưu.  Resource Type: EBS Volume ID: vol-05114cb10f3122689 (Volume của ShareNote Instance đang chạy ứng dụng của chúng ta)   Backup window: Lựa chọn thời gian để khởi chạy tiến trình sao lưu. (VD: Create backup now) Expire: Chọn Days after creation với giá trị 1. (Với mục tiêu thực hành, chúng ta sẽ để thời gian hiệu lực của bản sao lưu này là 1 ngày) Backup vault: Chúng ta sẽ chọn Backup Vault đã tạo trước đó cho ứng dụng ShareNote (VD: sharenote-backup-vault)    Chọn Create on-demand backup. Trong danh sách Backup jobs sẽ hiện ra tiến trình Backup ở trạng thái Created sau đó sẽ chuyển sang Running.  Sẽ mất 5 - 15 phút để tiến trình này hoàn thành và bạn sẽ thấy trạng thái thay đổi từ Running sang Completed.   Vậy là chúng ta đã hoàn thành việc tạo một bản sao lưu cho EBS Volume.\nNgoài ra, bạn có thể thử tạo thêm một bản sao lưu cho RDS Database mà chúng ta đang sử dụng cho ứng dụng ShareNote.\n\r"
+},
+{
+	"uri": "/",
+	"title": "Enable AWS Backup for AWS Environment",
+	"tags": [],
+	"description": "",
+	"content": "Enable AWS Backup for AWS Environment Trong bài thực hành này, chúng ta sẽ làm quen với việc tạo ra mội kế hoạch sao lưu cho các tài nguyên đang hoạt động trên AWS như EBS Volumes, RDS Databases, DynamoDB Tables, hay EFS File Systems. Đồng thời, chúng ta cũng sẽ biết được làm thế nào để khôi phục lại dữ liệu từ các bản sao lưu và tự động hóa toàn bộ quá trình.\nVà trong bài thực hành này, chúng ta sẽ thử tạo nên một quy trình sao lưu cho ứng dụng ShareNote và tạo thử sao lưu cho EBS Volume của máy chủ chạy ứng dụng này với AWS Backup. Đông thời cũng sẽ tự động hóa quá trình này bằng việc tạo ra Backup Plan và thử nghiệm việc nhận các thông báo khi các tiến trình của AWS Backup chạy hoàn tất.\nGoals  Tạo được Backup Plan cho hệ thống để tự động hóa việc sao lưu. Kiểm thử hoạt động sao lưu/ phục hồi. Kiểm thử thông báo khi các tiến trình hoàn tất.  "
+},
+{
+	"uri": "/2-create-backup-plan/",
+	"title": "Create Backup Plan",
+	"tags": [],
+	"description": "",
+	"content": "Contents:\n 1. Khởi tạo Backup Plan 2. Thiết lập các Resource sẽ sử dụng Backup Plan  1. Khởi tạo Backup Plan Để thiết lập AWS Backup cho toàn bộ hệ thống của bạn trước hết chúng ta sẽ tiến hành tạo Backup Plan.\n Truy cập vào AWS Management Console, tìm AWS Backup trong menu Services để truy cập vào AWS Backup console. Ở thanh điều hướng, chọn Backup plans. Chọn Create Backup plan để tạo mới.  Ở trang Create Backup plan, lựa chọn các thiết lập như sau:  Choose how you want to begin: chọn Build a new plan Backup plan name: Nhập tên muốn đặt (VD: sharenote-backup) Rule name: Nhập tên rule muốn đặt (VD: sharenote-backup-rule) Schedule:  Frequency: Lựa chọn thiết lập tùy theo nhu cầu của bạn về RPO của bạn Backup window: Lựa chọn khung thời gian tiến hành backup. (Bạn cần cân nhắc về khoảng thời gian này vì một số resource khi tiến hành sao lưu sẽ bị ảnh hưởng đến khả năng hoạt động trong khoảng thời gian sao lưu). Đối với bài thực hành này, chúng ta sẽ chọn Use backup window defaults - recommended.  Lifecycle (tùy chọn): Thiết lập này cho phép bạn có thể di chuyển các bản sao lưu vào cold storage hoặc thiết lập thời gian hiệu lực để tiết kiệm chi phí. Thiết lập này hiện tại chỉ hỗ trợ cho các sao lưu của EFS. Trong bài thực hành này, chúng ta sẽ chọn Never cho cả Transition to cold storage và Expire.    Backup Vault: Chọn Create new Backup Vault, cửa sổ Create Backup vault sẽ xuất hiện.  Backup vault name: Nhập tên của Backup Vault (VD: sharenote-backup-vault) Master key: Chọn KMS key bạn đã tạo. Trong bài thực hành này, chúng ta sẽ chọn (default) aws/backup. Chọn Create Backup Vault.      Bạn nên sử dụng các Backup Vault khác nhau cho các hạ tầng khác nhau.\n\r Generate copy - optional: Bạn có thể lựa chọn thêm việc nhân bản bản sao lưu của bạn sang một Region khác để tăng khả năng dự phòng. Trong khuôn khổ bài thực hành, chúng ta sẽ không thiết lập tính năng này. Tags added to Backup plan: Bạn có thể thêm các đánh dấu cho Backup plan của mình.  2. Thiết lập các Resource sẽ sử dụng Backup Plan Việc gán các Resource sử dụng Backup Plan là bước xác định bạn sẽ tiến hành tạo các sao lưu cho Resource nào cần thiết cho hệ thống của bạn. Chúng ta sẽ tiến hành gán các resource với Backup Plan như sau:\n Truy cập vào AWS Management Console, tìm AWS Backup trong menu Services để truy cập vào AWS Backup console. Ở thanh điều hướng, chọn Backup plans. Chọn backup plan đã tạo ở trên (sharenote-backup) để vào trang thông tin chi tiết của backup plan. Ở mục Resource assignments, chọn Assign resources.  Trong trang Assign resources, bạn cần nhập các thông tin để xác định các resource sẽ được gán vào backup plan.  Ở mục General:  Resource assignment name: Đặt tên cho nhóm resource mà bạn gán. (VD: sharenote-backup-resources) IAM role: Chọn Default role   Ở mục Assign resource:  Assign by: Chọn Tags. Key: Nhập giá trị Key (VD: workload) Value: Nhập giá trị Value (VD: ShareNoteApp)      Trong trường hợp sử dụng Tags để gom nhóm các resource, hãy đảm bảo rằng các resource đều được đánh dấu với Tag tương ứng.\n\rTrong trường hợp bạn muốn sử dụng các Resource ID để xác định từng resource theo từng Resource type.\n\r6. Cuối cùng, chọn Assign resources.\n"
+},
+{
+	"uri": "/4-testing/2-restore-backup/",
+	"title": "Restore from Backup",
+	"tags": [],
+	"description": "",
+	"content": "Để khôi phục lại từ các bản sao lưu, chúng ta sẽ tiến hành chọn bản sao lưu đó và thực hiện khôi phục từ Backup vault như sau:\nHãy chắc chắn bạn đã thực hiện bước sao lưu ở phần trước để có một bản sao lưu sử dụng cho mục đích khôi phục.\n\rContents:\n Restore EBS Volume from Backup  Restore EBS Volume from Backup  Truy cập vào AWS Backup Console. Chọn Backup vaults, chọn sharenote-backup-vault để xem danh sách các bản sao lưu.  Trong mục Backups, chọn bản sao lưu mà bạn đã tạo ra trước đó (VD: snapshot/snap-08c04048e4adf8721).  Chọn Restore. Trong trang Restore backup, thiết lập các thông số liên quan đến EBS Volume mà chúng ta sẽ khôi phục lại.  Resource type: EBS volume Availability zone: Lựa chọn Availibility zone mà chúng ta sẽ lưu trữ Volume khôi phục này. (VD: ap-northeast-1a)    Chọn Restore backup. Danh sách Restore jobs sẽ hiển thị tiến trình khôi phục mà chúng ta vừa tạo ra ở trạng thái Created sau đó sẽ chuyển sang Running.  Sẽ mất 5 - 15 phút để tiến trình này hoàn thành và bạn sẽ thấy trạng thái thay đổi từ Running sang Completed.   "
+},
+{
+	"uri": "/4-testing/3-test-notification/",
+	"title": "Checking Notification",
+	"tags": [],
+	"description": "",
+	"content": "Sau khi hoàn tất tiến trình Sao lưu, theo như thiết lập ở Phần 3, bạn sẽ nhận được một thông báo gửi qua Email của bạn với nội dung về việc Backup job đã hoàn tất.\nContents:\n Kiểm tra thông báo Email hoàn thành Backup Job Kiểm tra thông báo Email hoàn thành Restore Job  Kiểm tra thông báo Email hoàn thành Backup Job Email sẽ được gửi đến email của bạn sau khoảng 10 phút kể từ khi Backup job hoàn thành. Nếu bạn không thấy email được gửi về email hãy thử kiểm tra trong mục Spam.\n\rKiểm tra thông báo Email hoàn thành Restore Job Email sẽ được gửi đến email của bạn sau khoảng 10 phút kể từ khi Restore job hoàn thành. Nếu bạn không thấy email được gửi về email hãy thử kiểm tra trong mục Spam.\n\r"
+},
+{
+	"uri": "/3-notifications/2-enable-notifications/",
+	"title": "Create Notification",
+	"tags": [],
+	"description": "",
+	"content": "Để thiết lập thông báo, chúng ta sẽ sử dụng câu lệnh thông qua AWS CLI. (Bạn có thể tìm hiểu thêm về CLI thông qua Sử dụng AWS CLI trên Windows/Ubuntu)\nContents:\n Thiết lập Notification  Thiết lập Notification  Sử dụng Terminal (hoặc Command Prompt trên Windows) để sử dụng AWS CLI. Sử dụng lệnh aws backup put-backup-vault-notifications để kích hoạt tính năng Notification cho Backup Vault của bạn. Hãy chú ý các thông số truyền vào của câu lệnh.  aws backup put-backup-vault-notifications --region ap-northeast-1 --backup-vault-name sharenote-backup-vault --backup-vault-events BACKUP_JOB_COMPLETED RESTORE_JOB_COMPLETED --sns-topic-arn arn:aws:sns:ap-northeast-1:340879421878:sharenote-backup-sns\r \u0026ndash;region : Chọn Region phù hợp mà bạn đang sử dụng (Có thể bỏ qua nếu đã thiết lập Region mặc định) \u0026ndash;backup-vault-name : Tên Backup Vault mà bạn đã tạo ở bước trước đó (Tên backup vault có phân biệt chữ hoa và chữ thường) \u0026ndash;sns-topic-arn : Nhập ARN của SNS topic chúng ta đã tạo trước đó.   Sau khi sửa lại câu lệnh cho phù hợp, hãy chạy lệnh trên để kích hoạt việc gửi thông điệp đến SNS Topic mỗi khi tiến trình Backup/Restore thành công. Để kiểm tra lại việc thiết lập, bạn có thể chạy lệnh aws backup get-backup-vault-notifications để kiểm tra thiết lập với SNS Topic ARN đã được cấu hình. Hãy nhớ thay đổi các thông số để phù hợp với hệ thống của bạn.  aws backup get-backup-vault-notifications --backup-vault-name sharenote-backup-vault --region ap-northeast-1\rĐến đây, bạn đã hoành thành việc kích hoạt nhận thông báo cho các hoạt động Backup/Restore thành công từ AWS Backup. Tiếp theo, chúng ta sẽ tiến hành kiểm tra hoạt động của AWS Backup.\n"
+},
+{
+	"uri": "/3-notifications/1-create-sns-topic/",
+	"title": "Create SNS Topic",
+	"tags": [],
+	"description": "",
+	"content": "Đầu tiên, chúng ta sẽ phải tạo SNS Topic để nhận các thông điệp từ AWS Backup để đưa đến các Subcriber mà chúng ta thiết lập.\nMục tiêu trong bài thực hành này, bạn sẽ thiết lập để nhận các thông báo liên quan đến AWS Backup được gửi đến email của bạn về các hành động Backup/Restore thành công.\n\rNội dung:\n Create SNS Topic Create SNS Subcription  Create SNS Topic  Truy cập vào AWS Management Console, tìm Amazon SNS trong menu Services để truy cập vào Amazon SNS console. Ở thanh điều hướng, chọn Topics. Chọn Create topic để tạo SNS Topic mới.  Trong trang Create topic, thiết lập các thông số cho SNS Topic:  Type: Chọn loại queue mà bạn muốn sử dụng (VD: Standard) Name: Nhập tên topic (VD: sharenote-backup-sns)   Chọn Create topic. Sau khi tạo thành công, thông tin SNS Topic vừa tạo sẽ được hiện ra.  Hãy ghi chú lại ARN của SNS Topic để sử dụng ở bước tiếp theo của bài thực hành. (VD: arn:aws:sns:ap-northeast-1:340879421878:sharenote-backup-sns)  Create SNS Subcription Để tạo subcriber nhận các thông báo từ AWS Backup, chúng ta sẽ tiến hành tạo như sau:\n Từ trang thông tin SNS Topic, trong mục Subscriptions, chọn Create subscription.  Trong trang Create subscription, thiết lập các thông tin cho Subcriber:  Topic ARN: Chọn SNS Topic vừa tạo ở bước trước (VD: arn:aws:sns:ap-northeast-1:340879421878:sharenote-backup-sns) Protocol: Lựa chọn phương thức nhận thông báo (Trong bài thực hành, chúng ta sẽ sử dụng Email) Endpoint (Xuất hiện sau khi lựa chọn Protocol): Nhập thông tin của Subcriber (VD: subcriber@example.com)    Chọn Create subscription. Sau khi tạo xong Subcription, hãy vào kiểm tra email đã đăng kí và chọn vào liên kết trong email nhận được từ SNS để tiến hành xác nhận đăng kí nhận thông báo.   "
+},
+{
+	"uri": "/3-notifications/",
+	"title": "Setup Notification",
+	"tags": [],
+	"description": "",
+	"content": "Thiết lập Notification cho AWS Backup với AWS SNS AWS Backup sử dụng AWS SNS để gửi các thông báo liên quan đến các hoạt động liên quan đến sao lưu được diễn ra trong hệ thống mà chúng ta đã thiết lập. Việc nhận các thông báo này cho chúng ta biết được thông tin về trạng thái các backup job đang chạy hoặc khi có các lỗi xảy ra nhằm cho phép chúng ta có những hành động kịp thời.\nỞ bước này, chúng ta sẽ tiến hành kích hoạt tính năng gửi thông báo thông qua email khi những tiến trình của AWS Backup được thực thi hoàn tất. Để thiết lập thông báo, chúng ta sẽ sử dụng câu lệnh thông qua AWS CLI. (Bạn có thể tìm hiểu thêm về CLI thông qua Sử dụng AWS CLI trên Windows/Ubuntu)\nHãy chắc chắn bạn đã thiết lập AWS CLI trước khi thực hiện bài thực hành và chắc chắn chọn đúng Region mà bạn đang sử dụng.\n\r"
+},
+{
+	"uri": "/4-testing/",
+	"title": "Testing Results",
+	"tags": [],
+	"description": "",
+	"content": "Kiểm tra hoạt động của các thiết lập AWS Backup Ở bước cuối cùng này, chúng ta sẽ tiến hành kiểm tra các hoạt động của AWS Backup bằng việc thực hiện Sao lưu, Khôi phục cũng như xem các thông báo được gửi đến sau khi tiến trình được hoàn tất.\n"
+},
+{
+	"uri": "/categories/",
+	"title": "Categories",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "/tags/",
+	"title": "Tags",
+	"tags": [],
+	"description": "",
+	"content": ""
+}]
