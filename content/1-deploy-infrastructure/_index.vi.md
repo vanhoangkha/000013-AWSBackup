@@ -22,4 +22,4 @@ Sơ đồ tổng quan ứng dụng đã triển khai của chúng ta như sau:
 
 Hãy thử truy cập vào ứng dụng của bạn sau khi triển khai.
 
-![ShareNote](../../../images/1/1.png?width=60pc)
+![ShareNote](../../../images/1/1.png?width=90pc)

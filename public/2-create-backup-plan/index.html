@@ -12,21 +12,21 @@
     <title>Create Backup Plan :: Deploy ShareNote on Windows/Ubuntu Virtual Server</title>
 
     
-    <link href="/css/nucleus.css?1610983117" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1610983117" rel="stylesheet">
-    <link href="/css/hybrid.css?1610983117" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1610983117" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1610983117" rel="stylesheet">
-    <link href="/css/auto-complete.css?1610983117" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1610983117" rel="stylesheet">
-    <link href="/css/theme.css?1610983117" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1610983117" rel="stylesheet">
+    <link href="/css/nucleus.css?1612673860" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1612673860" rel="stylesheet">
+    <link href="/css/hybrid.css?1612673860" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1612673860" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1612673860" rel="stylesheet">
+    <link href="/css/auto-complete.css?1612673860" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1612673860" rel="stylesheet">
+    <link href="/css/theme.css?1612673860" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1612673860" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1610983117" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1612673860" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1610983117"></script>
+    <script src="/js/jquery-3.3.1.min.js?1612673860"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1610983117"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1610983117"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1612673860"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1612673860"></script>
 <script type="text/javascript">
     
         var baseurl = "";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1610983117"></script>
+<script type="text/javascript" src="/js/search.js?1612673860"></script>
 
     
   </div>
@@ -525,7 +525,7 @@
 <li>Ở thanh điều hướng, chọn <strong>Backup plans</strong>.</li>
 <li>Chọn <strong>Create Backup plan</strong> để tạo mới.</li>
 </ol>
-<p><img src="../../../images/2/1.png?width=60pc" alt="Backup Plan"></p>
+<p><img src="../../../images/2/1.png?width=90pc" alt="Backup Plan"></p>
 <ol start="4">
 <li>Ở trang <strong>Create Backup plan</strong>, lựa chọn các thiết lập như sau:
 <ul>
@@ -535,12 +535,17 @@
 <li>Schedule:
 <ul>
 <li>Frequency: Lựa chọn thiết lập tùy theo nhu cầu của bạn về RPO của bạn</li>
-<li>Backup window: Lựa chọn khung thời gian tiến hành backup. (Bạn cần cân nhắc về khoảng thời gian này vì một số resource khi tiến hành sao lưu sẽ bị ảnh hưởng đến khả năng hoạt động trong khoảng thời gian sao lưu). Đối với bài thực hành này, chúng ta sẽ chọn <strong>Use backup window defaults - recommended</strong>.
-<img src="../../../images/2/2.png?width=60pc" alt="Backup Plan"></li>
-<li>Lifecycle (tùy chọn): Thiết lập này cho phép bạn có thể di chuyển các bản sao lưu vào cold storage hoặc thiết lập thời gian hiệu lực để tiết kiệm chi phí. Thiết lập này hiện tại <strong>chỉ hỗ trợ cho các sao lưu của EFS</strong>. Trong bài thực hành này, chúng ta sẽ chọn <strong>Never</strong> cho cả <strong>Transition to cold storage</strong> và <strong>Expire</strong>.
-<img src="../../../images/2/3.png?width=60pc" alt="Backup Plan"></li>
+<li>Backup window: Lựa chọn khung thời gian tiến hành backup. (Bạn cần cân nhắc về khoảng thời gian này vì một số resource khi tiến hành sao lưu sẽ bị ảnh hưởng đến khả năng hoạt động trong khoảng thời gian sao lưu). Đối với bài thực hành này, chúng ta sẽ chọn <strong>Use backup window defaults - recommended</strong>.</li>
 </ul>
 </li>
+</ul>
+</li>
+</ol>
+<p><img src="../../../images/2/2.png?width=90pc" alt="Backup Plan"></p>
+<pre><code> - Lifecycle (tùy chọn): Thiết lập này cho phép bạn có thể di chuyển các bản sao lưu vào cold storage hoặc thiết lập thời gian hiệu lực để tiết kiệm chi phí. Thiết lập này hiện tại **chỉ hỗ trợ cho các sao lưu của EFS**. Trong bài thực hành này, chúng ta sẽ chọn **Never** cho cả **Transition to cold storage** và **Expire**.
+</code></pre>
+<p><img src="../../../images/2/3.png?width=90pc" alt="Backup Plan"></p>
+<ul>
 <li>Backup Vault: Chọn <strong>Create new Backup Vault</strong>, cửa sổ <strong>Create Backup vault</strong> sẽ xuất hiện.
 <ul>
 <li>Backup vault name: Nhập tên của Backup Vault (VD: <strong>sharenote-backup-vault</strong>)</li>
@@ -549,18 +554,16 @@
 </ul>
 </li>
 </ul>
-</li>
-</ol>
 
 <div class="notices tip" ><p>Bạn nên sử dụng các Backup Vault khác nhau cho các hạ tầng khác nhau.</p>
 </div>
 
-<p><img src="../../../images/2/4.png?width=60pc" alt="Backup Plan"></p>
+<p><img src="../../../images/2/4.png?width=90pc" alt="Backup Plan"></p>
 <ul>
 <li>Generate copy - <em>optional</em>: Bạn có thể lựa chọn thêm việc nhân bản bản sao lưu của bạn sang một Region khác để tăng khả năng dự phòng. Trong khuôn khổ bài thực hành, chúng ta sẽ không thiết lập tính năng này.</li>
 <li>Tags added to Backup plan: Bạn có thể thêm các đánh dấu cho Backup plan của mình.</li>
 </ul>
-<p><img src="../../../images/2/5.png?width=60pc" alt="Backup Plan"></p>
+<p><img src="../../../images/2/5.png?width=90pc" alt="Backup Plan"></p>
 <h4 id="2-thiết-lập-các-resource-sẽ-sử-dụng-backup-plan">2. Thiết lập các Resource sẽ sử dụng Backup Plan</h4>
 <p>Việc gán các Resource sử dụng Backup Plan là bước xác định bạn sẽ tiến hành tạo các sao lưu cho Resource nào cần thiết cho hệ thống của bạn.
 Chúng ta sẽ tiến hành gán các resource với Backup Plan như sau:</p>
@@ -570,7 +573,7 @@ Chúng ta sẽ tiến hành gán các resource với Backup Plan như sau:</p>
 <li>Chọn backup plan đã tạo ở trên (sharenote-backup) để vào trang thông tin chi tiết của backup plan.</li>
 <li>Ở mục <strong>Resource assignments</strong>, chọn <strong>Assign resources</strong>.</li>
 </ol>
-<p><img src="../../../images/2/6.png?width=60pc" alt="Backup Plan"></p>
+<p><img src="../../../images/2/6.png?width=90pc" alt="Backup Plan"></p>
 <ol start="5">
 <li>Trong trang <strong>Assign resources</strong>, bạn cần nhập các thông tin để xác định các resource sẽ được gán vào backup plan.
 <ul>
@@ -594,12 +597,12 @@ Chúng ta sẽ tiến hành gán các resource với Backup Plan như sau:</p>
 <div class="notices info" ><p>Trong trường hợp sử dụng <strong>Tags</strong> để gom nhóm các resource, hãy đảm bảo rằng các resource đều được đánh dấu với Tag tương ứng.</p>
 </div>
 
-<p><img src="../../../images/2/7.png?width=60pc" alt="Backup Plan"></p>
+<p><img src="../../../images/2/7.png?width=90pc" alt="Backup Plan"></p>
 
 <div class="notices info" ><p>Trong trường hợp bạn muốn sử dụng các <strong>Resource ID</strong> để xác định từng resource theo từng <strong>Resource type</strong>.</p>
 </div>
 
-<p><img src="../../../images/2/8.png?width=60pc" alt="Backup Plan">
+<p><img src="../../../images/2/8.png?width=90pc" alt="Backup Plan">
 6. Cuối cùng, chọn <strong>Assign resources</strong>.</p>
 
 
@@ -813,19 +816,19 @@ Chúng ta sẽ tiến hành gán các resource với Backup Plan như sau:</p>
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1610983117"></script>
-    <script src="/js/perfect-scrollbar.min.js?1610983117"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1610983117"></script>
-    <script src="/js/jquery.sticky.js?1610983117"></script>
-    <script src="/js/featherlight.min.js?1610983117"></script>
-    <script src="/js/highlight.pack.js?1610983117"></script>
+    <script src="/js/clipboard.min.js?1612673860"></script>
+    <script src="/js/perfect-scrollbar.min.js?1612673860"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1612673860"></script>
+    <script src="/js/jquery.sticky.js?1612673860"></script>
+    <script src="/js/featherlight.min.js?1612673860"></script>
+    <script src="/js/highlight.pack.js?1612673860"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1610983117"></script>
-    <script src="/js/learn.js?1610983117"></script>
-    <script src="/js/hugo-learn.js?1610983117"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1612673860"></script>
+    <script src="/js/learn.js?1612673860"></script>
+    <script src="/js/hugo-learn.js?1612673860"></script>
 
-    <link href="/mermaid/mermaid.css?1610983117" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1610983117"></script>
+    <link href="/mermaid/mermaid.css?1612673860" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1612673860"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

@@ -12,21 +12,21 @@
     <title>Restore from Backup :: Deploy ShareNote on Windows/Ubuntu Virtual Server</title>
 
     
-    <link href="/css/nucleus.css?1610983117" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1610983117" rel="stylesheet">
-    <link href="/css/hybrid.css?1610983117" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1610983117" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1610983117" rel="stylesheet">
-    <link href="/css/auto-complete.css?1610983117" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1610983117" rel="stylesheet">
-    <link href="/css/theme.css?1610983117" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1610983117" rel="stylesheet">
+    <link href="/css/nucleus.css?1612673860" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1612673860" rel="stylesheet">
+    <link href="/css/hybrid.css?1612673860" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1612673860" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1612673860" rel="stylesheet">
+    <link href="/css/auto-complete.css?1612673860" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1612673860" rel="stylesheet">
+    <link href="/css/theme.css?1612673860" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1612673860" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1610983117" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1612673860" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1610983117"></script>
+    <script src="/js/jquery-3.3.1.min.js?1612673860"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1610983117"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1610983117"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1612673860"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1612673860"></script>
 <script type="text/javascript">
     
         var baseurl = "";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1610983117"></script>
+<script type="text/javascript" src="/js/search.js?1612673860"></script>
 
     
   </div>
@@ -531,25 +531,33 @@
 <h4 id="restore-ebs-volume-from-backup">Restore EBS Volume from Backup</h4>
 <ol>
 <li>Truy cập vào <strong>AWS Backup Console</strong>.</li>
-<li>Chọn <strong>Backup vaults</strong>, chọn <strong>sharenote-backup-vault</strong> để xem danh sách các bản sao lưu.
-<img src="../../../images/4/8.png?width=60pc" alt="Backup"></li>
-<li>Trong mục <strong>Backups</strong>, chọn bản sao lưu mà bạn đã tạo ra trước đó (VD: <strong>snapshot/snap-08c04048e4adf8721</strong>).
-<img src="../../../images/4/9.png?width=60pc" alt="Backup"></li>
+<li>Chọn <strong>Backup vaults</strong>, chọn <strong>sharenote-backup-vault</strong> để xem danh sách các bản sao lưu.</li>
+</ol>
+<p><img src="../../../images/4/8.png?width=90pc" alt="Backup"></p>
+<ol start="3">
+<li>Trong mục <strong>Backups</strong>, chọn bản sao lưu mà bạn đã tạo ra trước đó (VD: <strong>snapshot/snap-08c04048e4adf8721</strong>).</li>
+</ol>
+<p><img src="../../../images/4/9.png?width=90pc" alt="Backup"></p>
+<ol start="4">
 <li>Chọn <strong>Restore</strong>.</li>
 <li>Trong trang <strong>Restore backup</strong>, thiết lập các thông số liên quan đến EBS Volume mà chúng ta sẽ khôi phục lại.
 <ul>
 <li>Resource type:  <strong>EBS volume</strong></li>
-<li>Availability zone: Lựa chọn Availibility zone mà chúng ta sẽ lưu trữ Volume khôi phục này. (VD: <strong>ap-northeast-1a</strong>)
-<img src="../../../images/4/10.png?width=60pc" alt="Backup"></li>
+<li>Availability zone: Lựa chọn Availibility zone mà chúng ta sẽ lưu trữ Volume khôi phục này. (VD: <strong>ap-northeast-1a</strong>)</li>
 </ul>
 </li>
-<li>Chọn <strong>Restore backup</strong>.</li>
-<li>Danh sách <strong>Restore jobs</strong> sẽ hiển thị tiến trình khôi phục mà chúng ta vừa tạo ra ở trạng thái <strong>Created</strong> sau đó sẽ chuyển sang <strong>Running</strong>.
-<img src="../../../images/4/11.png?width=60pc" alt="Backup"></li>
-<li>Sẽ mất 5 - 15 phút để tiến trình này hoàn thành và bạn sẽ thấy trạng thái thay đổi từ <strong>Running</strong> sang <strong>Completed</strong>.
-<img src="../../../images/4/12.png?width=60pc" alt="Backup">
-<img src="../../../images/4/14.png?width=60pc" alt="Backup"></li>
 </ol>
+<p><img src="../../../images/4/10.png?width=90pc" alt="Backup"></p>
+<ol start="6">
+<li>Chọn <strong>Restore backup</strong>.</li>
+<li>Danh sách <strong>Restore jobs</strong> sẽ hiển thị tiến trình khôi phục mà chúng ta vừa tạo ra ở trạng thái <strong>Created</strong> sau đó sẽ chuyển sang <strong>Running</strong>.</li>
+</ol>
+<p><img src="../../../images/4/11.png?width=90pc" alt="Backup"></p>
+<ol start="8">
+<li>Sẽ mất 5 - 15 phút để tiến trình này hoàn thành và bạn sẽ thấy trạng thái thay đổi từ <strong>Running</strong> sang <strong>Completed</strong>.</li>
+</ol>
+<p><img src="../../../images/4/12.png?width=90pc" alt="Backup"></p>
+<p><img src="../../../images/4/14.png?width=90pc" alt="Backup"></p>
 
 
 
@@ -766,19 +774,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1610983117"></script>
-    <script src="/js/perfect-scrollbar.min.js?1610983117"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1610983117"></script>
-    <script src="/js/jquery.sticky.js?1610983117"></script>
-    <script src="/js/featherlight.min.js?1610983117"></script>
-    <script src="/js/highlight.pack.js?1610983117"></script>
+    <script src="/js/clipboard.min.js?1612673860"></script>
+    <script src="/js/perfect-scrollbar.min.js?1612673860"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1612673860"></script>
+    <script src="/js/jquery.sticky.js?1612673860"></script>
+    <script src="/js/featherlight.min.js?1612673860"></script>
+    <script src="/js/highlight.pack.js?1612673860"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1610983117"></script>
-    <script src="/js/learn.js?1610983117"></script>
-    <script src="/js/hugo-learn.js?1610983117"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1612673860"></script>
+    <script src="/js/learn.js?1612673860"></script>
+    <script src="/js/hugo-learn.js?1612673860"></script>
 
-    <link href="/mermaid/mermaid.css?1610983117" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1610983117"></script>
+    <link href="/mermaid/mermaid.css?1612673860" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1612673860"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

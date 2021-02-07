@@ -12,21 +12,21 @@
     <title>Khởi tạo SNS Topic :: Triển Khai Ứng dụng ShareNote trên Máy ảo Windows/Ubuntu</title>
 
     
-    <link href="/css/nucleus.css?1610983117" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1610983117" rel="stylesheet">
-    <link href="/css/hybrid.css?1610983117" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1610983117" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1610983117" rel="stylesheet">
-    <link href="/css/auto-complete.css?1610983117" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1610983117" rel="stylesheet">
-    <link href="/css/theme.css?1610983117" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1610983117" rel="stylesheet">
+    <link href="/css/nucleus.css?1612673860" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1612673860" rel="stylesheet">
+    <link href="/css/hybrid.css?1612673860" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1612673860" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1612673860" rel="stylesheet">
+    <link href="/css/auto-complete.css?1612673860" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1612673860" rel="stylesheet">
+    <link href="/css/theme.css?1612673860" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1612673860" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1610983117" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1612673860" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1610983117"></script>
+    <script src="/js/jquery-3.3.1.min.js?1612673860"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1610983117"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1610983117"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1612673860"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1612673860"></script>
 <script type="text/javascript">
     
         var baseurl = "\/vi";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1610983117"></script>
+<script type="text/javascript" src="/js/search.js?1612673860"></script>
 
     
   </div>
@@ -533,8 +533,10 @@
 <ol>
 <li>Truy cập vào <strong>AWS Management Console</strong>, tìm <strong>Amazon SNS</strong> trong menu <strong>Services</strong> để truy cập vào Amazon SNS console.</li>
 <li>Ở thanh điều hướng, chọn <strong>Topics</strong>.</li>
-<li>Chọn <strong>Create topic</strong> để tạo SNS Topic mới.
-<img src="../../../images/3/1.png?width=60pc" alt="SNS"></li>
+<li>Chọn <strong>Create topic</strong> để tạo SNS Topic mới.</li>
+</ol>
+<p><img src="../../../images/3/1.png?width=90pc" alt="SNS"></p>
+<ol start="4">
 <li>Trong trang <strong>Create topic</strong>, thiết lập các thông số cho SNS Topic:
 <ul>
 <li>Type: Chọn loại queue mà bạn muốn sử dụng (VD: <strong>Standard</strong>)</li>
@@ -542,27 +544,33 @@
 </ul>
 </li>
 <li>Chọn <strong>Create topic</strong>.</li>
-<li>Sau khi tạo thành công, thông tin SNS Topic vừa tạo sẽ được hiện ra.
-<img src="../../../images/3/2.png?width=60pc" alt="SNS"></li>
+<li>Sau khi tạo thành công, thông tin SNS Topic vừa tạo sẽ được hiện ra.</li>
+</ol>
+<p><img src="../../../images/3/2.png?width=90pc" alt="SNS"></p>
+<ol start="7">
 <li>Hãy ghi chú lại ARN của SNS Topic để sử dụng ở bước tiếp theo của bài thực hành. (VD: <strong>arn:aws:sns:ap-northeast-1:340879421878:sharenote-backup-sns</strong>)</li>
 </ol>
 <h4 id="tạo-sns-subcription">Tạo SNS Subcription</h4>
 <p>Để tạo subcriber nhận các thông báo từ AWS Backup, chúng ta sẽ tiến hành tạo như sau:</p>
 <ol>
-<li>Từ trang thông tin SNS Topic, trong mục <strong>Subscriptions</strong>, chọn <strong>Create subscription</strong>.
-<img src="../../../images/3/3.png?width=60pc" alt="SNS"></li>
+<li>Từ trang thông tin SNS Topic, trong mục <strong>Subscriptions</strong>, chọn <strong>Create subscription</strong>.</li>
+</ol>
+<p><img src="../../../images/3/3.png?width=90pc" alt="SNS"></p>
+<ol start="2">
 <li>Trong trang Create subscription, thiết lập các thông tin cho Subcriber:
 <ul>
 <li>Topic ARN: Chọn SNS Topic vừa tạo ở bước trước (VD: <strong>arn:aws:sns:ap-northeast-1:340879421878:sharenote-backup-sns</strong>)</li>
 <li>Protocol: Lựa chọn phương thức nhận thông báo (Trong bài thực hành, chúng ta sẽ sử dụng <strong>Email</strong>)</li>
-<li>Endpoint (Xuất hiện sau khi lựa chọn Protocol): Nhập thông tin của Subcriber (VD: <strong><a href="mailto:subcriber@example.com">subcriber@example.com</a></strong>)
-<img src="../../../images/3/4.png?width=60pc" alt="SNS"></li>
+<li>Endpoint (Xuất hiện sau khi lựa chọn Protocol): Nhập thông tin của Subcriber (VD: <strong><a href="mailto:subcriber@example.com">subcriber@example.com</a></strong>)</li>
 </ul>
 </li>
-<li>Chọn <strong>Create subscription</strong>.</li>
-<li>Sau khi tạo xong Subcription, hãy vào kiểm tra email đã đăng kí và chọn vào liên kết trong email nhận được từ SNS để tiến hành xác nhận đăng kí nhận thông báo.
-<img src="../../../images/3/5.png?width=30pc" alt="SNS"></li>
 </ol>
+<p><img src="../../../images/3/4.png?width=90pc" alt="SNS"></p>
+<ol start="3">
+<li>Chọn <strong>Create subscription</strong>.</li>
+<li>Sau khi tạo xong Subcription, hãy vào kiểm tra email đã đăng kí và chọn vào liên kết trong email nhận được từ SNS để tiến hành xác nhận đăng kí nhận thông báo.</li>
+</ol>
+<p><img src="../../../images/3/5.png?width=30pc" alt="SNS"></p>
 
 
 
@@ -776,19 +784,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1610983117"></script>
-    <script src="/js/perfect-scrollbar.min.js?1610983117"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1610983117"></script>
-    <script src="/js/jquery.sticky.js?1610983117"></script>
-    <script src="/js/featherlight.min.js?1610983117"></script>
-    <script src="/js/highlight.pack.js?1610983117"></script>
+    <script src="/js/clipboard.min.js?1612673860"></script>
+    <script src="/js/perfect-scrollbar.min.js?1612673860"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1612673860"></script>
+    <script src="/js/jquery.sticky.js?1612673860"></script>
+    <script src="/js/featherlight.min.js?1612673860"></script>
+    <script src="/js/highlight.pack.js?1612673860"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1610983117"></script>
-    <script src="/js/learn.js?1610983117"></script>
-    <script src="/js/hugo-learn.js?1610983117"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1612673860"></script>
+    <script src="/js/learn.js?1612673860"></script>
+    <script src="/js/hugo-learn.js?1612673860"></script>
 
-    <link href="/mermaid/mermaid.css?1610983117" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1610983117"></script>
+    <link href="/mermaid/mermaid.css?1612673860" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1612673860"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
