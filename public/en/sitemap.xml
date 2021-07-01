@@ -18,6 +18,21 @@
   </url>
   
   <url>
+    <loc>/</loc>
+    <lastmod>1970-01-01T07:33:40+07:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="/vi/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/"
+                />
+  </url>
+  
+  <url>
     <loc>/4-testing/1-manual-backup/</loc>
     <lastmod>1970-01-01T07:33:40+07:00</lastmod>
     <xhtml:link
@@ -33,17 +48,17 @@
   </url>
   
   <url>
-    <loc>/</loc>
+    <loc>/4-testing/2-restore-backup/</loc>
     <lastmod>1970-01-01T07:33:40+07:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="/vi/"
+                href="/vi/4-testing/2-restore-backup/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="/"
+                href="/4-testing/2-restore-backup/"
                 />
   </url>
   
@@ -63,17 +78,17 @@
   </url>
   
   <url>
-    <loc>/4-testing/2-restore-backup/</loc>
+    <loc>/3-notifications/1-create-sns-topic/</loc>
     <lastmod>1970-01-01T07:33:40+07:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="/vi/4-testing/2-restore-backup/"
+                href="/vi/3-notifications/1-create-sns-topic/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="/4-testing/2-restore-backup/"
+                href="/3-notifications/1-create-sns-topic/"
                 />
   </url>
   
@@ -108,21 +123,6 @@
   </url>
   
   <url>
-    <loc>/3-notifications/1-create-sns-topic/</loc>
-    <lastmod>1970-01-01T07:33:40+07:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="vi"
-                href="/vi/3-notifications/1-create-sns-topic/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="/3-notifications/1-create-sns-topic/"
-                />
-  </url>
-  
-  <url>
     <loc>/3-notifications/</loc>
     <lastmod>1970-01-01T07:33:40+07:00</lastmod>
     <xhtml:link
@@ -149,6 +149,21 @@
                 rel="alternate"
                 hreflang="en"
                 href="/4-testing/"
+                />
+  </url>
+  
+  <url>
+    <loc>/5-clean-up/</loc>
+    <lastmod>2021-06-18T14:25:30+07:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="/vi/5-clean-up/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/5-clean-up/"
                 />
   </url>
   

@@ -9,24 +9,24 @@
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>Triển khai AWS Backup cho hệ thống :: Triển Khai Ứng dụng ShareNote trên Máy ảo Windows/Ubuntu</title>
+    <title>Triển khai AWS Backup cho hệ thống :: Triển Khai AWS Backup</title>
 
     
-    <link href="/css/nucleus.css?1612753112" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1612753112" rel="stylesheet">
-    <link href="/css/hybrid.css?1612753112" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1612753112" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1612753112" rel="stylesheet">
-    <link href="/css/auto-complete.css?1612753112" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1612753112" rel="stylesheet">
-    <link href="/css/theme.css?1612753112" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1612753112" rel="stylesheet">
+    <link href="/css/nucleus.css?1625147444" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1625147444" rel="stylesheet">
+    <link href="/css/hybrid.css?1625147444" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1625147444" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1625147444" rel="stylesheet">
+    <link href="/css/auto-complete.css?1625147444" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1625147444" rel="stylesheet">
+    <link href="/css/theme.css?1625147444" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1625147444" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1612753112" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1625147444" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1612753112"></script>
+    <script src="/js/jquery-3.3.1.min.js?1625147444"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1612753112"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1612753112"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1625147444"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1625147444"></script>
 <script type="text/javascript">
     
         var baseurl = "\/vi";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1612753112"></script>
+<script type="text/javascript" src="/js/search.js?1625147444"></script>
 
     
   </div>
@@ -342,6 +342,32 @@
  
 
           
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/5-clean-up/" title="Dọn dẹp tài nguyên" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/5-clean-up/">
+          <b>5. </b>Dọn dẹp tài nguyên
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
          
     </ul>
 
@@ -350,10 +376,6 @@
       <section id="shortcuts">
         <h3>More</h3>
         <ul>
-          
-              <li> 
-                  <a class="padding" href="https://github.com/matcornic/hugo-theme-learn"><i class='fab fa-github'></i>  Github Repo</a>
-              </li>
           
               <li> 
                   <a class="padding" href="http://awsstudygroup.com"><i class='fab fa-aws'></i> AWS Study Group - Blog</a>
@@ -427,11 +449,11 @@
     <section id="footer">
       <left>
     
-    
-
-    
-
-    
+     <b> Workshop</b> <br>
+    <img src="https://hitwebcounter.com/counter/counter.php?page=7832710&style=0038&nbdigits=9&type=page&initCount=0" title="Migrate" Alt="web counter"   border="0" /></a>  <br>
+     <b> <a href="https://cloudjourney.awsstudygroup.com/">Cloud Journey</a></b> <br>
+    <img src="https://hitwebcounter.com/counter/counter.php?page=7830807&style=0038&nbdigits=9&type=page&initCount=0" title="Total CLoud Journey" Alt="web counter"   border="0"   />
+     
 </left>
 
 <script async defer src="https://buttons.github.io/buttons.js"></script>
@@ -462,14 +484,26 @@
 
  
 <h1 id="triển-khai-aws-backup-cho-hệ-thống">Triển khai AWS Backup cho hệ thống</h1>
-<p>Trong bài thực hành này, chúng ta sẽ làm quen với việc tạo ra mội kế hoạch sao lưu cho các tài nguyên đang hoạt động trên AWS như EBS Volumes, RDS Databases, DynamoDB Tables, hay EFS File Systems. Đồng thời, chúng ta cũng sẽ biết được làm thế nào để khôi phục lại dữ liệu từ các bản sao lưu và tự động hóa toàn bộ quá trình.</p>
-<p>Và trong bài thực hành này, chúng ta sẽ thử tạo nên một quy trình sao lưu cho ứng dụng ShareNote và tạo thử sao lưu cho EBS Volume của máy chủ chạy ứng dụng này với AWS Backup. Đông thời cũng sẽ tự động hóa quá trình này bằng việc tạo ra Backup Plan và thử nghiệm việc nhận các thông báo khi các tiến trình của AWS Backup chạy hoàn tất.</p>
+<h4 id="tổng-quan">Tổng quan</h4>
+<p>Trong bài thực hành này, bạn sẽ làm quen với việc sử dụng <strong>AWS Backup</strong> để tạo ra một kế hoạch sao lưu (<em>backup plan</em>) cho các tài nguyên đang hoạt động trên AWS như EBS Volumes, RDS Databases, DynamoDB Tables, hay EFS File Systems. Đồng thời, bạn cũng sẽ biết được làm thế nào để khôi phục lại dữ liệu từ các bản sao lưu và tự động hóa toàn bộ quá trình.</p>
+<p>Cụ thể, bạn sẽ thử tạo nên một quy trình sao lưu cho ứng dụng ShareNote và tạo thử sao lưu cho EBS Volume của máy chủ chạy ứng dụng này với AWS Backup. Đồng thời, bạn cũng sẽ tự động hóa quá trình này bằng việc tạo ra Backup Plan và thử nghiệm việc nhận các thông báo khi các tiến trình của AWS Backup chạy hoàn tất.</p>
 <h4 id="mục-tiêu">Mục tiêu</h4>
 <ul>
 <li>Tạo được Backup Plan cho hệ thống để tự động hóa việc sao lưu.</li>
 <li>Kiểm thử hoạt động sao lưu/ phục hồi.</li>
 <li>Kiểm thử thông báo khi các tiến trình hoàn tất.</li>
 </ul>
+<h4 id="aws-backup">AWS Backup</h4>
+<p><strong>AWS Backup</strong> là một dịch vụ bảo vệ dữ liệu (<em>data protection</em>) được AWS quản lý cho phép bạn tập trung và tự động hóa quy trình bảo vệ dữ liệu cho các tài nguyên AWS trên cloud và on-prem. Với AWS Backup, bạn có thể thiết lập và tự động hóa các chính sách sao lưu và kế hoạch sao lưu của bạn từ một nơi duy nhất.</p>
+<h4 id="aws-simple-notification-service-sns">AWS Simple Notification Service (SNS)</h4>
+<p><strong>AWS SNS</strong> là dịch vụ cho phép bạn gửi thông báo từ nhà xuất bản (<em>publisher</em>) tới đối tượng đăng ký (<em>subscriber</em>). Publisher giao tiếp không đồng bộ với subscriber thông qua một chủ đề (<em>topic</em>). Có nghĩa là, Publisher sẽ gửi thông báo tới topic, sau đó topic ấy sẽ gửi thông báo ấy tới các subscriber đang đăng ký theo dõi topic đó.</p>
+<h4 id="nội-dung">Nội dung:</h4>
+<ol>
+<li><a href="1-deploy-infrastructure">Chuẩn bị Hạ tầng</a></li>
+<li><a href="2-create-backup-plan">Khởi tạo Backup Plan</a></li>
+<li><a href="3-notifications">Thiết lập Notification</a></li>
+<li><a href="4-testing">Kiểm tra hoạt động</a></li>
+</ol>
 	
   
         
@@ -649,6 +683,22 @@
             
         
                     
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
             
         
         
@@ -669,19 +719,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1612753112"></script>
-    <script src="/js/perfect-scrollbar.min.js?1612753112"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1612753112"></script>
-    <script src="/js/jquery.sticky.js?1612753112"></script>
-    <script src="/js/featherlight.min.js?1612753112"></script>
-    <script src="/js/highlight.pack.js?1612753112"></script>
+    <script src="/js/clipboard.min.js?1625147444"></script>
+    <script src="/js/perfect-scrollbar.min.js?1625147444"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1625147444"></script>
+    <script src="/js/jquery.sticky.js?1625147444"></script>
+    <script src="/js/featherlight.min.js?1625147444"></script>
+    <script src="/js/highlight.pack.js?1625147444"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1612753112"></script>
-    <script src="/js/learn.js?1612753112"></script>
-    <script src="/js/hugo-learn.js?1612753112"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1625147444"></script>
+    <script src="/js/learn.js?1625147444"></script>
+    <script src="/js/hugo-learn.js?1625147444"></script>
 
-    <link href="/mermaid/mermaid.css?1612753112" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1612753112"></script>
+    <link href="/mermaid/mermaid.css?1625147444" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1625147444"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

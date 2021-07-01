@@ -18,16 +18,12 @@ home = [ "HTML", "RSS", "JSON"]
   
 [Languages]
 [Languages.en]
-title = "Deploy ShareNote on Windows/Ubuntu Virtual Server"
+title = "Deploy AWS Backup"
 weight = 1
 languageName = "English"
 
 
-[[Languages.en.menu.shortcuts]] 
-name = "<i class='fab fa-github'></i>  Github Repo"
-identifier = "ds"
-url = "https://github.com/matcornic/hugo-theme-learn"
-weight = 10
+
 
 [[Languages.en.menu.shortcuts]]
 name = "<i class='fab fa-aws'></i> AWS Study Group - Blog"
@@ -42,15 +38,11 @@ url = "https://www.facebook.com/groups/660548818043427/"
 weight = 20
 
 [Languages.vi]
-title = "Triển Khai Ứng dụng ShareNote trên Máy ảo Windows/Ubuntu"
+title = "Triển Khai AWS Backup"
 weight = 2
 languageName = "Tiếng Việt"
 
-[[Languages.vi.menu.shortcuts]] 
-name = "<i class='fab fa-github'></i>  Github Repo"
-identifier = "ds"
-url = "https://github.com/matcornic/hugo-theme-learn"
-weight = 10
+
 
 [[Languages.vi.menu.shortcuts]]
 name = "<i class='fab fa-aws'></i> AWS Study Group - Blog"

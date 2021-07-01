@@ -9,24 +9,24 @@
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>Khôi phục từ bản Sao lưu :: Triển Khai Ứng dụng ShareNote trên Máy ảo Windows/Ubuntu</title>
+    <title>Khôi phục từ bản Sao lưu :: Triển Khai AWS Backup</title>
 
     
-    <link href="/css/nucleus.css?1612753112" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1612753112" rel="stylesheet">
-    <link href="/css/hybrid.css?1612753112" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1612753112" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1612753112" rel="stylesheet">
-    <link href="/css/auto-complete.css?1612753112" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1612753112" rel="stylesheet">
-    <link href="/css/theme.css?1612753112" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1612753112" rel="stylesheet">
+    <link href="/css/nucleus.css?1625147444" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1625147444" rel="stylesheet">
+    <link href="/css/hybrid.css?1625147444" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1625147444" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1625147444" rel="stylesheet">
+    <link href="/css/auto-complete.css?1625147444" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1625147444" rel="stylesheet">
+    <link href="/css/theme.css?1625147444" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1625147444" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1612753112" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1625147444" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1612753112"></script>
+    <script src="/js/jquery-3.3.1.min.js?1625147444"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1612753112"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1612753112"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1625147444"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1625147444"></script>
 <script type="text/javascript">
     
         var baseurl = "\/vi";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1612753112"></script>
+<script type="text/javascript" src="/js/search.js?1625147444"></script>
 
     
   </div>
@@ -342,6 +342,32 @@
  
 
           
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/5-clean-up/" title="Dọn dẹp tài nguyên" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/5-clean-up/">
+          <b>5. </b>Dọn dẹp tài nguyên
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
          
     </ul>
 
@@ -350,10 +376,6 @@
       <section id="shortcuts">
         <h3>More</h3>
         <ul>
-          
-              <li> 
-                  <a class="padding" href="https://github.com/matcornic/hugo-theme-learn"><i class='fab fa-github'></i>  Github Repo</a>
-              </li>
           
               <li> 
                   <a class="padding" href="http://awsstudygroup.com"><i class='fab fa-aws'></i> AWS Study Group - Blog</a>
@@ -427,11 +449,11 @@
     <section id="footer">
       <left>
     
-    
-
-    
-
-    
+     <b> Workshop</b> <br>
+    <img src="https://hitwebcounter.com/counter/counter.php?page=7832710&style=0038&nbdigits=9&type=page&initCount=0" title="Migrate" Alt="web counter"   border="0" /></a>  <br>
+     <b> <a href="https://cloudjourney.awsstudygroup.com/">Cloud Journey</a></b> <br>
+    <img src="https://hitwebcounter.com/counter/counter.php?page=7830807&style=0038&nbdigits=9&type=page&initCount=0" title="Total CLoud Journey" Alt="web counter"   border="0"   />
+     
 </left>
 
 <script async defer src="https://buttons.github.io/buttons.js"></script>
@@ -519,7 +541,8 @@
 
 
 
-	<p>Để khôi phục lại từ các bản sao lưu, chúng ta sẽ tiến hành chọn bản sao lưu đó và thực hiện khôi phục từ Backup vault như sau:</p>
+	<h4 id="tổng-quan">Tổng quan</h4>
+<p>Để khôi phục lại từ các bản sao lưu, bạn sẽ tiến hành chọn bản sao lưu đó và thực hiện khôi phục từ Backup vault như sau:</p>
 
 <div class="notices info" ><p>Hãy chắc chắn bạn đã thực hiện bước sao lưu ở phần trước để có một bản sao lưu sử dụng cho mục đích khôi phục.</p>
 </div>
@@ -530,34 +553,43 @@
 </ul>
 <h4 id="khôi-phục-ebs-volume-từ-bản-sao-lưu">Khôi phục EBS Volume từ bản sao lưu</h4>
 <ol>
-<li>Truy cập vào <strong>AWS Backup Console</strong>.</li>
-<li>Chọn <strong>Backup vaults</strong>, chọn <strong>sharenote-backup-vault</strong> để xem danh sách các bản sao lưu.</li>
-</ol>
-<p><img src="../../../images/4/8.png?width=90pc" alt="Backup"></p>
-<ol start="3">
-<li>Trong mục <strong>Backups</strong>, chọn bản sao lưu mà bạn đã tạo ra trước đó (VD: <strong>snapshot/snap-08c04048e4adf8721</strong>).</li>
-</ol>
-<p><img src="../../../images/4/9.png?width=90pc" alt="Backup"></p>
-<ol start="4">
-<li>Chọn <strong>Restore</strong>.</li>
-<li>Trong trang <strong>Restore backup</strong>, thiết lập các thông số liên quan đến EBS Volume mà chúng ta sẽ khôi phục lại.
+<li>
+<p>Truy cập vào <strong>AWS Backup Console</strong>.</p>
+</li>
+<li>
+<p>Chọn <strong>Backup vaults</strong>, chọn <strong>sharenote-backup-vault</strong> để xem danh sách các bản sao lưu.
+<img src="../../../images/4/4.2_BackupVaults.png?width=90pc" alt="4.2_BackupVaults"></p>
+</li>
+<li>
+<p>Trong mục <strong>Backups</strong>, chọn bản sao lưu mà bạn đã tạo ra trước đó</p>
+<p><img src="../../../images/4/4.2_RestoreBackup.png?width=90pc" alt="4.2_RestoreBackup"></p>
+</li>
+<li>
+<p>Chọn <strong>Actions</strong> rồi chọn <strong>Restore</strong>.</p>
+</li>
+<li>
+<p>Trong trang <strong>Restore backup</strong>, thiết lập các thông số liên quan đến EBS Volume mà bạn sẽ khôi phục lại.</p>
 <ul>
-<li>Resource type:  <strong>EBS volume</strong></li>
-<li>Availability zone: Lựa chọn Availibility zone mà chúng ta sẽ lưu trữ Volume khôi phục này. (VD: <strong>ap-northeast-1a</strong>)</li>
+<li><strong>Resource type</strong>:  EBS volume</li>
+<li><strong>Availability zone</strong>: Lựa chọn Availibility zone mà bạn sẽ lưu trữ Volume khôi phục này. (VD: <strong>ap-southeast-1a</strong>)</li>
+<li>Các tùy chọn còn lại để mặc định
+<img src="../../../images/4/4.2_RestoreBackupPrompt.png?width=90pc" alt="4.2_RestoreBackupPrompt"></li>
 </ul>
 </li>
+<li>
+<p>Chọn <strong>Restore backup</strong>.</p>
+</li>
+<li>
+<p>Danh sách <strong>Restore jobs</strong> sẽ hiển thị tiến trình khôi phục mà bạn vừa tạo ra ở trạng thái <strong>Created</strong> sau đó sẽ chuyển sang <strong>Running</strong>.</p>
+</li>
+<li>
+<p>Sẽ mất 5 - 15 phút để tiến trình này hoàn thành và bạn sẽ thấy trạng thái thay đổi từ <strong>Running</strong> sang <strong>Completed</strong>.</p>
+</li>
+<li>
+<p>Kiểm tra EBS Volume vừa mới được khôi phục lại.</p>
+</li>
 </ol>
-<p><img src="../../../images/4/10.png?width=90pc" alt="Backup"></p>
-<ol start="6">
-<li>Chọn <strong>Restore backup</strong>.</li>
-<li>Danh sách <strong>Restore jobs</strong> sẽ hiển thị tiến trình khôi phục mà chúng ta vừa tạo ra ở trạng thái <strong>Created</strong> sau đó sẽ chuyển sang <strong>Running</strong>.</li>
-</ol>
-<p><img src="../../../images/4/11.png?width=90pc" alt="Backup"></p>
-<ol start="8">
-<li>Sẽ mất 5 - 15 phút để tiến trình này hoàn thành và bạn sẽ thấy trạng thái thay đổi từ <strong>Running</strong> sang <strong>Completed</strong>.</li>
-</ol>
-<p><img src="../../../images/4/12.png?width=90pc" alt="Backup"></p>
-<p><img src="../../../images/4/14.png?width=90pc" alt="Backup"></p>
+<p><img src="../../../images/4/4.2_Success.png?width=90pc" alt="4.2_Success"></p>
 
 
 
@@ -752,6 +784,22 @@
             
         
                     
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
             
         
         
@@ -774,19 +822,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1612753112"></script>
-    <script src="/js/perfect-scrollbar.min.js?1612753112"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1612753112"></script>
-    <script src="/js/jquery.sticky.js?1612753112"></script>
-    <script src="/js/featherlight.min.js?1612753112"></script>
-    <script src="/js/highlight.pack.js?1612753112"></script>
+    <script src="/js/clipboard.min.js?1625147444"></script>
+    <script src="/js/perfect-scrollbar.min.js?1625147444"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1625147444"></script>
+    <script src="/js/jquery.sticky.js?1625147444"></script>
+    <script src="/js/featherlight.min.js?1625147444"></script>
+    <script src="/js/highlight.pack.js?1625147444"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1612753112"></script>
-    <script src="/js/learn.js?1612753112"></script>
-    <script src="/js/hugo-learn.js?1612753112"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1625147444"></script>
+    <script src="/js/learn.js?1625147444"></script>
+    <script src="/js/hugo-learn.js?1625147444"></script>
 
-    <link href="/mermaid/mermaid.css?1612753112" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1612753112"></script>
+    <link href="/mermaid/mermaid.css?1625147444" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1625147444"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
