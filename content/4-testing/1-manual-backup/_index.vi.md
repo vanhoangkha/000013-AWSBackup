@@ -17,8 +17,7 @@ pre = "<b>4.1. </b>"
 Để tạo một bảo sao lưu, bạn sẽ sử dụng chức năng Create On-demand Backup của AWS Backup.
 
 1. Truy cập vào **AWS Backup Console**.
-2. Chọn **Dashboard** ở thanh bên trái và chọn **Create an on-demand Backup** để tiến hành sao lưu ngay lập tức.
-    ![4.1_CreateOnDemandBackup](../../../images/4/4.1_CreateOnDemandBackup.png?width=90pc)
+2. Chọn **Dashboard** ở thanh bên trái và chọn **Protected resources** sau đó click chọn **Create an on demand backup**.
 
 3. Trong trang **Create an on-demand Backup**, thiết lập các thông số cho bản sao lưu:
     - **Resource Type**: EBS
