@@ -1,32 +1,39 @@
-+++
-title = "Triển khai AWS Backup cho hệ thống"
-date = 2020
-weight = 1
-chapter = false
-+++
+---
+title : "Deploy AWS Backup to the System"
+date : "`r Sys.Date()`"
+weight : 1
+chapter : false
+---
 
-# Triển khai AWS Backup cho hệ thống
+# Deploy AWS Backup to the system
 
-#### Tổng quan
+#### Overview
 
-Trong bài thực hành này, bạn sẽ làm quen với việc sử dụng **AWS Backup** để tạo ra một kế hoạch sao lưu (*backup plan*) cho các tài nguyên đang hoạt động trên AWS như EBS Volumes, RDS Databases, DynamoDB Tables, hay EFS File Systems. Đồng thời, bạn cũng sẽ biết được làm thế nào để khôi phục lại dữ liệu từ các bản sao lưu và tự động hóa toàn bộ quá trình.
+In this exercise, you will become familiar with using **AWS Backup** to create a backup plan for active resources on AWS such as EBS Volumes, RDS Databases, DynamoDB Tables , or EFS File Systems. At the same time, you will also learn how to restore data from backups and automate the whole process.
 
-Cụ thể, bạn sẽ thử tạo nên một quy trình sao lưu cho ứng dụng ShareNote và tạo thử sao lưu cho EBS Volume của máy chủ chạy ứng dụng này với AWS Backup. Đồng thời, bạn cũng sẽ tự động hóa quá trình này bằng việc tạo ra Backup Plan và thử nghiệm việc nhận các thông báo khi các tiến trình của AWS Backup chạy hoàn tất.
+For many organizations, the data they own is one of the most valuable assets they have. Regular data backups are vital to the long-term success of any organization. However, a data backup is only valid if the data can be restored/restored from the backup. In the cloud, data backup and recovery testing is easier than in on-premises data centers. Automating this process with appropriate notification systems will ensure that an organization's data is backed up regularly, backups are checked to ensure expected recovery, and the right people notified in the event of an error.
 
-#### Mục tiêu
+![AWS Backup](/images/0/architecture.jpeg?featherlight=false&width=60pc)
 
-- Tạo được Backup Plan cho hệ thống để tự động hóa việc sao lưu.
-- Kiểm thử hoạt động sao lưu/ phục hồi.
-- Kiểm thử thông báo khi các tiến trình hoàn tất.
+#### Target
+
+- Create Backup Plan for the system to automate the backup.
+- Test backup/restore operation.
+- Test notifications when processes are complete.
 
 #### AWS Backup
-**AWS Backup** là một dịch vụ bảo vệ dữ liệu (*data protection*) được AWS quản lý cho phép bạn tập trung và tự động hóa quy trình bảo vệ dữ liệu cho các tài nguyên AWS trên cloud và on-prem. Với AWS Backup, bạn có thể thiết lập và tự động hóa các chính sách sao lưu và kế hoạch sao lưu của bạn từ một nơi duy nhất. 
+
+**AWS Backup** is an AWS-managed data protection service that allows you to centralize and automate data protection for AWS resources in the cloud and on-prem. With AWS Backup, you can set up and automate your backup policies and backup plans from a single place.
 
 #### AWS Simple Notification Service (SNS)
-**AWS SNS** là dịch vụ cho phép bạn gửi thông báo từ nhà xuất bản (*publisher*) tới đối tượng đăng ký (*subscriber*). Publisher giao tiếp không đồng bộ với subscriber thông qua một chủ đề (*topic*). Có nghĩa là, Publisher sẽ gửi thông báo tới topic, sau đó topic ấy sẽ gửi thông báo ấy tới các subscriber đang đăng ký theo dõi topic đó.
 
-#### Nội dung:
-1. [Chuẩn bị Hạ tầng](1-deploy-infrastructure)
-2. [Khởi tạo Backup Plan](2-create-backup-plan)
-3. [Thiết lập Notification](3-notifications)
-4. [Kiểm tra hoạt động](4-testing)
+**AWS SNS** is a service that allows you to send notifications from publishers to subscribers. Publisher communicates asynchronously with subscribers through a topic. That is, Publisher will send a notification to the topic, then that topic will send that notice to subscribers who are subscribed to that topic.
+
+#### Content:
+
+1. [Introduction](1-introduce/)
+2. [Deploy the infrastructure](2-prerequiste/)
+3. [Create Backup Plan](3-createbackupplan/)
+4. [Notification Settings](4-enablenoti/)
+5. [Test Restore](5-testrestore/)
+6. [Resource Cleanup](6-cleanup/)

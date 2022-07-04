@@ -1,14 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Triển khai AWS Backup cho hệ thống on Deploy AWS Backup</title>
+    <title>Deploy AWS Backup to the System</title>
     <link>/</link>
-    <description>Recent content in Triển khai AWS Backup cho hệ thống on Deploy AWS Backup</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 01 Jan 1970 07:33:40 +0700</lastBuildDate>
-    
-	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <description>Recent content on Deploy AWS Backup to the System</description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

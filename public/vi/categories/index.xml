@@ -1,13 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Categories on Triển Khai AWS Backup</title>
+    <title>Categories on Triển khai AWS Backup cho hệ thống</title>
     <link>/vi/categories/</link>
-    <description>Recent content in Categories on Triển Khai AWS Backup</description>
-    <generator>Hugo -- gohugo.io</generator>
-    
-	<atom:link href="/vi/categories/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <description>Recent content in Categories on Triển khai AWS Backup cho hệ thống</description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="/vi/categories/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
