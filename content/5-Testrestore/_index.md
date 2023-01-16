@@ -26,7 +26,7 @@ For the purpose of this lab, we will simulate the action performed by AWS Backup
    - Go to **AWS Backup** interface
    - Select **CREATE AN ON-DEMAND BACKUP**
 
-![AWS Backup](/images/5/0001.png?featherlight=false&width=90pc)
+![AWS Backup](/images/5-test/1.png?featherlight=false&width=90pc)
 
 2. In **RESOURCE TYPE** section, select **EC2**, paste **Instance ID** from **Output** of CloudFormation Stack.
 
@@ -36,57 +36,59 @@ For the purpose of this lab, we will simulate the action performed by AWS Backup
    - Default **default IAM role**
    - Select **CREATE ON-DEMAND BACKUP**
 
-![AWS Backup](/images/5/0002.png?featherlight=false&width=90pc)
+![AWS Backup](/images/5-test/2.png?featherlight=false&width=90pc)
 
 3. In **Jobs**, select **Backup jobs**, wait for the status to change to **Completed**
 
-![AWS Backup](/images/5/0003.png?featherlight=false&width=90pc)
+![AWS Backup](/images/5-test/3.png?featherlight=false&width=90pc)
+
+* Click **Backup jobs ID**
 
 4. Select **Backup jobs ID**
 
-![AWS Backup](/images/5/0004.png?featherlight=false&width=90pc)
+* View details **Backup jobs**
 
-5. View details **Backup jobs**
+![AWS Backup](/images/5-test/4.png?featherlight=false&width=90pc)
 
-![AWS Backup](/images/5/0005.png?featherlight=false&width=90pc)
+5. Check the email you received the notification.
 
-6. Check the email you received the notification.
+![AWS Backup](/images/5-test/5.png?featherlight=false&width=90pc)
 
-![AWS Backup](/images/5/0006.png?featherlight=false&width=90pc)
+6. Check email about **Restore Test Status**
 
-7. Check email about **Restore Test Status**
+![AWS Backup](/images/5-test/6.png?featherlight=false&width=90pc)
 
-![AWS Backup](/images/5/0007.png?featherlight=false&width=90pc)
+7. View information **Restore jobs**, select **Restore jobs ID**
 
-8. View information **Restore jobs**, select **Restore jobs ID**
+![AWS Backup](/images/5-test/7.png?featherlight=false&width=90pc)
 
-![AWS Backup](/images/5/0008.png?featherlight=false&width=90pc)
+8. View details **Restore jobs**
 
-9. View details **Restore jobs**
+![AWS Backup](/images/5-test/8.png?featherlight=false&width=90pc)
 
-![AWS Backup](/images/5/0009.png?featherlight=false&width=90pc)
-
-10. Return to **AWS Management Console** interface
+9. Return to **AWS Management Console** interface
 
     - Find and select **CloudWatch**
 
-![AWS Backup](/images/5/00012.png?featherlight=false&width=90pc)
+![AWS Backup](/images/5-test/9.png?featherlight=false&width=90pc)
 
-11. In the **CloudWatch** interface
+10. In the **CloudWatch** interface
 
     - Select **Logs**
     - Select **Log groups**
     - Select **Log group** of the lab. (**```/aws/lambda/RestoreTestFunction-<YOUR CLOUDFORMATION STACK NAME>```**)
 
-![AWS Backup](/images/5/00013.png?featherlight=false&width=90pc)
+![AWS Backup](/images/5-test/10.png?featherlight=false&width=90pc)
 
-12. In the **Log groups** interface
+11. In the **Log groups** interface
 
     - Select **Log streams**
     - Select **Log stream** of the lab.
 
-![AWS Backup](/images/5/00014.png?featherlight=false&width=90pc)
+![AWS Backup](/images/5-test/11.png?featherlight=false&width=90pc)
 
-13. View details **Log Events**
+12. View details **Log Events**
 
-![AWS Backup](/images/5/00015.png?featherlight=false&width=90pc)
+![AWS Backup](/images/5-test/12.png?featherlight=false&width=90pc)
+
+So you have completed **DEPLOY AWS BACKUP TO THE SYSTEM**

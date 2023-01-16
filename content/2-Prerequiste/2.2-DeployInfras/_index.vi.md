@@ -19,11 +19,11 @@ Trong bài thực hành này, bạn sẽ làm quen với việc sử dụng **AW
 
    - Tìm và chọn **CloudFormation**
 
-![AWS Backup](/images/2/0001.png?featherlight=false&width=90pc)
+![AWS Backup](/images/2-preparation/22.png?featherlight=false&width=90pc)
 
 2. Chọn **Create stack**
 
-![AWS Backup](/images/2/0002.png?featherlight=false&width=90pc)
+![AWS Backup](/images/2-preparation/23.png?featherlight=false&width=90pc)
 
 3. Trong giao diện **Create stack**
 
@@ -32,7 +32,7 @@ Trong bài thực hành này, bạn sẽ làm quen với việc sử dụng **AW
    - Đối với **Amazon S3 URL**, nhập URL bạn đã tạo.
    - Chọn **Next**
 
-![AWS Backup](/images/2/0003.png?featherlight=false&width=90pc)
+![AWS Backup](/images/2-preparation/24.png?featherlight=false&width=90pc)
 
 4. Trong phần **STACK NAME**, nhập **Buckup-plan** (nhập tùy ý bạn)
 
@@ -42,34 +42,34 @@ Trong bài thực hành này, bạn sẽ làm quen với việc sử dụng **AW
    - Đối với **S3BucketName**, nhập tên **S3 bucket** bạn đã tạo.
    - Đối với **S3KeyLambdaZip**, nhập đường dẫn của **lambda_function.zip**
 
-![AWS Backup](/images/2/0004.png?featherlight=false&width=90pc)
+![AWS Backup](/images/2-preparation/25.png?featherlight=false&width=90pc)
 
 5. Trong phần **CONFIGURE STACK OPTIONS**, Chọn **Next**
 
-![AWS Backup](/images/2/0005.png?featherlight=false&width=90pc)
+![AWS Backup](/images/2-preparation/26.png?featherlight=false&width=90pc)
 
 6. Đối với **CAPABILITIES**, Chọn **I acknowledge that AWS CloudFormation might create IAM resources.**
 
-   - Chọn **CREATE STACK**
+   - Chọn **Submit**
 
-![AWS Backup](/images/2/0006.png?featherlight=false&width=90pc)
+![AWS Backup](/images/2-preparation/27.png?featherlight=false&width=90pc)
 
 7. Hoàn thành tạo stack Cloudformation
 
-![AWS Backup](/images/2/0007.png?featherlight=false&width=90pc)
+![AWS Backup](/images/2-preparation/28.png?featherlight=false&width=90pc)
 
 8. Kiểm tra lại **Output** của stack CloudFormation
 
-![AWS Backup](/images/2/0008.png?featherlight=false&width=90pc)
+![AWS Backup](/images/2-preparation/29.png?featherlight=false&width=90pc)
 
 9. Chọn vào **Value** của **ApplicationURL**
 
-![AWS Backup](/images/2/0009.png?featherlight=false&width=90pc)
+![AWS Backup](/images/2-preparation/30.png?featherlight=false&width=90pc)
 
 10. Kiểm tra mail sẽ nhận được mail thông báo.
 
-![AWS Backup](/images/2/00010.png?featherlight=false&width=90pc)
+![AWS Backup](/images/2-preparation/31.png?featherlight=false&width=90pc)
 
 11. Thực hiện xác nhận mail.
 
-![AWS Backup](/images/2/00011.png?featherlight=false&width=90pc)
+![AWS Backup](/images/2-preparation/32.png?featherlight=false&width=90pc)

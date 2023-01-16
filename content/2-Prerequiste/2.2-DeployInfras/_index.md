@@ -19,11 +19,11 @@ For many organizations, the data they own is one of the most valuable assets the
 
    - Find and select **CloudFormation**
 
-![AWS Backup](/images/2/0001.png?featherlight=false&width=90pc)
+![AWS Backup](/images/2-preparation/22.png?featherlight=false&width=90pc)
 
 2. Select **Create stack**
 
-![AWS Backup](/images/2/0002.png?featherlight=false&width=90pc)
+![AWS Backup](/images/2-preparation/23.png?featherlight=false&width=90pc)
 
 3. In the **Create stack** interface
 
@@ -32,7 +32,7 @@ For many organizations, the data they own is one of the most valuable assets the
    - For **Amazon S3 URL**, enter the URL you created.
    - Select **Next**
 
-![AWS Backup](/images/2/0003.png?featherlight=false&width=90pc)
+![AWS Backup](/images/2-preparation/24.png?featherlight=false&width=90pc)
 
 4. In the **STACK NAME** section, enter **Buckup-plan** (enter whatever you want)
 
@@ -42,34 +42,34 @@ For many organizations, the data they own is one of the most valuable assets the
    - For **S3BucketName**, enter the **S3 bucket** name you created.
    - For **S3KeyLambdaZip**, enter the path of **lambda_function.zip**
 
-![AWS Backup](/images/2/0004.png?featherlight=false&width=90pc)
+![AWS Backup](/images/2-preparation/25.png?featherlight=false&width=90pc)
 
 5. In the **CONFIGURE STACK OPTIONS** section, Select **Next**
 
-![AWS Backup](/images/2/0005.png?featherlight=false&width=90pc)
+![AWS Backup](/images/2-preparation/26.png?featherlight=false&width=90pc)
 
 6. For **CAPABILITIES**, Select **I acknowledge that AWS CloudFormation might create IAM resources.**
 
-   - Select **CREATE STACK**
+   - Select **Submit**
 
-![AWS Backup](/images/2/0006.png?featherlight=false&width=90pc)
+![AWS Backup](/images/2-preparation/27.png?featherlight=false&width=90pc)
 
 7. Complete Cloudformation stack creation
 
-![AWS Backup](/images/2/0007.png?featherlight=false&width=90pc)
+![AWS Backup](/images/2-preparation/28.png?featherlight=false&width=90pc)
 
 8. Check **Output** of the CloudFormation stack
 
-![AWS Backup](/images/2/0008.png?featherlight=false&width=90pc)
+![AWS Backup](/images/2-preparation/29.png?featherlight=false&width=90pc)
 
 9. Select **Value** of **ApplicationURL**
 
-![AWS Backup](/images/2/0009.png?featherlight=false&width=90pc)
+![AWS Backup](/images/2-preparation/30.png?featherlight=false&width=90pc)
 
 10. Check your email and you will receive a notification email.
 
-![AWS Backup](/images/2/00010.png?featherlight=false&width=90pc)
+![AWS Backup](/images/2-preparation/31.png?featherlight=false&width=90pc)
 
 11. Perform email confirmation.
 
-![AWS Backup](/images/2/00011.png?featherlight=false&width=90pc)
+![AWS Backup](/images/2-preparation/32.png?featherlight=false&width=90pc)

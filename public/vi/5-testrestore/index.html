@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.97.3" />
+    <meta name="generator" content="Hugo 0.99.1" />
     <meta name="description" content="">
 <meta name="author" content="journeyoftheaverageguy@gmail.com">
 
@@ -12,21 +12,21 @@
     <title>Kiểm tra hoạt động :: Triển khai AWS Backup cho hệ thống</title>
 
     
-    <link href="/css/nucleus.css?1656901991" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1656901991" rel="stylesheet">
-    <link href="/css/hybrid.css?1656901991" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1656901991" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1656901991" rel="stylesheet">
-    <link href="/css/auto-complete.css?1656901991" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1656901991" rel="stylesheet">
-    <link href="/css/theme.css?1656901991" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1656901991" rel="stylesheet">
+    <link href="/css/nucleus.css?1673851470" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1673851470" rel="stylesheet">
+    <link href="/css/hybrid.css?1673851470" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1673851470" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1673851470" rel="stylesheet">
+    <link href="/css/auto-complete.css?1673851470" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1673851470" rel="stylesheet">
+    <link href="/css/theme.css?1673851470" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1673851470" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1656901991" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1673851470" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1656901991"></script>
+    <script src="/js/jquery-3.3.1.min.js?1673851470"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1656901991"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1656901991"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1673851470"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1673851470"></script>
 <script type="text/javascript">
     
         var baseurl = "\/vi";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1656901991"></script>
+<script type="text/javascript" src="/js/search.js?1673851470"></script>
 
     
   </div>
@@ -385,7 +385,7 @@
     <br>
     <br>
         <b> Last Updated </b> <br>
-        <i><font color=orange>04-07-2022</font></i>
+        <i><font color=orange>16-01-2023</font></i>
     </left>
     <left>
         <br>
@@ -490,7 +490,7 @@
 </ul>
 </li>
 </ol>
-<p><img src="/images/5/0001.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
+<p><img src="/images/5-test/1.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
 <ol start="2">
 <li>
 <p>Trong phần <strong>RESOURCE TYPE</strong>, chọn <strong>EC2</strong>, dán <strong>Instance ID</strong> từ <strong>Output</strong> của CloudFormation Stack.</p>
@@ -502,45 +502,45 @@
 </ul>
 </li>
 </ol>
-<p><img src="/images/5/0002.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
+<p><img src="/images/5-test/2.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
 <ol start="3">
 <li>Trong <strong>Jobs</strong>, chọn <strong>Backup jobs</strong>, đợi chuyển sang trạng thái <strong>Completed</strong></li>
 </ol>
-<p><img src="/images/5/0003.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
+<p><img src="/images/5-test/3.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
+<ul>
+<li>Click <strong>Backup jobs ID</strong></li>
+</ul>
 <ol start="4">
 <li>Chọn <strong>Backup jobs ID</strong></li>
 </ol>
-<p><img src="/images/5/0004.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
-<ol start="5">
+<ul>
 <li>Xem chi tiết <strong>Backup jobs</strong></li>
+</ul>
+<p><img src="/images/5-test/4.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
+<ol start="5">
+<li>Kiểm tra mail đã nhận thông báo</li>
 </ol>
-<p><img src="/images/5/0005.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
+<p><img src="/images/5-test/5.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
 <ol start="6">
-<li>Kiểm tra mail đã nhận thông báo.</li>
+<li>Kiểm tra mail về <strong>Restore Test Status</strong>.</li>
 </ol>
-<p><img src="/images/5/0006.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
+<p><img src="/images/5-test/6.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
 <ol start="7">
-<li>Kiểm tra mail về <strong>Restore Test Status</strong></li>
-</ol>
-<p><img src="/images/5/0007.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
-<ol start="8">
 <li>Xem thông tin <strong>Restore jobs</strong>, chọn <strong>Restore jobs ID</strong></li>
 </ol>
-<p><img src="/images/5/0008.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
-<ol start="9">
-<li>Xem chi tiết <strong>Restore jobs</strong></li>
+<p><img src="/images/5-test/7.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
+<ol start="8">
+<li>Xem chi tiết <strong>Restore jobs</strong>.</li>
 </ol>
-<p><img src="/images/5/0009.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
-<ol start="10">
-<li>
-<p>Quay lại giao diện <strong>AWS Management Console</strong></p>
+<p><img src="/images/5-test/8.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
+<ol start="9">
+<li>Quay lại giao diện <strong>AWS Management Console</strong>.</li>
+</ol>
 <ul>
 <li>Tìm và chọn <strong>CloudWatch</strong></li>
 </ul>
-</li>
-</ol>
-<p><img src="/images/5/00012.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
-<ol start="11">
+<p><img src="/images/5-test/9.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
+<ol start="10">
 <li>
 <p>Trong giao diện <strong>CloudWatch</strong></p>
 <ul>
@@ -550,8 +550,8 @@
 </ul>
 </li>
 </ol>
-<p><img src="/images/5/00013.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
-<ol start="12">
+<p><img src="/images/5-test/10.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
+<ol start="11">
 <li>
 <p>Trong giao diện <strong>Log groups</strong></p>
 <ul>
@@ -560,11 +560,12 @@
 </ul>
 </li>
 </ol>
-<p><img src="/images/5/00014.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
-<ol start="13">
+<p><img src="/images/5-test/11.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
+<ol start="12">
 <li>Xem chi tiết <strong>Log Events</strong></li>
 </ol>
-<p><img src="/images/5/00015.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
+<p><img src="/images/5-test/12.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
+<p>Như vậy bạn đã hoàn thành <strong>TRIỂN KHAI AWS BACKUP CHO HỆ THỐNG</strong></p>
 
 
 
@@ -759,19 +760,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1656901991"></script>
-    <script src="/js/perfect-scrollbar.min.js?1656901991"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1656901991"></script>
-    <script src="/js/jquery.sticky.js?1656901991"></script>
-    <script src="/js/featherlight.min.js?1656901991"></script>
-    <script src="/js/highlight.pack.js?1656901991"></script>
+    <script src="/js/clipboard.min.js?1673851470"></script>
+    <script src="/js/perfect-scrollbar.min.js?1673851470"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1673851470"></script>
+    <script src="/js/jquery.sticky.js?1673851470"></script>
+    <script src="/js/featherlight.min.js?1673851470"></script>
+    <script src="/js/highlight.pack.js?1673851470"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1656901991"></script>
-    <script src="/js/learn.js?1656901991"></script>
-    <script src="/js/hugo-learn.js?1656901991"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1673851470"></script>
+    <script src="/js/learn.js?1673851470"></script>
+    <script src="/js/hugo-learn.js?1673851470"></script>
 
-    <link href="/mermaid/mermaid.css?1656901991" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1656901991"></script>
+    <link href="/mermaid/mermaid.css?1673851470" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1673851470"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

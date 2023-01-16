@@ -17,46 +17,48 @@ Trong phòng thí nghiệm này, bạn sẽ tạo một chiến lược sao lưu
    - Truy cập vào **AWS Management Console**
    - Tìm và chọn **AWS Backup**
 
-![AWS Backup](/images/3/0001.png?featherlight=false&width=90pc)
+![AWS Backup](/images/3-backupplan/1.png?featherlight=false&width=90pc)
 
 2. Chọn **AWS Backup Plan**
 
-![AWS Backup](/images/3/0002.png?featherlight=false&width=90pc)
+![AWS Backup](/images/3-backupplan/2.png?featherlight=false&width=90pc)
 
 3. Trong giao diện **Create backup plan**, chọn **Build a new plan**
 
    - Đối với **Backup plan name**, nhập **```BACKUP-LAB```**
-   - Đối với **SCHEDULE**, phần **FREQUENCY**, chọn **Daily**
+   
 
 
-![AWS Backup](/images/3/0003.png?featherlight=false&width=90pc)
+![AWS Backup](/images/3-backupplan/3.png?featherlight=false&width=90pc)
 
 4. Trong phần **BACKUP RULE CONFIGURATION**
 
+   
    - Nhập **RULE NAME** là **BACKUP-LAB-RULE**
+   - Đối với **SCHEDULE**, phần **FREQUENCY**, chọn **Daily**
    - Chọn mặc định **Use backup window defaults - recommended**
    - Đối với **BACKUP VAULT**, chọn **CREATE NEW BACKUP VAULT**
 
-![AWS Backup](/images/3/0004.png?featherlight=false&width=90pc)
+![AWS Backup](/images/3-backupplan/4.png?featherlight=false&width=90pc)
 
 5. Đối với **BACKUP VAULT NAME**, nhập  **BACKUP-LAB-VAULT.**
 
    - Chọn **(default) aws/backup.**
    - Chọn **CREATE BACKUP VAULT**
 
-![AWS Backup](/images/3/0005.png?featherlight=false&width=90pc)
+![AWS Backup](/images/3-backupplan/5.png?featherlight=false&width=90pc)
 
 6. Thêm **Key** và **Value** của tag.
 
    - Chọn **Create plan**
 
-![AWS Backup](/images/3/0006.png?featherlight=false&width=90pc)
+![AWS Backup](/images/3-backupplan/6.png?featherlight=false&width=90pc)
 
 7. Hoàn thành tạo **Backup plan**
 
    - Trong phần **RESOURCE ASSIGNMENTS**, chọn **ASSIGN RESOURCES.**
 
-![AWS Backup](/images/3/0007.png?featherlight=false&width=90pc)
+![AWS Backup](/images/3-backupplan/7.png?featherlight=false&width=90pc)
 
 8. Đối với **RESOURCE ASSIGNMENT NAME**, nhập **BACKUP-RESOURCES**
 
@@ -64,14 +66,14 @@ Trong phòng thí nghiệm này, bạn sẽ tạo một chiến lược sao lưu
    - Sau đó thêm **Tag Key** và **Tag Value**
    - Chọn **ASSIGN RESOURCES**
 
-![AWS Backup](/images/3/0008.png?featherlight=false&width=90pc)
+![AWS Backup](/images/3-backupplan/8.png?featherlight=false&width=90pc)
 
-9. Xác nhận chọn *Continue**
+9. Xác nhận chọn **Continue**
 
-![AWS Backup](/images/3/0009.png?featherlight=false&width=90pc)
+![AWS Backup](/images/3-backupplan/9.png?featherlight=false&width=90pc)
 
 10. Hoàn thành **ASSIGN RESOURCES**
 
-![AWS Backup](/images/3/00010.png?featherlight=false&width=90pc)
+![AWS Backup](/images/3-backupplan/10.png?featherlight=false&width=90pc)
 
 

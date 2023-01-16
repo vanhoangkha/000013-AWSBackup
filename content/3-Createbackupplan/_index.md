@@ -17,46 +17,45 @@ In this lab, you will create a backup strategy by leveraging AWS Backup, a fully
    - Access to **AWS Management Console**
    - Find and select **AWS Backup**
 
-![AWS Backup](/images/3/0001.png?featherlight=false&width=90pc)
+![AWS Backup](/images/3-backupplan/1.png?featherlight=false&width=90pc)
 
 2. Select **AWS Backup Plan**
 
-![AWS Backup](/images/3/0002.png?featherlight=false&width=90pc)
+![AWS Backup](/images/3-backupplan/2.png?featherlight=false&width=90pc)
 
 3. In the **Create backup plan** interface, select **Build a new plan**
 
    - For **Backup plan name**, enter **```BACKUP-LAB```**
-   - For **SCHEDULE**, **FREQUENCY** section, select **Daily**
 
-
-![AWS Backup](/images/3/0003.png?featherlight=false&width=90pc)
+![AWS Backup](/images/3-backupplan/3.png?featherlight=false&width=90pc)
 
 4. In the **BACKUP RULE CONFIGURATION** section
 
    - Enter **RULE NAME** as **BACKUP-LAB-RULE**
+    - For **SCHEDULE**, **FREQUENCY** section, select **Daily**
    - Select default **Use backup window defaults - recommended**
    - For **BACKUP VAULT**, select **CREATE NEW BACKUP VAULT**
 
-![AWS Backup](/images/3/0004.png?featherlight=false&width=90pc)
+![AWS Backup](/images/3-backupplan/4.png?featherlight=false&width=90pc)
 
 5. For **BACKUP VAULT NAME**, enter **BACKUP-LAB-VAULT.**
 
    - Select **(default) aws/backup.**
    - Select **CREATE BACKUP VAULT**
 
-![AWS Backup](/images/3/0005.png?featherlight=false&width=90pc)
+![AWS Backup](/images/3-backupplan/5.png?featherlight=false&width=90pc)
 
 6. Add **Key** and **Value** of the tag.
 
    - Select **Create plan**
 
-![AWS Backup](/images/3/0006.png?featherlight=false&width=90pc)
+![AWS Backup](/images/3-backupplan/6.png?featherlight=false&width=90pc)
 
 7. Finish creating **Backup plan**
 
    - In the **RESOURCE ASSIGNMENTS** section, select **ASSIGN RESOURCES.**
 
-![AWS Backup](/images/3/0007.png?featherlight=false&width=90pc)
+![AWS Backup](/images/3-backupplan/7.png?featherlight=false&width=90pc)
 
 8. For **RESOURCE ASSIGNMENT NAME**, enter **BACKUP-RESOURCES**
 
@@ -64,12 +63,12 @@ In this lab, you will create a backup strategy by leveraging AWS Backup, a fully
    - Then add **Tag Key** and **Tag Value**
    - Select **ASSIGN RESOURCES**
 
-![AWS Backup](/images/3/0008.png?featherlight=false&width=90pc)
+![AWS Backup](/images/3-backupplan/8.png?featherlight=false&width=90pc)
 
 9. Confirm select *Continue**
 
-![AWS Backup](/images/3/0009.png?featherlight=false&width=90pc)
+![AWS Backup](/images/3-backupplan/9.png?featherlight=false&width=90pc)
 
 10. Complete **ASSIGN RESOURCES**
 
-![AWS Backup](/images/3/00010.png?featherlight=false&width=90pc)
+![AWS Backup](/images/3-backupplan/10.png?featherlight=false&width=90pc)

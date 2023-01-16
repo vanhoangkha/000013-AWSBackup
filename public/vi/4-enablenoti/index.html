@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.97.3" />
+    <meta name="generator" content="Hugo 0.99.1" />
     <meta name="description" content="">
 <meta name="author" content="journeyoftheaverageguy@gmail.com">
 
@@ -12,21 +12,21 @@
     <title>Thiết lập thông báo :: Triển khai AWS Backup cho hệ thống</title>
 
     
-    <link href="/css/nucleus.css?1656901991" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1656901991" rel="stylesheet">
-    <link href="/css/hybrid.css?1656901991" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1656901991" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1656901991" rel="stylesheet">
-    <link href="/css/auto-complete.css?1656901991" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1656901991" rel="stylesheet">
-    <link href="/css/theme.css?1656901991" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1656901991" rel="stylesheet">
+    <link href="/css/nucleus.css?1673851470" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1673851470" rel="stylesheet">
+    <link href="/css/hybrid.css?1673851470" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1673851470" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1673851470" rel="stylesheet">
+    <link href="/css/auto-complete.css?1673851470" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1673851470" rel="stylesheet">
+    <link href="/css/theme.css?1673851470" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1673851470" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1656901991" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1673851470" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1656901991"></script>
+    <script src="/js/jquery-3.3.1.min.js?1673851470"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1656901991"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1656901991"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1673851470"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1673851470"></script>
 <script type="text/javascript">
     
         var baseurl = "\/vi";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1656901991"></script>
+<script type="text/javascript" src="/js/search.js?1673851470"></script>
 
     
   </div>
@@ -385,7 +385,7 @@
     <br>
     <br>
         <b> Last Updated </b> <br>
-        <i><font color=orange>04-07-2022</font></i>
+        <i><font color=orange>16-01-2023</font></i>
     </left>
     <left>
         <br>
@@ -477,27 +477,29 @@
 	<h4 id="thiết-lập-thông-báo">Thiết lập thông báo</h4>
 <p>Trong đám mây, bạn có thể dễ dàng thiết lập thông báo để biết các sự kiện trong khối lượng công việc của mình. AWS Backup tận dụng AWS SNS để gửi các thông báo liên quan đến các hoạt động sao lưu đang diễn ra. Điều này sẽ cho phép hiển thị các trạng thái công việc dự phòng, khôi phục trạng thái công việc hoặc bất kỳ lỗi nào có thể đã xảy ra, cho phép các nhóm Vận hành của bạn phản hồi một cách thích hợp.</p>
 <ol>
-<li>
-<p>Mở Terminal có quyền truy cập vào AWS CLI. Đảm bảo rằng CLI được cập nhật và bạn có Quyền của quản trị viên AWS để chạy các lệnh AWS CLI.</p>
+<li>Mở Terminal có quyền truy cập vào AWS CLI. Đảm bảo rằng CLI được cập nhật và bạn có Quyền của quản trị viên AWS để chạy các lệnh AWS CLI.</li>
+</ol>
+
+<div class="notices note" ><p>Để làm được bước này, bạn cần cài đặt <strong>AWS CLI</strong> trên máy của bạn. Nếu bạn chưa cài đặt <strong>AWS CLI</strong>, bạn có thể tham khảo phần 1 và 2 của workshop <a href="https://000011.awsstudygroup.com/vi/">000011 - Sử dụng AWS CLI trên Windows/Ubuntu</a></p>
+</div>
+
 <ul>
 <li>Chỉnh sửa lệnh AWS CLI sau và bao gồm ARN của SNS TOPIC mà bạn đã tạo. Thay thế bằng ARN của SNS TOPIC thu được từ phần đầu ra của CloudFormation Stack.</li>
 </ul>
-</li>
-</ol>
 <pre tabindex="0"><code>aws backup put-backup-vault-notifications --region ap-southeast-1 --backup-vault-name BACKUP-LAB-VAULT --backup-vault-events BACKUP_JOB_COMPLETED RESTORE_JOB_COMPLETED --sns-topic-arn &lt;YOUR SNS TOPIC ARN&gt;
 </code></pre><ul>
 <li>Sau khi chỉnh sửa, hãy chạy lệnh trên, nó sẽ bật thông báo với các thông báo được xuất bản lên SNS TOPIC mỗi khi hoàn thành công việc sao lưu hoặc khôi phục. Điều này sẽ đảm bảo Nhóm vận hành biết về bất kỳ lỗi nào khi sao lưu hoặc khôi phục dữ liệu.</li>
 </ul>
-<p><img src="/images/4/0001.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
+<p><img src="/images/4-notification/1.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
 <ol start="2">
 <li>Kiểm tra lại giao diện <strong>SNS</strong></li>
 </ol>
-<p><img src="/images/4/0002.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
+<p><img src="/images/4-notification/2.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
 <ol start="3">
 <li>Bạn có thể xác minh rằng thông báo đã được bật bằng cách chạy lệnh sau. Đầu ra sẽ bao gồm một phần được gọi là SNSTopicArn, theo sau là ARN của SNS Topic đã được tạo.</li>
 </ol>
 <pre tabindex="0"><code>aws backup get-backup-vault-notifications --backup-vault-name BACKUP-LAB-VAULT --region ap-southeast-1
-</code></pre><p><img src="/images/4/0003.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
+</code></pre><p><img src="/images/4-notification/3.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
 <p>Giờ đây, bạn đã kích hoạt thành công thông báo cho BACKUP-LAB-VAULT, đảm bảo rằng nhóm Vận hành biết về việc hoàn thành các hoạt động sao lưu và khôi phục liên quan đến vault này cũng như bất kỳ lỗi nào liên quan đến các hoạt động đó.</p>
 
 
@@ -693,19 +695,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1656901991"></script>
-    <script src="/js/perfect-scrollbar.min.js?1656901991"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1656901991"></script>
-    <script src="/js/jquery.sticky.js?1656901991"></script>
-    <script src="/js/featherlight.min.js?1656901991"></script>
-    <script src="/js/highlight.pack.js?1656901991"></script>
+    <script src="/js/clipboard.min.js?1673851470"></script>
+    <script src="/js/perfect-scrollbar.min.js?1673851470"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1673851470"></script>
+    <script src="/js/jquery.sticky.js?1673851470"></script>
+    <script src="/js/featherlight.min.js?1673851470"></script>
+    <script src="/js/highlight.pack.js?1673851470"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1656901991"></script>
-    <script src="/js/learn.js?1656901991"></script>
-    <script src="/js/hugo-learn.js?1656901991"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1673851470"></script>
+    <script src="/js/learn.js?1673851470"></script>
+    <script src="/js/hugo-learn.js?1673851470"></script>
 
-    <link href="/mermaid/mermaid.css?1656901991" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1656901991"></script>
+    <link href="/mermaid/mermaid.css?1673851470" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1673851470"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

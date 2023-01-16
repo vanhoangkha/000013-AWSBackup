@@ -25,7 +25,7 @@ Với mục đích của phòng thí nghiệm này, chúng tôi sẽ mô phỏng
    - Vào giao diện **AWS Backup**
    - Chọn **CREATE AN ON-DEMAND BACKUP**
 
-![AWS Backup](/images/5/0001.png?featherlight=false&width=90pc)
+![AWS Backup](/images/5-test/1.png?featherlight=false&width=90pc)
 
 2. Trong phần **RESOURCE TYPE**, chọn **EC2**, dán **Instance ID** từ **Output** của CloudFormation Stack.
 
@@ -35,57 +35,61 @@ Với mục đích của phòng thí nghiệm này, chúng tôi sẽ mô phỏng
    - Mặc định **default IAM role**
    - Chọn **CREATE ON-DEMAND BACKUP**
 
-![AWS Backup](/images/5/0002.png?featherlight=false&width=90pc)
+![AWS Backup](/images/5-test/2.png?featherlight=false&width=90pc)
 
 3. Trong **Jobs**, chọn **Backup jobs**, đợi chuyển sang trạng thái **Completed**
 
-![AWS Backup](/images/5/0003.png?featherlight=false&width=90pc)
+![AWS Backup](/images/5-test/3.png?featherlight=false&width=90pc)
+
+* Click **Backup jobs ID**
 
 4. Chọn **Backup jobs ID**
 
-![AWS Backup](/images/5/0004.png?featherlight=false&width=90pc)
+* Xem chi tiết **Backup jobs**
 
-5. Xem chi tiết **Backup jobs**
+![AWS Backup](/images/5-test/4.png?featherlight=false&width=90pc)
 
-![AWS Backup](/images/5/0005.png?featherlight=false&width=90pc)
+5. Kiểm tra mail đã nhận thông báo
 
-6. Kiểm tra mail đã nhận thông báo.
+![AWS Backup](/images/5-test/5.png?featherlight=false&width=90pc)
 
-![AWS Backup](/images/5/0006.png?featherlight=false&width=90pc)
+6. Kiểm tra mail về **Restore Test Status**.
 
-7. Kiểm tra mail về **Restore Test Status**
+![AWS Backup](/images/5-test/6.png?featherlight=false&width=90pc)
 
-![AWS Backup](/images/5/0007.png?featherlight=false&width=90pc)
+7. Xem thông tin **Restore jobs**, chọn **Restore jobs ID**
 
-8. Xem thông tin **Restore jobs**, chọn **Restore jobs ID**
+![AWS Backup](/images/5-test/7.png?featherlight=false&width=90pc)
 
-![AWS Backup](/images/5/0008.png?featherlight=false&width=90pc)
+8. Xem chi tiết **Restore jobs**.
 
-9. Xem chi tiết **Restore jobs**
+![AWS Backup](/images/5-test/8.png?featherlight=false&width=90pc)
 
-![AWS Backup](/images/5/0009.png?featherlight=false&width=90pc)
+9. Quay lại giao diện **AWS Management Console**.
 
-10. Quay lại giao diện **AWS Management Console**
+ - Tìm và chọn **CloudWatch**
 
-    - Tìm và chọn **CloudWatch**
+![AWS Backup](/images/5-test/9.png?featherlight=false&width=90pc)
 
-![AWS Backup](/images/5/00012.png?featherlight=false&width=90pc)
-
-11. Trong giao diện **CloudWatch**
+10. Trong giao diện **CloudWatch**
 
     - Chọn **Logs**
     - Chọn **Log groups**
     - Chọn **Log group** của bài lab. (**```/aws/lambda/RestoreTestFunction-<YOUR CLOUDFORMATION STACK NAME>```**)
 
-![AWS Backup](/images/5/00013.png?featherlight=false&width=90pc)
+![AWS Backup](/images/5-test/10.png?featherlight=false&width=90pc)
 
-12. Trong giao diện **Log groups**
+11. Trong giao diện **Log groups**
 
     - Chọn **Log streams**
     - Chọn **Log stream** của bài lab.
 
-![AWS Backup](/images/5/00014.png?featherlight=false&width=90pc)
+![AWS Backup](/images/5-test/11.png?featherlight=false&width=90pc)
 
-13. Xem chi tiết **Log Events**
+12. Xem chi tiết **Log Events**
 
-![AWS Backup](/images/5/00015.png?featherlight=false&width=90pc)
+![AWS Backup](/images/5-test/12.png?featherlight=false&width=90pc)
+
+Như vậy bạn đã hoàn thành **TRIỂN KHAI AWS BACKUP CHO HỆ THỐNG** 
+
+
