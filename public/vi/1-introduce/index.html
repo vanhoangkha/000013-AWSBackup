@@ -12,21 +12,21 @@
     <title>Giới thiệu :: TRIỂN KHAI AWS BACKUP CHO HỆ THỐNG</title>
 
     
-    <link href="/css/nucleus.css?1680277960" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1680277960" rel="stylesheet">
-    <link href="/css/hybrid.css?1680277960" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1680277960" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1680277960" rel="stylesheet">
-    <link href="/css/auto-complete.css?1680277960" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1680277960" rel="stylesheet">
-    <link href="/css/theme.css?1680277960" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1680277960" rel="stylesheet">
+    <link href="/css/nucleus.css?1696617273" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1696617273" rel="stylesheet">
+    <link href="/css/hybrid.css?1696617273" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1696617273" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1696617273" rel="stylesheet">
+    <link href="/css/auto-complete.css?1696617273" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1696617273" rel="stylesheet">
+    <link href="/css/theme.css?1696617273" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1696617273" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1680277960" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1696617273" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1680277960"></script>
+    <script src="/js/jquery-3.3.1.min.js?1696617273"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1680277960"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1680277960"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1696617273"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1696617273"></script>
 <script type="text/javascript">
     
         var baseurl = "\/vi";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1680277960"></script>
+<script type="text/javascript" src="/js/search.js?1696617273"></script>
 
     
   </div>
@@ -389,7 +389,7 @@
     <br>
     <br>
         <b> Last Updated </b> <br>
-        <i><font color=orange>31-03-2023</font></i>
+        <i><font color=orange>06-10-2023</font></i>
     </left>
     <left>
         <br>
@@ -479,19 +479,19 @@
 
 
 	<h4 id="tổng-quan">Tổng quan</h4>
-<p>Trong bài thực hành này, bạn sẽ làm quen với việc sử dụng <strong>AWS Backup</strong> để tạo ra một kế hoạch sao lưu (backup plan) cho các tài nguyên đang hoạt động trên AWS như EBS Volumes, RDS Databases, DynamoDB Tables, hay EFS File Systems. Đồng thời, bạn cũng sẽ biết được làm thế nào để khôi phục lại dữ liệu từ các bản sao lưu và tự động hóa toàn bộ quá trình.</p>
-<p>Đối với nhiều tổ chức, dữ liệu mà họ sở hữu là một trong những tài sản quý giá nhất mà họ có. Sao lưu dữ liệu thường xuyên có tầm quan trọng sống còn đối với sự thành công lâu dài của bất kỳ tổ chức nào. Tuy nhiên, một bản sao lưu dữ liệu chỉ có giá trị nếu dữ liệu có thể được khôi phục / khôi phục từ bản sao lưu. Trong đám mây, việc sao lưu dữ liệu và kiểm tra khôi phục dễ dàng hơn so với các trung tâm dữ liệu tại chỗ. Tự động hóa quy trình này với các hệ thống thông báo thích hợp sẽ đảm bảo rằng dữ liệu của tổ chức được sao lưu thường xuyên, các bản sao lưu được kiểm tra để đảm bảo khôi phục dự kiến ​​và những người thích hợp được thông báo trong trường hợp có lỗi.</p>
+<p>Trong bài thực hành này, bạn sẽ làm quen với việc sử dụng <strong>AWS Backup</strong> để tạo ra một kế hoạch sao lưu (<em>backup plan</em>) cho các tài nguyên đang hoạt động trên AWS như EBS Volumes, RDS Databases, DynamoDB Tables, hay EFS File Systems. Đồng thời, bạn cũng sẽ biết được làm thế nào để khôi phục lại dữ liệu từ các bản sao lưu và tự động hóa toàn bộ quá trình.</p>
+<p>Dành cho nhiều tổ chức, dữ liệu là một trong những tài sản quý giá nhất mà họ sở hữu. Sao lưu dữ liệu thường xuyên có tầm quan trọng sống còn đối với sự thành công lâu dài của bất kỳ tổ chức nào. Tuy nhiên, bản sao lưu dữ liệu chỉ có giá trị khi dữ liệu có thể được khôi phục từ nó. Trong môi trường đám mây, việc sao lưu và kiểm tra khôi phục dễ dàng hơn so với các trung tâm dữ liệu cục bộ. Tự động hóa quy trình này với hệ thống thông báo thích hợp đảm bảo rằng dữ liệu của tổ chức được sao lưu đều đặn, bản sao lưu được kiểm tra để đảm bảo khôi phục dự kiến, và những người liên quan được thông báo trong trường hợp có lỗi.</p>
 <p><img src="/images/0/architecture.jpeg?featherlight=false&amp;width=60pc" alt="AWS Backup"></p>
 <h4 id="mục-tiêu">Mục tiêu</h4>
 <ul>
-<li>Tạo được Backup Plan cho hệ thống để tự động hóa việc sao lưu.</li>
-<li>Kiểm thử hoạt động sao lưu/ phục hồi.</li>
-<li>Kiểm thử thông báo khi các tiến trình hoàn tất.</li>
+<li>Tạo kế hoạch sao lưu cho hệ thống để tự động hóa việc sao lưu.</li>
+<li>Thực hiện kiểm thử sao lưu/phục hồi.</li>
+<li>Thực hiện kiểm thử thông báo khi các quy trình hoàn tất.</li>
 </ul>
 <h4 id="aws-backup">AWS Backup</h4>
-<p><strong>AWS Backup</strong> là một dịch vụ bảo vệ dữ liệu (data protection) được AWS quản lý cho phép bạn tập trung và tự động hóa quy trình bảo vệ dữ liệu cho các tài nguyên AWS trên cloud và on-prem. Với AWS Backup, bạn có thể thiết lập và tự động hóa các chính sách sao lưu và kế hoạch sao lưu của bạn từ một nơi duy nhất.</p>
+<p><strong>AWS Backup</strong> là một dịch vụ bảo vệ dữ liệu do AWS quản lý, cho phép bạn tập trung và tự động hóa quy trình bảo vệ dữ liệu cho các tài nguyên AWS trên môi trường đám mây và on-premises. Với AWS Backup, bạn có khả năng thiết lập và tự động hóa chính sách sao lưu cũng như kế hoạch sao lưu từ một nơi duy nhất.</p>
 <h4 id="aws-simple-notification-service-sns">AWS Simple Notification Service (SNS)</h4>
-<p><strong>AWS SNS</strong> là dịch vụ cho phép bạn gửi thông báo từ nhà xuất bản (publisher) tới đối tượng đăng ký (subscriber). Publisher giao tiếp không đồng bộ với subscriber thông qua một chủ đề (topic). Có nghĩa là, Publisher sẽ gửi thông báo tới topic, sau đó topic ấy sẽ gửi thông báo ấy tới các subscriber đang đăng ký theo dõi topic đó.</p>
+<p><strong>AWS SNS</strong> là dịch vụ cho phép bạn gửi thông báo từ bên gửi thông báo (publisher) tới các đối tượng đăng ký (subscriber). Bộ phát thông báo giao tiếp không đồng bộ với người nhận thông báo thông qua một chủ đề (topic). Điều này có nghĩa là, người gửi thông báo sẽ đưa thông báo vào chủ đề, sau đó chủ đề sẽ gửi thông báo đó đến các người nhận đăng ký theo dõi chủ đề tương ứng.</p>
 
 
 
@@ -683,19 +683,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1680277960"></script>
-    <script src="/js/perfect-scrollbar.min.js?1680277960"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1680277960"></script>
-    <script src="/js/jquery.sticky.js?1680277960"></script>
-    <script src="/js/featherlight.min.js?1680277960"></script>
-    <script src="/js/highlight.pack.js?1680277960"></script>
+    <script src="/js/clipboard.min.js?1696617273"></script>
+    <script src="/js/perfect-scrollbar.min.js?1696617273"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1696617273"></script>
+    <script src="/js/jquery.sticky.js?1696617273"></script>
+    <script src="/js/featherlight.min.js?1696617273"></script>
+    <script src="/js/highlight.pack.js?1696617273"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1680277960"></script>
-    <script src="/js/learn.js?1680277960"></script>
-    <script src="/js/hugo-learn.js?1680277960"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1696617273"></script>
+    <script src="/js/learn.js?1696617273"></script>
+    <script src="/js/hugo-learn.js?1696617273"></script>
 
-    <link href="/mermaid/mermaid.css?1680277960" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1680277960"></script>
+    <link href="/mermaid/mermaid.css?1696617273" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1696617273"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

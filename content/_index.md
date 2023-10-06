@@ -5,11 +5,11 @@ weight : 1
 chapter : false
 ---
 
-# Deploy AWS Backup to the system
+# Deploy AWS Backup to the System
 
 #### Overview
 
-In this exercise, you will become familiar with using **AWS Backup** to create a backup plan for active resources on AWS such as EBS Volumes, RDS Databases, DynamoDB Tables , or EFS File Systems. At the same time, you will also learn how to restore data from backups and automate the whole process.
+In this exercise, you will become familiar with using **AWS Backup** to create a backup plan for active resources on AWS such as EBS Volumes, RDS Databases, DynamoDB Tables, or EFS File Systems. At the same time, you will also learn how to restore data from backups and automate the whole process.
 
 For many organizations, the data they own is one of the most valuable assets they have. Regular data backups are vital to the long-term success of any organization. However, a data backup is only valid if the data can be restored/restored from the backup. In the cloud, data backup and recovery testing is easier than in on-premises data centers. Automating this process with appropriate notification systems will ensure that an organization's data is backed up regularly, backups are checked to ensure expected recovery, and the right people notified in the event of an error.
 
@@ -17,8 +17,8 @@ For many organizations, the data they own is one of the most valuable assets the
 
 #### Target
 
-- Create Backup Plan for the system to automate the backup.
-- Test backup/restore operation.
+- Create a Backup Plan for the system to automate the backup.
+- Test backup/restore operations.
 - Test notifications when processes are complete.
 
 #### AWS Backup
@@ -27,12 +27,12 @@ For many organizations, the data they own is one of the most valuable assets the
 
 #### AWS Simple Notification Service (SNS)
 
-**AWS SNS** is a service that allows you to send notifications from publishers to subscribers. Publisher communicates asynchronously with subscribers through a topic. That is, Publisher will send a notification to the topic, then that topic will send that notice to subscribers who are subscribed to that topic.
+**AWS SNS** is a service that allows you to send notifications from publishers to subscribers. Publishers communicate asynchronously with subscribers through a topic. In other words, publishers send notifications to a topic, which then relays those notices to subscribers who are subscribed to that topic.
 
 #### Content:
 
 1. [Introduction](1-introduce/)
-2. [Deploy the infrastructure](2-prerequiste/)
+2. [Deploy the Infrastructure](2-prerequiste/)
 3. [Create Backup Plan](3-createbackupplan/)
 4. [Notification Settings](4-enablenoti/)
 5. [Test Restore](5-testrestore/)

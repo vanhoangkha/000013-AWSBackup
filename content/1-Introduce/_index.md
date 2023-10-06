@@ -8,22 +8,22 @@ pre : " <b> 1. </b> "
 
 #### Overview
 
-In this exercise, you will become familiar with using **AWS Backup** to create a backup plan for active resources on AWS such as EBS Volumes, RDS Databases, DynamoDB Tables , or EFS File Systems. At the same time, you will also learn how to restore data from backups and automate the whole process.
+In this exercise, you will become familiar with using **AWS Backup** to create a backup plan for active resources on AWS such as EBS Volumes, RDS Databases, DynamoDB Tables, or EFS File Systems. You will also learn how to restore data from backups and automate the entire process.
 
-For many organizations, the data they own is one of the most valuable assets they have. Regular data backups are vital to the long-term success of any organization. However, a data backup is only valid if the data can be restored/restored from the backup. In the cloud, data backup and recovery testing is easier than in on-premises data centers. Automating this process with appropriate notification systems will ensure that an organization's data is backed up regularly, backups are checked to ensure expected recovery, and the right people notified in the event of an error.
+For many organizations, the data they own is one of the most valuable assets. Regular data backups are vital for the long-term success of any organization. However, a data backup is only valuable if the data can be successfully restored from it. In the cloud, data backup and recovery testing is easier compared to on-premises data centers. Automating this process with appropriate notification systems ensures that an organization's data is regularly backed up, backups are validated for expected recovery, and the right people are notified in case of errors.
 
 ![AWS Backup](/images/0/architecture.jpeg?featherlight=false&width=60pc)
 
 #### Target
 
-- Create Backup Plan for the system to automate the backup.
-- Test backup/restore operation.
-- Test notifications when processes are complete.
+- Create a Backup Plan to automate the backup system.
+- Test backup and restore operations.
+- Test notifications upon completion of processes.
 
 #### AWS Backup
 
-**AWS Backup** is an AWS-managed data protection service that allows you to centralize and automate data protection for AWS resources in the cloud and on-prem. With AWS Backup, you can set up and automate your backup policies and backup plans from a single place.
+**AWS Backup** is an AWS-managed data protection service that centralizes and automates data protection for AWS resources, both in the cloud and on-premises. With AWS Backup, you can establish and automate backup policies and plans from a single location.
 
 #### AWS Simple Notification Service (SNS)
 
-**AWS SNS** is a service that allows you to send notifications from publishers to subscribers. Publisher communicates asynchronously with subscribers through a topic. That is, Publisher will send a notification to the topic, then that topic will send that notice to subscribers who are subscribed to that topic.
+**AWS SNS** is a service enabling the sending of notifications from publishers to subscribers. Publishers communicate asynchronously with subscribers through topics. In other words, a publisher sends a notification to a topic, which then relays the notice to subscribers subscribed to that topic.

@@ -12,21 +12,21 @@
     <title>Tạo Backup plan :: TRIỂN KHAI AWS BACKUP CHO HỆ THỐNG</title>
 
     
-    <link href="/css/nucleus.css?1680277961" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1680277961" rel="stylesheet">
-    <link href="/css/hybrid.css?1680277961" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1680277961" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1680277961" rel="stylesheet">
-    <link href="/css/auto-complete.css?1680277961" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1680277961" rel="stylesheet">
-    <link href="/css/theme.css?1680277961" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1680277961" rel="stylesheet">
+    <link href="/css/nucleus.css?1696617273" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1696617273" rel="stylesheet">
+    <link href="/css/hybrid.css?1696617273" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1696617273" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1696617273" rel="stylesheet">
+    <link href="/css/auto-complete.css?1696617273" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1696617273" rel="stylesheet">
+    <link href="/css/theme.css?1696617273" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1696617273" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1680277961" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1696617273" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1680277961"></script>
+    <script src="/js/jquery-3.3.1.min.js?1696617273"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1680277961"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1680277961"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1696617273"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1696617273"></script>
 <script type="text/javascript">
     
         var baseurl = "\/vi";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1680277961"></script>
+<script type="text/javascript" src="/js/search.js?1696617273"></script>
 
     
   </div>
@@ -389,7 +389,7 @@
     <br>
     <br>
         <b> Last Updated </b> <br>
-        <i><font color=orange>31-03-2023</font></i>
+        <i><font color=orange>06-10-2023</font></i>
     </left>
     <left>
         <br>
@@ -451,6 +451,7 @@
     <li>
       <ul>
         <li></li>
+        <li><a href="#bước-7-hoàn-tất-việc-tạo-backup-plan">Bước 7: Hoàn tất việc tạo Backup Plan</a></li>
       </ul>
     </li>
   </ul>
@@ -478,91 +479,62 @@
 
 
 
-	<h4 id="tạo-backup-plan">Tạo Backup plan</h4>
-<p>Một chiến lược dự phòng được suy nghĩ kỹ lưỡng là chìa khóa dẫn đến thành công của một tổ chức và được xác định bởi nhiều yếu tố. Các yếu tố lớn nhất ảnh hưởng đến chiến lược sao lưu là Mục tiêu thời gian khôi phục (RTO) và Mục tiêu điểm khôi phục (RPO) được đặt cho khối lượng công việc. RTO và RPO được xác định dựa trên mức độ quan trọng của khối lượng công việc đối với doanh nghiệp, SLA đã được thỏa thuận và chi phí liên quan đến việc đạt được RTO và RPO. RTO và RPO phải cụ thể cho từng khối lượng công việc và không được đặt cho toàn bộ tổ chức / cơ sở hạ tầng.</p>
-<p>Trong phòng thí nghiệm này, bạn sẽ tạo một chiến lược sao lưu bằng cách tận dụng AWS Backup, một dịch vụ sao lưu được quản lý hoàn toàn có thể tự động sao lưu dữ liệu từ các nguồn dữ liệu khác nhau như EC2, EBS, Cơ sở dữ liệu RDS, v.v. Bạn có thể xem danh sách đầy đủ các dịch vụ được hỗ trợ tại <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html#supported-resources">đây</a>.</p>
-<ol>
-<li>
-<p>Truy cập vào <strong>AWS Management Console</strong></p>
+	<h4 id="tạo-backup-plan">Tạo Backup Plan</h4>
+<p>Để đảm bảo một chiến lược sao lưu hoàn hảo, cần có sự cân nhắc kỹ lưỡng và đa chiều. Thành công của một tổ chức phụ thuộc nhiều yếu tố, trong đó có chiến lược dự phòng. Các yếu tố chủ yếu ảnh hưởng đến chiến lược sao lưu bao gồm Mục tiêu thời gian khôi phục (RTO) và Mục tiêu điểm khôi phục (RPO), mà phải được xác định cho từng khối lượng công việc. RTO và RPO phụ thuộc vào mức độ quan trọng của công việc đối với doanh nghiệp, thỏa thuận về Dịch vụ Mức dịch vụ (SLA) và các yếu tố chi phí liên quan đến việc đạt được RTO và RPO. Chú ý rằng RTO và RPO cần được xác định cụ thể cho từng khối lượng công việc cụ thể, không phải cho toàn bộ tổ chức hoặc cơ sở hạ tầng.</p>
+<h4 id="bước-1-truy-cập-vào-aws-management-console">Bước 1: Truy cập vào AWS Management Console</h4>
 <ul>
-<li>Truy cập vào <strong>AWS Management Console</strong></li>
+<li>Mở <strong>AWS Management Console</strong></li>
 <li>Tìm và chọn <strong>AWS Backup</strong></li>
 </ul>
-</li>
-</ol>
-<p><img src="/images/3-backupplan/1.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
-<ol start="2">
-<li>Chọn <strong>AWS Backup Plan</strong></li>
-</ol>
-<p><img src="/images/3-backupplan/2.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
-<ol start="3">
-<li>
-<p>Trong giao diện <strong>Create backup plan</strong>, chọn <strong>Build a new plan</strong></p>
+<p><img src="/images/3-backupplan/1.png?featherlight=false&amp;width=90pc" alt="Bước 1"></p>
+<h4 id="bước-2-chọn-aws-backup-plan">Bước 2: Chọn AWS Backup Plan</h4>
+<p><img src="/images/3-backupplan/2.png?featherlight=false&amp;width=90pc" alt="Bước 2"></p>
+<h4 id="bước-3-tạo-kế-hoạch-sao-lưu">Bước 3: Tạo kế hoạch sao lưu</h4>
 <ul>
-<li>Đối với <strong>Backup plan name</strong>, nhập <strong><code>BACKUP-LAB</code></strong></li>
+<li>Trong giao diện <strong>Create backup plan</strong>, chọn <strong>Build a new plan</strong></li>
+<li>Đối với trường <strong>Backup plan name</strong>, nhập <strong><code>BACKUP-LAB</code></strong></li>
 </ul>
-</li>
-</ol>
-<p><img src="/images/3-backupplan/3.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
-<ol start="4">
-<li>
-<p>Trong phần <strong>BACKUP RULE CONFIGURATION</strong></p>
+<p><img src="/images/3-backupplan/3.png?featherlight=false&amp;width=90pc" alt="Bước 3"></p>
+<h4 id="bước-4-cấu-hình-quy-tắc-sao-lưu">Bước 4: Cấu hình quy tắc sao lưu</h4>
 <ul>
-<li>Nhập <strong>RULE NAME</strong> là <strong>BACKUP-LAB-RULE</strong></li>
-<li>Đối với <strong>SCHEDULE</strong>, phần <strong>FREQUENCY</strong>, chọn <strong>Daily</strong></li>
-<li>Chọn mặc định <strong>Use backup window defaults - recommended</strong></li>
+<li>Điền <strong>RULE NAME</strong> là <strong>BACKUP-LAB-RULE</strong></li>
+<li>Về phần <strong>SCHEDULE</strong>, mục <strong>FREQUENCY</strong>, chọn <strong>Daily</strong></li>
+<li>Chọn <strong>Use backup window defaults - recommended</strong> để sử dụng cài đặt mặc định cho cửa sổ sao lưu</li>
 <li>Đối với <strong>BACKUP VAULT</strong>, chọn <strong>CREATE NEW BACKUP VAULT</strong></li>
 </ul>
-</li>
-</ol>
-<p><img src="/images/3-backupplan/4.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
-<ol start="5">
-<li>
-<p>Đối với <strong>BACKUP VAULT NAME</strong>, nhập  <strong>BACKUP-LAB-VAULT.</strong></p>
+<p><img src="/images/3-backupplan/4.png?featherlight=false&amp;width=90pc" alt="Bước 4"></p>
+<h4 id="bước-5-đặt-tên-cho-backup-vault">Bước 5: Đặt tên cho Backup Vault</h4>
 <ul>
-<li>Chọn <strong>(default) aws/backup.</strong></li>
+<li>Điền tên <strong>BACKUP VAULT NAME</strong> là <strong>BACKUP-LAB-VAULT</strong></li>
+<li>Chọn <strong>(default) aws/backup</strong></li>
 <li>Chọn <strong>CREATE BACKUP VAULT</strong></li>
 </ul>
-</li>
-</ol>
-<p><img src="/images/3-backupplan/5.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
-<ol start="6">
-<li>
-<p>Thêm <strong>Key</strong> và <strong>Value</strong> của tag.</p>
+<p><img src="/images/3-backupplan/5.png?featherlight=false&amp;width=90pc" alt="Bước 5"></p>
+<h4 id="bước-6-thêm-các-cặp-key-và-value-cho-tag">Bước 6: Thêm các cặp Key và Value cho tag</h4>
 <ul>
 <li>Chọn <strong>Create plan</strong></li>
 </ul>
-</li>
-</ol>
-<p><img src="/images/3-backupplan/6.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
-<ol start="7">
-<li>
-<p>Hoàn thành tạo <strong>Backup plan</strong></p>
+<p><img src="/images/3-backupplan/6.png?featherlight=false&amp;width=90pc" alt="Bước 6"></p>
+<h3 id="bước-7-hoàn-tất-việc-tạo-backup-plan">Bước 7: Hoàn tất việc tạo Backup Plan</h3>
 <ul>
-<li>Trong phần <strong>RESOURCE ASSIGNMENTS</strong>, chọn <strong>ASSIGN RESOURCES.</strong></li>
+<li>Trong phần <strong>RESOURCE ASSIGNMENTS</strong>, chọn <strong>ASSIGN RESOURCES</strong></li>
 </ul>
-</li>
-</ol>
-<p><img src="/images/3-backupplan/7.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
-<ol start="8">
-<li>
-<p>Đối với <strong>RESOURCE ASSIGNMENT NAME</strong>, nhập <strong>BACKUP-RESOURCES</strong></p>
+<p><img src="/images/3-backupplan/7.png?featherlight=false&amp;width=90pc" alt="Bước 7"></p>
+<h4 id="bước-8-gán-tài-nguyên-cho-backup-plan">Bước 8: Gán tài nguyên cho Backup Plan</h4>
 <ul>
-<li>Chọn <strong>DEFAULT ROLE</strong> đối với <strong>IAM ROLE</strong>. Nếu role không tồn tại, AWS Backup sẽ tạo 1 role mới với permission cần thiết.</li>
-<li>Sau đó thêm <strong>Tag Key</strong> và <strong>Tag Value</strong></li>
+<li>Điền <strong>RESOURCE ASSIGNMENT NAME</strong> là <strong>BACKUP-RESOURCES</strong></li>
+<li>Chọn <strong>DEFAULT ROLE</strong> cho <strong>IAM ROLE</strong>. Nếu role không tồn tại, AWS Backup sẽ tự động tạo một role mới với các quyền cần thiết</li>
+<li>Thêm <strong>Tag Key</strong> và <strong>Tag Value</strong></li>
 <li>Chọn <strong>ASSIGN RESOURCES</strong></li>
 </ul>
-</li>
-</ol>
-<p><img src="/images/3-backupplan/8.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
-<ol start="9">
-<li>Xác nhận chọn <strong>Continue</strong></li>
-</ol>
-<p><img src="/images/3-backupplan/9.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
-<ol start="10">
-<li>Hoàn thành <strong>ASSIGN RESOURCES</strong></li>
-</ol>
-<p><img src="/images/3-backupplan/10.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
+<p><img src="/images/3-backupplan/8.png?featherlight=false&amp;width=90pc" alt="Bước 8"></p>
+<h4 id="bước-9-xác-nhận-và-tiếp-tục">Bước 9: Xác nhận và tiếp tục</h4>
+<ul>
+<li>Xác nhận bằng cách chọn <strong>Continue</strong></li>
+</ul>
+<p><img src="/images/3-backupplan/9.png?featherlight=false&amp;width=90pc" alt="Bước 9"></p>
+<h4 id="bước-10-hoàn-tất-việc-gán-tài-nguyên">Bước 10: Hoàn tất việc gán tài nguyên</h4>
+<p><img src="/images/3-backupplan/10.png?featherlight=false&amp;width=90pc" alt="Bước 10"></p>
 
 
 
@@ -757,19 +729,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1680277961"></script>
-    <script src="/js/perfect-scrollbar.min.js?1680277961"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1680277961"></script>
-    <script src="/js/jquery.sticky.js?1680277961"></script>
-    <script src="/js/featherlight.min.js?1680277961"></script>
-    <script src="/js/highlight.pack.js?1680277961"></script>
+    <script src="/js/clipboard.min.js?1696617273"></script>
+    <script src="/js/perfect-scrollbar.min.js?1696617273"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1696617273"></script>
+    <script src="/js/jquery.sticky.js?1696617273"></script>
+    <script src="/js/featherlight.min.js?1696617273"></script>
+    <script src="/js/highlight.pack.js?1696617273"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1680277961"></script>
-    <script src="/js/learn.js?1680277961"></script>
-    <script src="/js/hugo-learn.js?1680277961"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1696617273"></script>
+    <script src="/js/learn.js?1696617273"></script>
+    <script src="/js/hugo-learn.js?1696617273"></script>
 
-    <link href="/mermaid/mermaid.css?1680277961" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1680277961"></script>
+    <link href="/mermaid/mermaid.css?1696617273" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1696617273"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

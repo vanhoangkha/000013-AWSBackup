@@ -12,21 +12,21 @@
     <title>Kiểm tra hoạt động :: TRIỂN KHAI AWS BACKUP CHO HỆ THỐNG</title>
 
     
-    <link href="/css/nucleus.css?1680277961" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1680277961" rel="stylesheet">
-    <link href="/css/hybrid.css?1680277961" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1680277961" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1680277961" rel="stylesheet">
-    <link href="/css/auto-complete.css?1680277961" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1680277961" rel="stylesheet">
-    <link href="/css/theme.css?1680277961" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1680277961" rel="stylesheet">
+    <link href="/css/nucleus.css?1696617273" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1696617273" rel="stylesheet">
+    <link href="/css/hybrid.css?1696617273" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1696617273" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1696617273" rel="stylesheet">
+    <link href="/css/auto-complete.css?1696617273" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1696617273" rel="stylesheet">
+    <link href="/css/theme.css?1696617273" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1696617273" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1680277961" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1696617273" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1680277961"></script>
+    <script src="/js/jquery-3.3.1.min.js?1696617273"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1680277961"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1680277961"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1696617273"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1696617273"></script>
 <script type="text/javascript">
     
         var baseurl = "\/vi";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1680277961"></script>
+<script type="text/javascript" src="/js/search.js?1696617273"></script>
 
     
   </div>
@@ -389,7 +389,7 @@
     <br>
     <br>
         <b> Last Updated </b> <br>
-        <i><font color=orange>31-03-2023</font></i>
+        <i><font color=orange>06-10-2023</font></i>
     </left>
     <left>
         <br>
@@ -478,98 +478,86 @@
 
 
 
-	<h4 id="kiểm-tra-hoạt-động">Kiểm tra hoạt động</h4>
-<p>Bản sao lưu nguồn dữ liệu chỉ hữu ích nếu dữ liệu có thể được khôi phục từ nguồn đó. Nếu các bản sao lưu không được kiểm tra, bạn có thể rơi vào tình huống khối lượng công việc của mình bị ảnh hưởng bởi một sự kiện và bạn cần khôi phục dữ liệu từ các bản sao lưu của mình, nhưng bản sao lưu bị lỗi và không thể khôi phục dữ liệu hoặc vượt quá RTO của bạn. Để tránh những trường hợp như vậy, các bản sao lưu đã thực hiện phải luôn được kiểm tra để đảm bảo chúng có thể được sử dụng để khôi phục dữ liệu.</p>
-<p>Trong phòng thí nghiệm này, bạn sẽ tận dụng AWS Lambda để tự động kiểm tra tất cả các bản sao lưu đã tạo để đảm bảo khôi phục thành công và xóa mọi tài nguyên đã được tạo trong quá trình kiểm tra khôi phục để tiết kiệm chi phí. Điều này sẽ đảm bảo bạn biết về bất kỳ bản sao lưu bị lỗi nào có thể không sử dụng được để khôi phục dữ liệu từ đó. Tự động hóa quy trình này với thông báo được bật sẽ đảm bảo có chi phí hoạt động tối thiểu và các nhóm Vận hành nhận thức được các trạng thái sao lưu và khôi phục.</p>
-<p>Khi kiểm tra khôi phục, điều quan trọng là phải xác định các tiêu chí để khôi phục dữ liệu thành công từ tài nguyên được khôi phục. Điều này sẽ phụ thuộc vào nhiều yếu tố như nguồn dữ liệu, loại dữ liệu, biên độ sai sót, v.v. Các tổ chức và chủ sở hữu khối lượng công việc chịu trách nhiệm xác định tiêu chí thành công này.</p>
-<p>EC2 instance được tạo như một phần của phòng thí nghiệm này đang chạy một ứng dụng web đơn giản. Đối với trường hợp sử dụng này, tôi đã xác định rằng việc khôi phục dữ liệu thành công nếu ứng dụng cũng đang chạy trên tài nguyên được khôi phục. Nếu tài nguyên được khôi phục bị thiếu bất kỳ tệp quan trọng nào của ứng dụng, kiểm tra sức khỏe được thực hiện đối với tài nguyên được khôi phục sẽ không thành công, cho biết sự cố với bản sao lưu.</p>
+	<h1 id="kiểm-tra-hoạt-động">Kiểm tra hoạt động</h1>
+<p>Để đảm bảo tính hữu ích của bản sao lưu dữ liệu, việc kiểm tra sao lưu là điều quan trọng. Nếu không kiểm tra, có thể xảy ra trường hợp dữ liệu không thể khôi phục từ sao lưu. Điều này có thể dẫn đến tình trạng khối lượng công việc bị ảnh hưởng do cần phải khôi phục từ sao lưu, nhưng sao lưu bị lỗi hoặc thời gian khôi phục (RTO) bị vượt quá. Để tránh tình hình này, sao lưu cần phải được kiểm tra thường xuyên để đảm bảo khả năng khôi phục.</p>
+<p>Trong phòng thí nghiệm này, AWS Lambda được sử dụng để tự động kiểm tra tất cả sao lưu đã tạo, đảm bảo rằng quá trình khôi phục thành công và tài nguyên tạo trong quá trình kiểm tra sau đó được xóa để tiết kiệm chi phí. Việc tự động hóa quy trình này với thông báo kích hoạt sẽ giúp đảm bảo hoạt động với mức chi phí thấp nhất và các nhóm vận hành có hiểu biết về trạng thái của sao lưu và khôi phục.</p>
+<p>Trong quá trình kiểm tra khôi phục, điều quan trọng là phải xác định các tiêu chí cần thiết để khôi phục dữ liệu thành công từ tài nguyên đã được sao lưu. Điều này sẽ phụ thuộc vào nhiều yếu tố như nguồn dữ liệu, loại dữ liệu, mức độ sai sót, và nhiều yếu tố khác. Các tổ chức và người sở hữu khối lượng công việc sẽ chịu trách nhiệm xác định các tiêu chí thành công này.</p>
+<p>Ví dụ, trong phòng thí nghiệm này, một EC2 instance đã được tạo và đang chạy một ứng dụng web đơn giản. Trong trường hợp này, tiêu chí khôi phục thành công được xác định bằng việc kiểm tra xem ứng dụng có đang chạy trên tài nguyên đã được khôi phục hay không. Nếu bất kỳ tệp quan trọng nào của ứng dụng bị thiếu trên tài nguyên khôi phục, việc kiểm tra sức khỏe sẽ thất bại, cho biết có sự cố với bản sao lưu.</p>
 <h4 id="kiểm-tra-phục-hồi">Kiểm tra phục hồi</h4>
-<p>Với mục đích của phòng thí nghiệm này, chúng tôi sẽ mô phỏng hành động được AWS Backup thực hiện khi tạo bản sao lưu nguồn dữ liệu bằng cách tạo bản sao lưu theo yêu cầu để xem liệu bản sao lưu có thành công hay không. Sau khi sao lưu hoàn tất, bạn sẽ nhận được thông báo cho biết rằng công việc sao lưu đã hoàn thành và hàm lambda sẽ được gọi. Hàm Lambda sẽ thực hiện các lệnh gọi API để bắt đầu khôi phục dữ liệu từ bản sao lưu đã được tạo. Điều này sẽ giúp chắc chắn rằng bản sao lưu là tốt. Khi quá trình khôi phục đã hoàn tất, bạn sẽ nhận được một thông báo khác xác nhận điều này và hàm lambda sẽ được gọi lại để dọn dẹp các tài nguyên mới đã được tạo như một phần của quá trình khôi phục. Sau khi quá trình dọn dẹp hoàn tất, bạn sẽ nhận được một thông báo cuối cùng xác nhận việc dọn dẹp.</p>
+<p>Trong phạm vi của phòng thí nghiệm này, chúng ta sẽ mô phỏng hành động mà AWS Backup thực hiện khi tạo bản sao lưu nguồn dữ liệu. Đầu tiên, chúng ta sẽ tạo một bản sao lưu theo yêu cầu để kiểm tra xem liệu sao lưu có thành công hay không. Khi bản sao lưu hoàn tất, thông báo sẽ được gửi để báo cáo về việc hoàn thành sao lưu và hàm Lambda sẽ được kích hoạt. Hàm Lambda sẽ thực hiện các lệnh gọi API để bắt đầu quá trình khôi phục từ bản sao lưu. Điều này đảm bảo tính chính xác của sao lưu. Sau khi quá trình khôi phục hoàn tất, một thông báo khác sẽ được gửi để xác nhận việc này và hàm Lambda sẽ được gọi lần nữa để dọn dẹp tài nguyên mới được tạo trong quá trình khôi phục. Khi quá trình dọn dẹp hoàn tất, một thông báo cuối cùng sẽ được gửi để xác nhận việc dọn dẹp.</p>
 <ol>
 <li>
-<p>Truy cập <strong>AWS Management Console</strong></p>
+<p>Truy cập vào <strong>AWS Management Console</strong>:</p>
 <ul>
-<li>Vào giao diện <strong>AWS Backup</strong></li>
+<li>Mở giao diện <strong>AWS Backup</strong></li>
 <li>Chọn <strong>CREATE AN ON-DEMAND BACKUP</strong></li>
 </ul>
-</li>
-</ol>
 <p><img src="/images/5-test/1.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
-<ol start="2">
+</li>
 <li>
-<p>Trong phần <strong>RESOURCE TYPE</strong>, chọn <strong>EC2</strong>, dán <strong>Instance ID</strong> từ <strong>Output</strong> của CloudFormation Stack.</p>
+<p>Trong phần <strong>RESOURCE TYPE</strong>, chọn <strong>EC2</strong>, sau đó dán <strong>Instance ID</strong> từ phần <strong>Output</strong> của CloudFormation Stack.</p>
 <ul>
 <li>Trong <strong>BACKUP WINDOW</strong>, chọn <strong>CREATE BACKUP NOW</strong>.</li>
 <li>Đối với <strong>Backup Vault</strong>, chọn <strong>BACKUP-LAB-VAULT.</strong></li>
-<li>Mặc định <strong>default IAM role</strong></li>
+<li>Sử dụng vai trò IAM mặc định.</li>
 <li>Chọn <strong>CREATE ON-DEMAND BACKUP</strong></li>
 </ul>
-</li>
-</ol>
 <p><img src="/images/5-test/2.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
-<ol start="3">
-<li>Trong <strong>Jobs</strong>, chọn <strong>Backup jobs</strong>, đợi chuyển sang trạng thái <strong>Completed</strong></li>
-</ol>
+</li>
+<li>
+<p>Trong <strong>Jobs</strong>, chọn <strong>Backup jobs</strong>, và chờ cho đến khi trạng thái chuyển sang <strong>Completed</strong></p>
 <p><img src="/images/5-test/3.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
-<ul>
-<li>Click <strong>Backup jobs ID</strong></li>
-</ul>
-<ol start="4">
-<li>Chọn <strong>Backup jobs ID</strong></li>
-</ol>
-<ul>
-<li>Xem chi tiết <strong>Backup jobs</strong></li>
-</ul>
+</li>
+<li>
+<p>Nhấp vào <strong>Backup jobs ID</strong> để xem chi tiết.</p>
 <p><img src="/images/5-test/4.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
-<ol start="5">
-<li>Kiểm tra mail đã nhận thông báo</li>
-</ol>
+</li>
+<li>
+<p>Kiểm tra email để xác nhận thông báo.</p>
 <p><img src="/images/5-test/5.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
-<ol start="6">
-<li>Kiểm tra mail về <strong>Restore Test Status</strong>.</li>
-</ol>
+</li>
+<li>
+<p>Kiểm tra email liên quan đến <strong>Restore Test Status</strong>.</p>
 <p><img src="/images/5-test/6.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
-<ol start="7">
-<li>Xem thông tin <strong>Restore jobs</strong>, chọn <strong>Restore jobs ID</strong></li>
-</ol>
+</li>
+<li>
+<p>Xem thông tin <strong>Restore jobs</strong>, chọn <strong>Restore jobs ID</strong>.</p>
 <p><img src="/images/5-test/7.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
-<ol start="8">
-<li>Xem chi tiết <strong>Restore jobs</strong>.</li>
-</ol>
+</li>
+<li>
+<p>Xem chi tiết <strong>Restore jobs</strong>.</p>
 <p><img src="/images/5-test/8.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
-<ol start="9">
-<li>Quay lại giao diện <strong>AWS Management Console</strong>.</li>
-</ol>
+</li>
+<li>
+<p>Quay lại giao diện <strong>AWS Management Console</strong>:</p>
 <ul>
 <li>Tìm và chọn <strong>CloudWatch</strong></li>
 </ul>
 <p><img src="/images/5-test/9.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
-<ol start="10">
+</li>
 <li>
-<p>Trong giao diện <strong>CloudWatch</strong></p>
+<p>Trong giao diện <strong>CloudWatch</strong>:</p>
 <ul>
 <li>Chọn <strong>Logs</strong></li>
 <li>Chọn <strong>Log groups</strong></li>
-<li>Chọn <strong>Log group</strong> của bài lab. (<strong><code>/aws/lambda/RestoreTestFunction-&lt;YOUR CLOUDFORMATION STACK NAME&gt;</code></strong>)</li>
+<li>Chọn <strong>Log group</strong> của bài lab. (<code>/aws/lambda/RestoreTestFunction-&lt;YOUR CLOUDFORMATION STACK NAME&gt;</code>)</li>
 </ul>
-</li>
-</ol>
 <p><img src="/images/5-test/10.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
-<ol start="11">
+</li>
 <li>
-<p>Trong giao diện <strong>Log groups</strong></p>
+<p>Trong giao diện <strong>Log groups</strong>:</p>
 <ul>
 <li>Chọn <strong>Log streams</strong></li>
 <li>Chọn <strong>Log stream</strong> của bài lab.</li>
 </ul>
+<p><img src="/images/5-test/11.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
+</li>
+<li>
+<p>Xem chi tiết <strong>Log Events</strong>.</p>
+<p><img src="/images/5-test/12.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
 </li>
 </ol>
-<p><img src="/images/5-test/11.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
-<ol start="12">
-<li>Xem chi tiết <strong>Log Events</strong></li>
-</ol>
-<p><img src="/images/5-test/12.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
-<p>Như vậy bạn đã hoàn thành <strong>TRIỂN KHAI AWS BACKUP CHO HỆ THỐNG</strong></p>
+<p>Bằng cách hoàn thành các bước trên, bạn đã triển khai thành công <strong>AWS BACKUP CHO HỆ THỐNG</strong>.</p>
 
 
 
@@ -764,19 +752,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1680277961"></script>
-    <script src="/js/perfect-scrollbar.min.js?1680277961"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1680277961"></script>
-    <script src="/js/jquery.sticky.js?1680277961"></script>
-    <script src="/js/featherlight.min.js?1680277961"></script>
-    <script src="/js/highlight.pack.js?1680277961"></script>
+    <script src="/js/clipboard.min.js?1696617273"></script>
+    <script src="/js/perfect-scrollbar.min.js?1696617273"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1696617273"></script>
+    <script src="/js/jquery.sticky.js?1696617273"></script>
+    <script src="/js/featherlight.min.js?1696617273"></script>
+    <script src="/js/highlight.pack.js?1696617273"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1680277961"></script>
-    <script src="/js/learn.js?1680277961"></script>
-    <script src="/js/hugo-learn.js?1680277961"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1696617273"></script>
+    <script src="/js/learn.js?1696617273"></script>
+    <script src="/js/hugo-learn.js?1696617273"></script>
 
-    <link href="/mermaid/mermaid.css?1680277961" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1680277961"></script>
+    <link href="/mermaid/mermaid.css?1696617273" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1696617273"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

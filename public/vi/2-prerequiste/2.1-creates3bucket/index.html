@@ -12,21 +12,21 @@
     <title>Tạo S3 Bucket :: TRIỂN KHAI AWS BACKUP CHO HỆ THỐNG</title>
 
     
-    <link href="/css/nucleus.css?1680277960" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1680277960" rel="stylesheet">
-    <link href="/css/hybrid.css?1680277960" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1680277960" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1680277960" rel="stylesheet">
-    <link href="/css/auto-complete.css?1680277960" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1680277960" rel="stylesheet">
-    <link href="/css/theme.css?1680277960" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1680277960" rel="stylesheet">
+    <link href="/css/nucleus.css?1696617273" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1696617273" rel="stylesheet">
+    <link href="/css/hybrid.css?1696617273" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1696617273" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1696617273" rel="stylesheet">
+    <link href="/css/auto-complete.css?1696617273" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1696617273" rel="stylesheet">
+    <link href="/css/theme.css?1696617273" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1696617273" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1680277960" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1696617273" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1680277960"></script>
+    <script src="/js/jquery-3.3.1.min.js?1696617273"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1680277960"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1680277960"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1696617273"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1696617273"></script>
 <script type="text/javascript">
     
         var baseurl = "\/vi";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1680277960"></script>
+<script type="text/javascript" src="/js/search.js?1696617273"></script>
 
     
   </div>
@@ -389,7 +389,7 @@
     <br>
     <br>
         <b> Last Updated </b> <br>
-        <i><font color=orange>31-03-2023</font></i>
+        <i><font color=orange>06-10-2023</font></i>
     </left>
     <left>
         <br>
@@ -459,6 +459,7 @@
         <li></li>
       </ul>
     </li>
+    <li><a href="#bước-1-tải-template-và-lambda-function">Bước 1: Tải Template và Lambda Function</a></li>
   </ul>
 </nav>
     </div>
@@ -486,63 +487,62 @@
 
 	<h4 id="tạo-s3-bucket">Tạo S3 Bucket</h4>
 <p>Trong phần này, chúng ta sẽ sử dụng <strong>CloudFormation</strong> để tạo resource cho bài lab. <strong>CloudFormation</strong> stack sẽ tạo các tài nguyên dịch vụ như <strong>EC2 instance</strong>, <strong>SNS Topic</strong> và <strong>Lambda Function</strong></p>
-<p>Bước đầu tiên chúng ta cần phải tải <a href="https://github.com/AWS-First-Cloud-Journey/Backup-Plan/archive/refs/heads/master.zip">template CloudFormation và Lambda Function</a></p>
+<h2 id="bước-1-tải-template-và-lambda-function">Bước 1: Tải Template và Lambda Function</h2>
+<p>Tải <a href="https://github.com/AWS-First-Cloud-Journey/Backup-Plan/archive/refs/heads/master.zip">template CloudFormation và Lambda Function</a>.</p>
 <ol>
 <li>
-<p>Sau khi tải <strong><a href="https://github.com/AWS-First-Cloud-Journey/Backup-Plan/archive/refs/heads/master.zip">template CloudFormation và Lambda Function</a></strong></p>
+<p>Sau khi tải <strong>template CloudFormation và Lambda Function</strong> từ link trên:</p>
 <ul>
 <li>Chúng ta sẽ tạo một <strong>S3 bucket</strong> để lưu trữ source.</li>
-<li>Truy cập vào <strong>AWS Management Console</strong>, tìm và chọn <strong>S3</strong></li>
+<li>Truy cập vào <strong>AWS Management Console</strong>, tìm và chọn <strong>S3</strong>.</li>
 </ul>
 </li>
 </ol>
 <p><img src="/images/2-preparation/1.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
 <ol start="2">
-<li>Trong giao diện <strong>S3</strong>, chọn <strong>Create bucket</strong></li>
+<li>Trong giao diện <strong>S3</strong>, chọn <strong>Create bucket</strong>.</li>
 </ol>
 <p><img src="/images/2-preparation/2.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
 <ol start="3">
 <li>
-<p>Trong giao diện <strong>Create bucket</strong></p>
+<p>Trong giao diện <strong>Create bucket</strong>:</p>
 <ul>
-<li>Nhập <strong>Bucket name</strong>, phải nhập tên duy nhất, bạn có thể chọn tùy ý (Nếu trùng sẽ dẫn đến lỗi và không khởi tạo bucket được)</li>
+<li>Nhập <strong>Bucket name</strong>, phải nhập tên duy nhất, bạn có thể chọn tùy ý (Nếu trùng sẽ dẫn đến lỗi và không khởi tạo bucket được).</li>
 </ul>
 </li>
 </ol>
 <p><img src="/images/2-preparation/3.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
-
-<div class="notices tip" ><p>Trong workshop này, chúng ta sẽ sử dụng Region Singapore ( ap-southeast-1 ). Nếu bạn muốn sử dụng Region khác , hãy đảm bảo chuyển Region về Region bạn muốn sử dụng khi tạo các tài nguyên liên quan tới workshop.</p>
-</div>
-
+<p>::: tip Lưu ý
+Trong workshop này, chúng ta sẽ sử dụng Region Singapore (ap-southeast-1). Nếu bạn muốn sử dụng Region khác, hãy đảm bảo chuyển Region về Region bạn muốn sử dụng khi tạo các tài nguyên liên quan tới workshop.
+:::</p>
 <ol start="4">
 <li>Giữ nguyên cấu hình.</li>
 </ol>
 <p><img src="/images/2-preparation/4.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
-<p>5.Ở mục <strong>Default encryption</strong> chọn  <strong>Disable</strong></p>
-<ul>
-<li>Sau đó chọn <strong>Create bucket</strong></li>
-</ul>
+<ol start="5">
+<li>Tại mục <strong>Default encryption</strong>, chọn <strong>Disable</strong>, sau đó chọn <strong>Create bucket</strong>.</li>
+</ol>
 <p><img src="/images/2-preparation/5.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
 <ol start="6">
-<li>Hoàn thành tạo <strong>S3 bucket</strong></li>
+<li>Hoàn thành tạo <strong>S3 bucket</strong>.</li>
 </ol>
 <p><img src="/images/2-preparation/6.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
 <ol start="7">
-<li>Thực hiện tạo một folder lưu trữ</li>
+<li>Thực hiện tạo một folder lưu trữ.</li>
 </ol>
 <p><img src="/images/2-preparation/7.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
 <ol start="8">
 <li>
-<p>Trong giao diện tạo một folder</p>
+<p>Trong giao diện tạo một folder:</p>
 <ul>
-<li>Nhập tên <strong>Folder name</strong></li>
-<li>Chọn <strong>Create folder</strong></li>
+<li>Nhập tên <strong>Folder name</strong>.</li>
+<li>Chọn <strong>Create folder</strong>.</li>
 </ul>
 </li>
 </ol>
 <p><img src="/images/2-preparation/8.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
 <ol start="9">
-<li>Hoàn thành tạo một folder</li>
+<li>Hoàn thành tạo một folder.</li>
 </ol>
 <p><img src="/images/2-preparation/9.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
 <ol start="10">
@@ -551,89 +551,89 @@
 <p><img src="/images/2-preparation/10.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
 <ol start="11">
 <li>
-<p>Trong phần <strong>Upload</strong></p>
+<p>Trong phần <strong>Upload</strong>:</p>
 <ul>
-<li>Chọn <strong>Add files</strong></li>
+<li>Chọn <strong>Add files</strong>.</li>
 <li>Chọn các file muốn tải lên.</li>
-<li>Chọn <strong>Upload</strong></li>
+<li>Chọn <strong>Upload</strong>.</li>
 </ul>
 </li>
 </ol>
 <p><img src="/images/2-preparation/11.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
 <ol start="12">
-<li>Hoàn thành tải các file</li>
+<li>Hoàn thành tải các file.</li>
 </ol>
 <p><img src="/images/2-preparation/12.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
 <ol start="13">
 <li>
-<p>Thực hiện cấu hính <strong>Permissions</strong> cho <strong>S3 bucket</strong></p>
+<p>Thực hiện cấu hình <strong>Permissions</strong> cho <strong>S3 bucket</strong>:</p>
 <ul>
-<li>Đối với <strong>Block public access (bucket settings)</strong></li>
+<li>Đối với <strong>Block public access (bucket settings)</strong>.</li>
 </ul>
 </li>
 </ol>
 <p><img src="/images/2-preparation/13.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
 <ol start="14">
 <li>
-<p>Bỏ chọn *<strong>Block all public access</strong></p>
+<p>Bỏ chọn <strong>Block all public access</strong>:</p>
 <ul>
-<li>Sau đó, chọn <strong>Save changes</strong></li>
+<li>Sau đó, chọn <strong>Save changes</strong>.</li>
 </ul>
 </li>
 </ol>
 <p><img src="/images/2-preparation/14.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
 <ol start="15">
-<li>Xác nhận bằng <strong>confirm</strong>và chọn <strong>Confirm</strong></li>
+<li>Xác nhận bằng cách chọn <strong>confirm</strong> và sau đó chọn <strong>Confirm</strong>.</li>
 </ol>
 <p><img src="/images/2-preparation/15.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
 <ol start="16">
 <li>
-<p>Sau đó sẽ thực hiện cấu hình <strong>Bucket policy</strong></p>
+<p>Sau đó sẽ thực hiện cấu hình <strong>Bucket policy</strong>:</p>
 <ul>
-<li>Chọn <strong>Edit</strong></li>
+<li>Chọn <strong>Edit</strong>.</li>
 </ul>
 </li>
 </ol>
 <p><img src="/images/2-preparation/16.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
 <ol start="17">
 <li>
-<p>Trong giao diện <strong>Edit bucket policy</strong></p>
+<p>Trong giao diện <strong>Edit bucket policy</strong>:</p>
 <ul>
-<li>Nhập đoạn code  sau và thay bằng <strong>Bucket ARN</strong> của bạn.</li>
+<li>Nhập đoạn code sau và thay bằng <strong>Bucket ARN</strong> của bạn.</li>
 </ul>
-</li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;Version&#34;</span>: <span style="color:#e6db74">&#34;2012-10-17&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;Statement&#34;</span>: [
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;Sid&#34;</span>: <span style="color:#e6db74">&#34;PublicReadGetObject&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;Effect&#34;</span>: <span style="color:#e6db74">&#34;Allow&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;Principal&#34;</span>: <span style="color:#e6db74">&#34;*&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;Action&#34;</span>: [
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#34;s3:GetObject&#34;</span>
+</span></span><span style="display:flex;"><span>            ],
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;Resource&#34;</span>: [
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#34;arn:aws:s3:::Bucket-Name/*&#34;</span>
+</span></span><span style="display:flex;"><span>            ]
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    ]
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div></li>
 </ol>
-<pre tabindex="0"><code>{
-    &#34;Version&#34;: &#34;2012-10-17&#34;,
-    &#34;Statement&#34;: [
-        {
-            &#34;Sid&#34;: &#34;PublicReadGetObject&#34;,
-            &#34;Effect&#34;: &#34;Allow&#34;,
-            &#34;Principal&#34;: &#34;*&#34;,
-            &#34;Action&#34;: [
-                &#34;s3:GetObject&#34;
-            ],
-            &#34;Resource&#34;: [
-                &#34;arn:aws:s3:::Bucket-Name/*&#34;
-            ]
-        }
-    ]
-}
-</code></pre><p><img src="/images/2-preparation/17.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
+<p><img src="/images/2-preparation/17.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
 <ol start="18">
-<li>Chọn <strong>Save changes</strong></li>
+<li>Chọn <strong>Save changes</strong>.</li>
 </ol>
 <p><img src="/images/2-preparation/18.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
 <ol start="19">
-<li>Kiểm tra <strong>Permissions</strong> đã <strong>Public</strong></li>
+<li>Kiểm tra <strong>Permissions</strong> đã <strong>Public</strong>.</li>
 </ol>
 <p><img src="/images/2-preparation/19.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
 <ol start="20">
-<li>Sao chép thông tin đường dẫn của <strong>lambda_function.zip</strong></li>
+<li>Sao chép thông tin đường dẫn của <strong>lambda_function.zip</strong>.</li>
 </ol>
 <p><img src="/images/2-preparation/20.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
 <ol start="21">
-<li>Sao chép thông tin <strong>Object URL</strong> của file <strong>backup-lab.yaml</strong></li>
+<li>Sao chép thông tin <strong>Object URL</strong> của file <strong>backup-lab.yaml</strong>.</li>
 </ol>
 <p><img src="/images/2-preparation/21.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
 
@@ -831,19 +831,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1680277961"></script>
-    <script src="/js/perfect-scrollbar.min.js?1680277961"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1680277961"></script>
-    <script src="/js/jquery.sticky.js?1680277961"></script>
-    <script src="/js/featherlight.min.js?1680277961"></script>
-    <script src="/js/highlight.pack.js?1680277961"></script>
+    <script src="/js/clipboard.min.js?1696617273"></script>
+    <script src="/js/perfect-scrollbar.min.js?1696617273"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1696617273"></script>
+    <script src="/js/jquery.sticky.js?1696617273"></script>
+    <script src="/js/featherlight.min.js?1696617273"></script>
+    <script src="/js/highlight.pack.js?1696617273"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1680277961"></script>
-    <script src="/js/learn.js?1680277961"></script>
-    <script src="/js/hugo-learn.js?1680277961"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1696617273"></script>
+    <script src="/js/learn.js?1696617273"></script>
+    <script src="/js/hugo-learn.js?1696617273"></script>
 
-    <link href="/mermaid/mermaid.css?1680277961" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1680277961"></script>
+    <link href="/mermaid/mermaid.css?1696617273" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1696617273"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

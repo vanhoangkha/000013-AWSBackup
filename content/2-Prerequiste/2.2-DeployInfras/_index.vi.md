@@ -8,7 +8,6 @@ pre : " <b> 2.2 </b> "
 
 #### Triển khai hạ tầng
 
-
 Trong bài thực hành này, bạn sẽ làm quen với việc sử dụng **AWS Backup** để tạo ra một kế hoạch sao lưu (backup plan) cho các tài nguyên đang hoạt động trên AWS như EBS Volumes, RDS Databases, DynamoDB Tables, hay EFS File Systems. Đồng thời, bạn cũng sẽ biết được làm thế nào để khôi phục lại dữ liệu từ các bản sao lưu và tự động hóa toàn bộ quá trình.
 
 Đối với nhiều tổ chức, dữ liệu mà họ sở hữu là một trong những tài sản quý giá nhất mà họ có. Sao lưu dữ liệu thường xuyên có tầm quan trọng sống còn đối với sự thành công lâu dài của bất kỳ tổ chức nào. Tuy nhiên, một bản sao lưu dữ liệu chỉ có giá trị nếu dữ liệu có thể được khôi phục / khôi phục từ bản sao lưu. Trong đám mây, việc sao lưu dữ liệu và kiểm tra khôi phục dễ dàng hơn so với các trung tâm dữ liệu tại chỗ. Tự động hóa quy trình này với các hệ thống thông báo thích hợp sẽ đảm bảo rằng dữ liệu của tổ chức được sao lưu thường xuyên, các bản sao lưu được kiểm tra để đảm bảo khôi phục dự kiến ​​và những người thích hợp được thông báo trong trường hợp có lỗi.

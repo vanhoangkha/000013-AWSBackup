@@ -12,21 +12,21 @@
     <title>Create S3 Bucket :: DEPLOY AWS BACKUP TO THE SYSTEM</title>
 
     
-    <link href="/css/nucleus.css?1680277960" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1680277960" rel="stylesheet">
-    <link href="/css/hybrid.css?1680277960" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1680277960" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1680277960" rel="stylesheet">
-    <link href="/css/auto-complete.css?1680277960" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1680277960" rel="stylesheet">
-    <link href="/css/theme.css?1680277960" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1680277960" rel="stylesheet">
+    <link href="/css/nucleus.css?1696617273" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1696617273" rel="stylesheet">
+    <link href="/css/hybrid.css?1696617273" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1696617273" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1696617273" rel="stylesheet">
+    <link href="/css/auto-complete.css?1696617273" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1696617273" rel="stylesheet">
+    <link href="/css/theme.css?1696617273" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1696617273" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1680277960" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1696617273" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1680277960"></script>
+    <script src="/js/jquery-3.3.1.min.js?1696617273"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1680277960"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1680277960"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1696617273"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1696617273"></script>
 <script type="text/javascript">
     
         var baseurl = "";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1680277960"></script>
+<script type="text/javascript" src="/js/search.js?1696617273"></script>
 
     
   </div>
@@ -228,13 +228,13 @@
  
   
     
-    <li data-nav-id="/4-enablenoti/" title="Notification Settings" class="dd-item 
+    <li data-nav-id="/4-enablenoti/" title="Set up notifications" class="dd-item 
         
         
         
         ">
       <a href="/4-enablenoti/">
-           <b> 4. </b> Notification Settings
+           <b> 4. </b> Set up notifications
           
             <i class="fas fa-check read-icon"></i>
           
@@ -389,7 +389,7 @@
     <br>
     <br>
         <b> Last Updated </b> <br>
-        <i><font color=orange>31-03-2023</font></i>
+        <i><font color=orange>06-10-2023</font></i>
     </left>
     <left>
         <br>
@@ -485,156 +485,139 @@
 
 
 	<h4 id="create-s3-bucket">Create S3 Bucket</h4>
-<p>In this section, we will use <strong>CloudFormation</strong> to create resources for the lab. <strong>CloudFormation</strong> stack will create service resources like <strong>EC2 instance</strong>, <strong>SNS Topic</strong>, and <strong>Lambda Function</strong></p>
-<p>The first step we need to download <a href="https://github.com/AWS-First-Cloud-Journey/Backup-Plan/archive/refs/heads/master.zip">template CloudFormation and Lambda Function</a></p>
+<p>In this section, we will use <strong>CloudFormation</strong> to create resources for the lab. The <strong>CloudFormation</strong> stack will create service resources such as an <strong>EC2 instance</strong>, <strong>SNS Topic</strong>, and <strong>Lambda Function</strong>.</p>
+<h4 id="step-1-download-template">Step 1: Download Template</h4>
+<ol>
+<li>First, download the <a href="https://github.com/AWS-First-Cloud-Journey/Backup-Plan/archive/refs/heads/master.zip">template CloudFormation and Lambda Function</a>.</li>
+</ol>
+<h4 id="step-2-create-an-s3-bucket">Step 2: Create an S3 Bucket</h4>
 <ol>
 <li>
-<p>After downloading <strong><a href="https://github.com/AWS-First-Cloud-Journey/Backup-Plan/archive/refs/heads/master.zip">template CloudFormation and Lambda Function</a></strong></p>
+<p>Create an <strong>S3 bucket</strong> to store the source data by following these steps:</p>
 <ul>
-<li>We will create a <strong>S3 bucket</strong> to store the source.</li>
-<li>Go to <strong>AWS Management Console</strong>, find and select <strong>S3</strong></li>
+<li>Go to the <strong>AWS Management Console</strong>.</li>
+<li>Find and select <strong>S3</strong>.</li>
 </ul>
-</li>
-</ol>
 <p><img src="/images/2-preparation/1.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
-<ol start="2">
-<li>In the <strong>S3</strong> interface, select <strong>Create bucket</strong></li>
-</ol>
+</li>
+<li>
+<p>In the <strong>S3</strong> interface, select <strong>Create bucket</strong>.</p>
 <p><img src="/images/2-preparation/2.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
-<ol start="3">
-<li>
-<p>In the <strong>Create bucket</strong> interface</p>
-<ul>
-<li>Enter <strong>Bucket name</strong> must enter a unique name, you can choose arbitrarily (If the match will lead to an error and cannot initialize the bucket)</li>
-</ul>
 </li>
-</ol>
+<li>
+<p>In the <strong>Create bucket</strong> interface:</p>
+<ul>
+<li>Enter a <strong>Bucket name</strong>. It must be a unique name; you can choose any name you like.</li>
+</ul>
 <p><img src="/images/2-preparation/3.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
-
-<div class="notices note" ><p>In this workshop, we will use the Singapore region (ap-southeast-1). If you want to use another Region, be sure to move the Region back to the Region you want to use when creating workshop-related resources.</p>
-</div>
-
-<ol start="4">
-<li>Preserve the configuration.</li>
-</ol>
+<blockquote>
+<p><strong>Note:</strong> In this workshop, we will use the Singapore region (ap-southeast-1). If you want to use another region, be sure to adjust the region when creating workshop-related resources.</p>
+</blockquote>
+</li>
+<li>
+<p>Preserve the configuration.</p>
 <p><img src="/images/2-preparation/4.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
-<ol start="5">
-<li>Select <strong>Create bucket</strong></li>
-</ol>
+</li>
+<li>
+<p>Select <strong>Create bucket</strong>.</p>
 <p><img src="/images/2-preparation/5.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
-<ol start="6">
-<li>Finish creating <strong>S3 bucket</strong></li>
-</ol>
+</li>
+<li>
+<p>Finish creating the <strong>S3 bucket</strong>.</p>
 <p><img src="/images/2-preparation/6.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
-<ol start="7">
-<li>Make an archive folder</li>
-</ol>
+</li>
+<li>
+<p>Create an archive folder.</p>
 <p><img src="/images/2-preparation/7.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
-<ol start="8">
-<li>
-<p>In the interface create a folder</p>
-<ul>
-<li>Enter the name <strong>Folder name</strong></li>
-<li>Select <strong>Create folder</strong></li>
-</ul>
 </li>
-</ol>
+<li>
+<p>In the folder creation interface:</p>
+<ul>
+<li>Enter the folder name.</li>
+<li>Select <strong>Create folder</strong>.</li>
+</ul>
 <p><img src="/images/2-preparation/8.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
-<ol start="9">
-<li>Finish creating a folder</li>
-</ol>
+</li>
+<li>
+<p>Finish creating the folder.</p>
 <p><img src="/images/2-preparation/9.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
-<ol start="10">
-<li>In the folder just created, execute <strong>Upload</strong> the downloaded and unzipped files.</li>
-</ol>
+</li>
+<li>
+<p>In the newly created folder, upload the downloaded and unzipped files.</p>
 <p><img src="/images/2-preparation/10.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
-<ol start="11">
-<li>
-<p>In the <strong>Upload</strong> section</p>
-<ul>
-<li>Select <strong>Add files</strong></li>
-<li>Select the files you want to upload.</li>
-<li>Select <strong>Upload</strong></li>
-</ul>
 </li>
-</ol>
+<li>
+<p>In the <strong>Upload</strong> section:</p>
+<ul>
+<li>Select <strong>Add files</strong>.</li>
+<li>Choose the files you want to upload.</li>
+<li>Select <strong>Upload</strong>.</li>
+</ul>
 <p><img src="/images/2-preparation/11.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
-<ol start="12">
-<li>Finish downloading files</li>
-</ol>
+</li>
+<li>
+<p>Finish uploading the files.</p>
 <p><img src="/images/2-preparation/12.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
-<ol start="13">
-<li>
-<p>Configure <strong>Permissions</strong> for <strong>S3 bucket</strong></p>
-<ul>
-<li>For <strong>Block public access (bucket settings)</strong></li>
-</ul>
 </li>
-</ol>
+<li>
+<p>Configure permissions for the <strong>S3 bucket</strong>:</p>
+<ul>
+<li>For <strong>Block public access (bucket settings)</strong>.</li>
+</ul>
 <p><img src="/images/2-preparation/13.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
-<ol start="14">
-<li>
-<p>Uncheck *<strong>Block all public access</strong></p>
-<ul>
-<li>Then, select <strong>Save changes</strong></li>
-</ul>
 </li>
-</ol>
+<li>
+<p>Uncheck <strong>Block all public access</strong> and then select <strong>Save changes</strong>.</p>
 <p><img src="/images/2-preparation/14.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
-<ol start="15">
-<li>Confirm with <strong>confirm</strong> and select <strong>Confirm</strong></li>
-</ol>
+</li>
+<li>
+<p>Confirm and select <strong>Confirm</strong>.</p>
 <p><img src="/images/2-preparation/15.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
-<ol start="16">
-<li>
-<p>Then configure <strong>Bucket policy</strong></p>
-<ul>
-<li>Select <strong>Edit</strong></li>
-</ul>
 </li>
-</ol>
+<li>
+<p>Configure the <strong>Bucket policy</strong>:</p>
+<ul>
+<li>Select <strong>Edit</strong>.</li>
+</ul>
 <p><img src="/images/2-preparation/16.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
-<ol start="17">
+</li>
 <li>
-<p>In the <strong>Edit bucket policy</strong> interface</p>
-<ul>
-<li>Enter the following code and replace it with your <strong>Bucket ARN</strong>.</li>
-</ul>
+<p>In the <strong>Edit bucket policy</strong> interface, enter the following code and replace <code>Bucket-Name</code> with your <strong>Bucket ARN</strong>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;Version&#34;</span>: <span style="color:#e6db74">&#34;2012-10-17&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;Statement&#34;</span>: [
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;Sid&#34;</span>: <span style="color:#e6db74">&#34;PublicReadGetObject&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;Effect&#34;</span>: <span style="color:#e6db74">&#34;Allow&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;Principal&#34;</span>: <span style="color:#e6db74">&#34;*&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;Action&#34;</span>: [
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#34;s3:GetObject&#34;</span>
+</span></span><span style="display:flex;"><span>            ],
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;Resources&#34;</span>: [
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#34;arn:aws:s3:::Bucket-Name/*&#34;</span>
+</span></span><span style="display:flex;"><span>            ]
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    ]
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><img src="/images/2-preparation/17.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
+</li>
+<li>
+<p>Select <strong>Save changes</strong>.</p>
+<p><img src="/images/2-preparation/18.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
+</li>
+<li>
+<p>Verify that the <strong>Public</strong> permissions are set.</p>
+<p><img src="/images/2-preparation/19.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
+</li>
+<li>
+<p>Copy the path information of <strong>lambda_function.zip</strong>.</p>
+<p><img src="/images/2-preparation/20.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
+</li>
+<li>
+<p>Copy the <strong>Object URL</strong> information of the file <strong>backup-lab.yaml</strong>.</p>
+<p><img src="/images/2-preparation/21.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
 </li>
 </ol>
-<pre tabindex="0"><code>{
-    &#34;Version&#34;: &#34;2012-10-17&#34;,
-    &#34;Statement&#34;: [
-        {
-            &#34;Sid&#34;: &#34;PublicReadGetObject&#34;,
-            &#34;Effect&#34;: &#34;Allow&#34;,
-            &#34;Principal&#34;: &#34;*&#34;,
-            &#34;Action&#34;: [
-                &#34;s3:GetObject&#34;
-            ],
-            &#34;Resources&#34;: [
-                &#34;arn:aws:s3:::Bucket-Name/*&#34;
-            ]
-        }
-    ]
-}
-</code></pre><p><img src="/images/2-preparation/17.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
-<ol start="18">
-<li>Select <strong>Save changes</strong></li>
-</ol>
-<p><img src="/images/2-preparation/18.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
-<ol start="19">
-<li>Check <strong>Permissions</strong> <strong>Public</strong></li>
-</ol>
-<p><img src="/images/2-preparation/19.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
-<ol start="20">
-<li>Copy the path information of <strong>lambda_function.zip</strong></li>
-</ol>
-<p><img src="/images/2-preparation/20.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
-<ol start="21">
-<li>Copy the <strong>Object URL</strong> information of the file <strong>backup-lab.yaml</strong></li>
-</ol>
-<p><img src="/images/2-preparation/21.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
 
 
 
@@ -830,19 +813,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1680277960"></script>
-    <script src="/js/perfect-scrollbar.min.js?1680277960"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1680277960"></script>
-    <script src="/js/jquery.sticky.js?1680277960"></script>
-    <script src="/js/featherlight.min.js?1680277960"></script>
-    <script src="/js/highlight.pack.js?1680277960"></script>
+    <script src="/js/clipboard.min.js?1696617273"></script>
+    <script src="/js/perfect-scrollbar.min.js?1696617273"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1696617273"></script>
+    <script src="/js/jquery.sticky.js?1696617273"></script>
+    <script src="/js/featherlight.min.js?1696617273"></script>
+    <script src="/js/highlight.pack.js?1696617273"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1680277960"></script>
-    <script src="/js/learn.js?1680277960"></script>
-    <script src="/js/hugo-learn.js?1680277960"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1696617273"></script>
+    <script src="/js/learn.js?1696617273"></script>
+    <script src="/js/hugo-learn.js?1696617273"></script>
 
-    <link href="/mermaid/mermaid.css?1680277960" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1680277960"></script>
+    <link href="/mermaid/mermaid.css?1696617273" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1696617273"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

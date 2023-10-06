@@ -6,74 +6,74 @@ chapter : false
 pre : " <b> 3. </b> "
 ---
 
-####  Tạo Backup plan
+#### Tạo Backup Plan
 
-Một chiến lược dự phòng được suy nghĩ kỹ lưỡng là chìa khóa dẫn đến thành công của một tổ chức và được xác định bởi nhiều yếu tố. Các yếu tố lớn nhất ảnh hưởng đến chiến lược sao lưu là Mục tiêu thời gian khôi phục (RTO) và Mục tiêu điểm khôi phục (RPO) được đặt cho khối lượng công việc. RTO và RPO được xác định dựa trên mức độ quan trọng của khối lượng công việc đối với doanh nghiệp, SLA đã được thỏa thuận và chi phí liên quan đến việc đạt được RTO và RPO. RTO và RPO phải cụ thể cho từng khối lượng công việc và không được đặt cho toàn bộ tổ chức / cơ sở hạ tầng.
+Để đảm bảo một chiến lược sao lưu hoàn hảo, cần có sự cân nhắc kỹ lưỡng và đa chiều. Thành công của một tổ chức phụ thuộc nhiều yếu tố, trong đó có chiến lược dự phòng. Các yếu tố chủ yếu ảnh hưởng đến chiến lược sao lưu bao gồm Mục tiêu thời gian khôi phục (RTO) và Mục tiêu điểm khôi phục (RPO), mà phải được xác định cho từng khối lượng công việc. RTO và RPO phụ thuộc vào mức độ quan trọng của công việc đối với doanh nghiệp, thỏa thuận về Dịch vụ Mức dịch vụ (SLA) và các yếu tố chi phí liên quan đến việc đạt được RTO và RPO. Chú ý rằng RTO và RPO cần được xác định cụ thể cho từng khối lượng công việc cụ thể, không phải cho toàn bộ tổ chức hoặc cơ sở hạ tầng.
 
-Trong phòng thí nghiệm này, bạn sẽ tạo một chiến lược sao lưu bằng cách tận dụng AWS Backup, một dịch vụ sao lưu được quản lý hoàn toàn có thể tự động sao lưu dữ liệu từ các nguồn dữ liệu khác nhau như EC2, EBS, Cơ sở dữ liệu RDS, v.v. Bạn có thể xem danh sách đầy đủ các dịch vụ được hỗ trợ tại [đây](https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html#supported-resources).
+#### Bước 1: Truy cập vào AWS Management Console
 
-1. Truy cập vào **AWS Management Console**
+- Mở **AWS Management Console**
+- Tìm và chọn **AWS Backup**
 
-   - Truy cập vào **AWS Management Console**
-   - Tìm và chọn **AWS Backup**
+![Bước 1](/images/3-backupplan/1.png?featherlight=false&width=90pc)
 
-![AWS Backup](/images/3-backupplan/1.png?featherlight=false&width=90pc)
+#### Bước 2: Chọn AWS Backup Plan
 
-2. Chọn **AWS Backup Plan**
+![Bước 2](/images/3-backupplan/2.png?featherlight=false&width=90pc)
 
-![AWS Backup](/images/3-backupplan/2.png?featherlight=false&width=90pc)
+#### Bước 3: Tạo kế hoạch sao lưu
 
-3. Trong giao diện **Create backup plan**, chọn **Build a new plan**
+- Trong giao diện **Create backup plan**, chọn **Build a new plan**
+- Đối với trường **Backup plan name**, nhập **`BACKUP-LAB`**
 
-   - Đối với **Backup plan name**, nhập **```BACKUP-LAB```**
-   
+![Bước 3](/images/3-backupplan/3.png?featherlight=false&width=90pc)
 
+#### Bước 4: Cấu hình quy tắc sao lưu
 
-![AWS Backup](/images/3-backupplan/3.png?featherlight=false&width=90pc)
+- Điền **RULE NAME** là **BACKUP-LAB-RULE**
+- Về phần **SCHEDULE**, mục **FREQUENCY**, chọn **Daily**
+- Chọn **Use backup window defaults - recommended** để sử dụng cài đặt mặc định cho cửa sổ sao lưu
+- Đối với **BACKUP VAULT**, chọn **CREATE NEW BACKUP VAULT**
 
-4. Trong phần **BACKUP RULE CONFIGURATION**
+![Bước 4](/images/3-backupplan/4.png?featherlight=false&width=90pc)
 
-   
-   - Nhập **RULE NAME** là **BACKUP-LAB-RULE**
-   - Đối với **SCHEDULE**, phần **FREQUENCY**, chọn **Daily**
-   - Chọn mặc định **Use backup window defaults - recommended**
-   - Đối với **BACKUP VAULT**, chọn **CREATE NEW BACKUP VAULT**
+#### Bước 5: Đặt tên cho Backup Vault
 
-![AWS Backup](/images/3-backupplan/4.png?featherlight=false&width=90pc)
+- Điền tên **BACKUP VAULT NAME** là **BACKUP-LAB-VAULT**
+- Chọn **(default) aws/backup**
+- Chọn **CREATE BACKUP VAULT**
 
-5. Đối với **BACKUP VAULT NAME**, nhập  **BACKUP-LAB-VAULT.**
+![Bước 5](/images/3-backupplan/5.png?featherlight=false&width=90pc)
 
-   - Chọn **(default) aws/backup.**
-   - Chọn **CREATE BACKUP VAULT**
+#### Bước 6: Thêm các cặp Key và Value cho tag
 
-![AWS Backup](/images/3-backupplan/5.png?featherlight=false&width=90pc)
+- Chọn **Create plan**
 
-6. Thêm **Key** và **Value** của tag.
+![Bước 6](/images/3-backupplan/6.png?featherlight=false&width=90pc)
 
-   - Chọn **Create plan**
+### Bước 7: Hoàn tất việc tạo Backup Plan
 
-![AWS Backup](/images/3-backupplan/6.png?featherlight=false&width=90pc)
+- Trong phần **RESOURCE ASSIGNMENTS**, chọn **ASSIGN RESOURCES**
 
-7. Hoàn thành tạo **Backup plan**
+![Bước 7](/images/3-backupplan/7.png?featherlight=false&width=90pc)
 
-   - Trong phần **RESOURCE ASSIGNMENTS**, chọn **ASSIGN RESOURCES.**
+#### Bước 8: Gán tài nguyên cho Backup Plan
 
-![AWS Backup](/images/3-backupplan/7.png?featherlight=false&width=90pc)
+- Điền **RESOURCE ASSIGNMENT NAME** là **BACKUP-RESOURCES**
+- Chọn **DEFAULT ROLE** cho **IAM ROLE**. Nếu role không tồn tại, AWS Backup sẽ tự động tạo một role mới với các quyền cần thiết
+- Thêm **Tag Key** và **Tag Value**
+- Chọn **ASSIGN RESOURCES**
 
-8. Đối với **RESOURCE ASSIGNMENT NAME**, nhập **BACKUP-RESOURCES**
+![Bước 8](/images/3-backupplan/8.png?featherlight=false&width=90pc)
 
-   - Chọn **DEFAULT ROLE** đối với **IAM ROLE**. Nếu role không tồn tại, AWS Backup sẽ tạo 1 role mới với permission cần thiết. 
-   - Sau đó thêm **Tag Key** và **Tag Value**
-   - Chọn **ASSIGN RESOURCES**
+#### Bước 9: Xác nhận và tiếp tục
 
-![AWS Backup](/images/3-backupplan/8.png?featherlight=false&width=90pc)
+- Xác nhận bằng cách chọn **Continue**
 
-9. Xác nhận chọn **Continue**
+![Bước 9](/images/3-backupplan/9.png?featherlight=false&width=90pc)
 
-![AWS Backup](/images/3-backupplan/9.png?featherlight=false&width=90pc)
+#### Bước 10: Hoàn tất việc gán tài nguyên
 
-10. Hoàn thành **ASSIGN RESOURCES**
-
-![AWS Backup](/images/3-backupplan/10.png?featherlight=false&width=90pc)
+![Bước 10](/images/3-backupplan/10.png?featherlight=false&width=90pc)
 
 

@@ -12,21 +12,21 @@
     <title>Deploy infrastructure :: DEPLOY AWS BACKUP TO THE SYSTEM</title>
 
     
-    <link href="/css/nucleus.css?1680277960" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1680277960" rel="stylesheet">
-    <link href="/css/hybrid.css?1680277960" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1680277960" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1680277960" rel="stylesheet">
-    <link href="/css/auto-complete.css?1680277960" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1680277960" rel="stylesheet">
-    <link href="/css/theme.css?1680277960" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1680277960" rel="stylesheet">
+    <link href="/css/nucleus.css?1696617273" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1696617273" rel="stylesheet">
+    <link href="/css/hybrid.css?1696617273" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1696617273" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1696617273" rel="stylesheet">
+    <link href="/css/auto-complete.css?1696617273" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1696617273" rel="stylesheet">
+    <link href="/css/theme.css?1696617273" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1696617273" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1680277960" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1696617273" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1680277960"></script>
+    <script src="/js/jquery-3.3.1.min.js?1696617273"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1680277960"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1680277960"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1696617273"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1696617273"></script>
 <script type="text/javascript">
     
         var baseurl = "";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1680277960"></script>
+<script type="text/javascript" src="/js/search.js?1696617273"></script>
 
     
   </div>
@@ -228,13 +228,13 @@
  
   
     
-    <li data-nav-id="/4-enablenoti/" title="Notification Settings" class="dd-item 
+    <li data-nav-id="/4-enablenoti/" title="Set up notifications" class="dd-item 
         
         
         
         ">
       <a href="/4-enablenoti/">
-           <b> 4. </b> Notification Settings
+           <b> 4. </b> Set up notifications
           
             <i class="fas fa-check read-icon"></i>
           
@@ -389,7 +389,7 @@
     <br>
     <br>
         <b> Last Updated </b> <br>
-        <i><font color=orange>31-03-2023</font></i>
+        <i><font color=orange>06-10-2023</font></i>
     </left>
     <left>
         <br>
@@ -484,75 +484,75 @@
 
 
 
-	<h4 id="deploy-infrastructure">Deploy infrastructure</h4>
-<p>In this exercise, you will become familiar with using <strong>AWS Backup</strong> to create a backup plan for active resources on AWS such as EBS Volumes, RDS Databases, DynamoDB Tables , or EFS File Systems. At the same time, you will also learn how to restore data from backups and automate the whole process.</p>
-<p>For many organizations, the data they own is one of the most valuable assets they have. Regular data backups are vital to the long-term success of any organization. However, a data backup is only valid if the data can be restored/restored from the backup. In the cloud, data backup and recovery testing is easier than in on-premises data centers. Automating this process with appropriate notification systems will ensure that an organization&rsquo;s data is backed up regularly, backups are checked to ensure expected recovery, and the right people notified in the event of an error.</p>
+	<h4 id="deploy-infrastructure">Deploy Infrastructure</h4>
+<p>In this exercise, you will become familiar with using <strong>AWS Backup</strong> to create a backup plan for active resources on AWS such as EBS Volumes, RDS Databases, DynamoDB Tables, or EFS File Systems. You will also learn how to restore data from backups and automate the entire process.</p>
+<p>For many organizations, the data they own is one of the most valuable assets they have. Regular data backups are vital for the long-term success of any organization. However, a data backup is only valid if the data can be successfully restored from the backup. In the cloud, data backup and recovery testing is easier compared to on-premises data centers. Automating this process with appropriate notification systems will ensure that an organization&rsquo;s data is backed up regularly, backups are verified for expected recovery, and the right personnel are notified in the event of an error.</p>
 <p><img src="/images/0/architecture.jpeg?featherlight=false&amp;width=60pc" alt="AWS Backup"></p>
 <ol>
 <li>
-<p>Access the <strong>AWS Management Console</strong> interface</p>
+<p>Access the <strong>AWS Management Console</strong> interface.</p>
 <ul>
-<li>Find and select <strong>CloudFormation</strong></li>
+<li>Find and select <strong>CloudFormation</strong>.</li>
 </ul>
 </li>
 </ol>
 <p><img src="/images/2-preparation/22.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
 <ol start="2">
-<li>Select <strong>Create stack</strong></li>
+<li>Select <strong>Create stack</strong>.</li>
 </ol>
 <p><img src="/images/2-preparation/23.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
 <ol start="3">
 <li>
-<p>In the <strong>Create stack</strong> interface</p>
+<p>In the <strong>Create stack</strong> interface:</p>
 <ul>
-<li>For <strong>PREREQUISITE - PREPARE TEMPLATE</strong>, Select <strong>Template is ready</strong></li>
-<li>For <strong>SPECIFY TEMPLATE</strong>, Select <strong>Amazon S3 URL</strong></li>
+<li>For <strong>PREREQUISITE - PREPARE TEMPLATE</strong>, select <strong>Template is ready</strong>.</li>
+<li>For <strong>SPECIFY TEMPLATE</strong>, select <strong>Amazon S3 URL</strong>.</li>
 <li>For <strong>Amazon S3 URL</strong>, enter the URL you created.</li>
-<li>Select <strong>Next</strong></li>
+<li>Select <strong>Next</strong>.</li>
 </ul>
 </li>
 </ol>
 <p><img src="/images/2-preparation/24.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
 <ol start="4">
 <li>
-<p>In the <strong>STACK NAME</strong> section, enter <strong>Buckup-plan</strong> (enter whatever you want)</p>
+<p>In the <strong>STACK NAME</strong> section, enter <strong>Backup-plan</strong> (or any desired name).</p>
 <ul>
-<li>Select <strong>AvailabilityZone</strong></li>
-<li>For <strong>LatestAmiId</strong>, choose default value.</li>
-<li>For <strong>NotificationEmail</strong>, enter your email to receive notifications.</li>
-<li>For <strong>S3BucketName</strong>, enter the <strong>S3 bucket</strong> name you created.</li>
-<li>For <strong>S3KeyLambdaZip</strong>, enter the path of <strong>lambda_function.zip</strong></li>
+<li>Select <strong>AvailabilityZone</strong>.</li>
+<li>For <strong>LatestAmiId</strong>, choose the default value.</li>
+<li>For <strong>NotificationEmail</strong>, enter your email address to receive notifications.</li>
+<li>For <strong>S3BucketName</strong>, enter the name of the <strong>S3 bucket</strong> you created.</li>
+<li>For <strong>S3KeyLambdaZip</strong>, enter the path of <strong>lambda_function.zip</strong>.</li>
 </ul>
 </li>
 </ol>
 <p><img src="/images/2-preparation/25.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
 <ol start="5">
-<li>In the <strong>CONFIGURE STACK OPTIONS</strong> section, Select <strong>Next</strong></li>
+<li>In the <strong>CONFIGURE STACK OPTIONS</strong> section, select <strong>Next</strong>.</li>
 </ol>
 <p><img src="/images/2-preparation/26.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
 <ol start="6">
 <li>
-<p>For <strong>CAPABILITIES</strong>, Select <strong>I acknowledge that AWS CloudFormation might create IAM resources.</strong></p>
+<p>For <strong>CAPABILITIES</strong>, select <strong>I acknowledge that AWS CloudFormation might create IAM resources</strong>.</p>
 <ul>
-<li>Select <strong>Submit</strong></li>
+<li>Select <strong>Submit</strong>.</li>
 </ul>
 </li>
 </ol>
 <p><img src="/images/2-preparation/27.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
 <ol start="7">
-<li>Complete Cloudformation stack creation</li>
+<li>Complete the CloudFormation stack creation.</li>
 </ol>
 <p><img src="/images/2-preparation/28.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
 <ol start="8">
-<li>Check <strong>Output</strong> of the CloudFormation stack</li>
+<li>Check the <strong>Output</strong> of the CloudFormation stack.</li>
 </ol>
 <p><img src="/images/2-preparation/29.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
 <ol start="9">
-<li>Select <strong>Value</strong> of <strong>ApplicationURL</strong></li>
+<li>Select the <strong>Value</strong> of <strong>ApplicationURL</strong>.</li>
 </ol>
 <p><img src="/images/2-preparation/30.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
 <ol start="10">
-<li>Check your email and you will receive a notification email.</li>
+<li>Check your email; you will receive a notification email.</li>
 </ol>
 <p><img src="/images/2-preparation/31.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
 <ol start="11">
@@ -757,19 +757,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1680277960"></script>
-    <script src="/js/perfect-scrollbar.min.js?1680277960"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1680277960"></script>
-    <script src="/js/jquery.sticky.js?1680277960"></script>
-    <script src="/js/featherlight.min.js?1680277960"></script>
-    <script src="/js/highlight.pack.js?1680277960"></script>
+    <script src="/js/clipboard.min.js?1696617273"></script>
+    <script src="/js/perfect-scrollbar.min.js?1696617273"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1696617273"></script>
+    <script src="/js/jquery.sticky.js?1696617273"></script>
+    <script src="/js/featherlight.min.js?1696617273"></script>
+    <script src="/js/highlight.pack.js?1696617273"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1680277960"></script>
-    <script src="/js/learn.js?1680277960"></script>
-    <script src="/js/hugo-learn.js?1680277960"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1696617273"></script>
+    <script src="/js/learn.js?1696617273"></script>
+    <script src="/js/hugo-learn.js?1696617273"></script>
 
-    <link href="/mermaid/mermaid.css?1680277960" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1680277960"></script>
+    <link href="/mermaid/mermaid.css?1696617273" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1696617273"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

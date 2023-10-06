@@ -12,21 +12,21 @@
     <title>Test Restore :: DEPLOY AWS BACKUP TO THE SYSTEM</title>
 
     
-    <link href="/css/nucleus.css?1680277960" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1680277960" rel="stylesheet">
-    <link href="/css/hybrid.css?1680277960" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1680277960" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1680277960" rel="stylesheet">
-    <link href="/css/auto-complete.css?1680277960" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1680277960" rel="stylesheet">
-    <link href="/css/theme.css?1680277960" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1680277960" rel="stylesheet">
+    <link href="/css/nucleus.css?1696617273" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1696617273" rel="stylesheet">
+    <link href="/css/hybrid.css?1696617273" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1696617273" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1696617273" rel="stylesheet">
+    <link href="/css/auto-complete.css?1696617273" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1696617273" rel="stylesheet">
+    <link href="/css/theme.css?1696617273" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1696617273" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1680277960" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1696617273" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1680277960"></script>
+    <script src="/js/jquery-3.3.1.min.js?1696617273"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1680277960"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1680277960"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1696617273"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1696617273"></script>
 <script type="text/javascript">
     
         var baseurl = "";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1680277960"></script>
+<script type="text/javascript" src="/js/search.js?1696617273"></script>
 
     
   </div>
@@ -228,13 +228,13 @@
  
   
     
-    <li data-nav-id="/4-enablenoti/" title="Notification Settings" class="dd-item 
+    <li data-nav-id="/4-enablenoti/" title="Set up notifications" class="dd-item 
         
         
         
         ">
       <a href="/4-enablenoti/">
-           <b> 4. </b> Notification Settings
+           <b> 4. </b> Set up notifications
           
             <i class="fas fa-check read-icon"></i>
           
@@ -389,7 +389,7 @@
     <br>
     <br>
         <b> Last Updated </b> <br>
-        <i><font color=orange>31-03-2023</font></i>
+        <i><font color=orange>06-10-2023</font></i>
     </left>
     <left>
         <br>
@@ -479,99 +479,83 @@
 
 
 	<h4 id="test-restore">Test Restore</h4>
-<p>A backup of a data source is useful only if data can be restored from it. If backups aren’t tested, you might find yourself in a situation where your workload has been impacted by an event and you need to recover data from your backups, but the backups are faulty and restoring data is not possible, or exceeds your RTO. To avoid such situations, backups taken should always be tested to ensure they can be used to recover data.</p>
+<p>A backup of a data source is useful only if data can be restored from it. If backups aren&rsquo;t tested, you might find yourself in a situation where your workload has been impacted by an event and you need to recover data from your backups, but the backups are faulty and restoring data is not possible, or exceeds your RTO. To avoid such situations, backups taken should always be tested to ensure they can be used to recover data.</p>
 <p>In this lab, you will leverage AWS Lambda to automatically test all backups created to ensure recovery is successful, and clean up any resources that were created during the restore test process to save on cost. This will ensure you are aware of any faulty backups that might be unusable to recover data from. Automating this process with notifications enabled will ensure there is minimal operational overhead and that the Operations teams are aware of backup and restore statuses.</p>
 <p>When testing recovery, it is important to define the criteria for successful data recovery from the restored resource. This will depend on a variety of factors such as the data source, the type of data, the margin for error, etc. Organizations and workload owners are responsible for defining this success criteria.</p>
-<p>The EC2 Instance that was created as part of this lab is running a simple web application. For this use-case, I have determined that data recovery is successful if the application is running on the restored resource as well. If the restored resource is missing any application critical files, the healthchecks made against the restored resource will fail, indicating an issue with the backup.</p>
+<p>The EC2 Instance that was created as part of this lab is running a simple web application. For this use-case, I have determined that data recovery is successful if the application is running on the restored resource as well. If the restored resource is missing any application-critical files, the health checks made against the restored resource will fail, indicating an issue with the backup.</p>
 <h4 id="testing-recovery">Testing Recovery</h4>
-<p>For the purpose of this lab, we will simulate the action performed by AWS Backup when creating backups of data sources by creating an on-demand backup to see if the backup is successful. Once the backup is completed, you will receive a notification stating that the backup job has completed and the lambda function will get invoked. The Lambda function will make API calls to start restoring data from the backup that was created. This will help ascertain that the backup is good. Once the restore process has been completed, you will receive another notification confirming this, and the lambda function will get invoked again to clean up new resources that were created as part of the restore. Once the cleanup has been completed, you will receive one last notification confirming cleanup.</p>
+<p>For the purpose of this lab, we will simulate the action performed by AWS Backup when creating backups of data sources by creating an on-demand backup to see if the backup is successful. Once the backup is completed, you will receive a notification stating that the backup job has completed, and the lambda function will get invoked. The Lambda function will make API calls to start restoring data from the backup that was created. This will help ascertain that the backup is good. Once the restore process has been completed, you will receive another notification confirming this, and the lambda function will get invoked again to clean up new resources that were created as part of the restore. Once the cleanup has been completed, you will receive one last notification confirming cleanup.</p>
 <ol>
 <li>
 <p>Access <strong>AWS Management Console</strong></p>
 <ul>
-<li>Go to <strong>AWS Backup</strong> interface</li>
-<li>Select <strong>CREATE AN ON-DEMAND BACKUP</strong></li>
+<li>Go to the <strong>AWS Backup</strong> interface.</li>
+<li>Select <strong>CREATE AN ON-DEMAND BACKUP</strong>.</li>
 </ul>
 </li>
 </ol>
 <p><img src="/images/5-test/1.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
 <ol start="2">
 <li>
-<p>In <strong>RESOURCE TYPE</strong> section, select <strong>EC2</strong>, paste <strong>Instance ID</strong> from <strong>Output</strong> of CloudFormation Stack.</p>
+<p>In the <strong>RESOURCE TYPE</strong> section, select <strong>EC2</strong> and paste the <strong>Instance ID</strong> from the <strong>Output</strong> of the CloudFormation Stack.</p>
 <ul>
 <li>In <strong>BACKUP WINDOW</strong>, select <strong>CREATE BACKUP NOW</strong>.</li>
-<li>For <strong>Backup Vault</strong>, select <strong>BACKUP-LAB-VAULT.</strong></li>
-<li>Default <strong>default IAM role</strong></li>
-<li>Select <strong>CREATE ON-DEMAND BACKUP</strong></li>
+<li>For <strong>Backup Vault</strong>, select <strong>BACKUP-LAB-VAULT</strong>.</li>
+<li>Use the default <strong>default IAM role</strong>.</li>
+<li>Select <strong>CREATE ON-DEMAND BACKUP</strong>.</li>
 </ul>
 </li>
 </ol>
 <p><img src="/images/5-test/2.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
 <ol start="3">
-<li>In <strong>Jobs</strong>, select <strong>Backup jobs</strong>, wait for the status to change to <strong>Completed</strong></li>
+<li>In <strong>Jobs</strong>, select <strong>Backup jobs</strong> and wait for the status to change to <strong>Completed</strong>.</li>
 </ol>
 <p><img src="/images/5-test/3.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
 <ul>
-<li>Click <strong>Backup jobs ID</strong></li>
+<li>Click the <strong>Backup job ID</strong>.</li>
 </ul>
 <ol start="4">
-<li>Select <strong>Backup jobs ID</strong></li>
+<li>Select the <strong>Backup job ID</strong> and view details of the <strong>Backup job</strong>.</li>
 </ol>
-<ul>
-<li>View details <strong>Backup jobs</strong></li>
-</ul>
 <p><img src="/images/5-test/4.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
 <ol start="5">
-<li>Check the email you received the notification.</li>
+<li>Check the email you received for the notification.</li>
 </ol>
 <p><img src="/images/5-test/5.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
 <ol start="6">
-<li>Check email about <strong>Restore Test Status</strong></li>
+<li>Check the email about the <strong>Restore Test Status</strong>.</li>
 </ol>
 <p><img src="/images/5-test/6.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
 <ol start="7">
-<li>View information <strong>Restore jobs</strong>, select <strong>Restore jobs ID</strong></li>
+<li>View information about <strong>Restore jobs</strong> and select the <strong>Restore job ID</strong>.</li>
 </ol>
 <p><img src="/images/5-test/7.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
 <ol start="8">
-<li>View details <strong>Restore jobs</strong></li>
+<li>View details of the <strong>Restore job</strong>.</li>
 </ol>
 <p><img src="/images/5-test/8.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
 <ol start="9">
 <li>
-<p>Return to <strong>AWS Management Console</strong> interface</p>
+<p>Return to the <strong>AWS Management Console</strong> interface.</p>
 <ul>
-<li>Find and select <strong>CloudWatch</strong></li>
+<li>Find and select <strong>CloudWatch</strong>.</li>
 </ul>
 </li>
 </ol>
 <p><img src="/images/5-test/9.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
 <ol start="10">
-<li>
-<p>In the <strong>CloudWatch</strong> interface</p>
-<ul>
-<li>Select <strong>Logs</strong></li>
-<li>Select <strong>Log groups</strong></li>
-<li>Select <strong>Log group</strong> of the lab. (<strong><code>/aws/lambda/RestoreTestFunction-&lt;YOUR CLOUDFORMATION STACK NAME&gt;</code></strong>)</li>
-</ul>
-</li>
+<li>In the <strong>CloudWatch</strong> interface, select <strong>Logs</strong> and then <strong>Log groups</strong>. Find the <strong>Log group</strong> of the lab (<strong><code>/aws/lambda/RestoreTestFunction-&lt;YOUR CLOUDFORMATION STACK NAME&gt;</code></strong>).</li>
 </ol>
 <p><img src="/images/5-test/10.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
 <ol start="11">
-<li>
-<p>In the <strong>Log groups</strong> interface</p>
-<ul>
-<li>Select <strong>Log streams</strong></li>
-<li>Select <strong>Log stream</strong> of the lab.</li>
-</ul>
-</li>
+<li>In the <strong>Log groups</strong> interface, select <strong>Log streams</strong> and then the <strong>Log stream</strong> of the lab.</li>
 </ol>
 <p><img src="/images/5-test/11.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
 <ol start="12">
-<li>View details <strong>Log Events</strong></li>
+<li>View details of the <strong>Log Events</strong>.</li>
 </ol>
 <p><img src="/images/5-test/12.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
-<p>So you have completed <strong>DEPLOY AWS BACKUP TO THE SYSTEM</strong></p>
+<p>You have now completed the <strong>DEPLOY AWS BACKUP TO THE SYSTEM</strong>.</p>
 
 
 
@@ -753,7 +737,7 @@
 	 
 	 
 		
-			<a class="nav nav-prev" href="/4-enablenoti/" title="Notification Settings"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/4-enablenoti/" title="Set up notifications"> <i class="fa fa-chevron-left"></i></a>
 		
 		
 			<a class="nav nav-next" href="/6-cleanup/" title="Clean up resources" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
@@ -766,19 +750,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1680277960"></script>
-    <script src="/js/perfect-scrollbar.min.js?1680277960"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1680277960"></script>
-    <script src="/js/jquery.sticky.js?1680277960"></script>
-    <script src="/js/featherlight.min.js?1680277960"></script>
-    <script src="/js/highlight.pack.js?1680277960"></script>
+    <script src="/js/clipboard.min.js?1696617273"></script>
+    <script src="/js/perfect-scrollbar.min.js?1696617273"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1696617273"></script>
+    <script src="/js/jquery.sticky.js?1696617273"></script>
+    <script src="/js/featherlight.min.js?1696617273"></script>
+    <script src="/js/highlight.pack.js?1696617273"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1680277960"></script>
-    <script src="/js/learn.js?1680277960"></script>
-    <script src="/js/hugo-learn.js?1680277960"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1696617273"></script>
+    <script src="/js/learn.js?1696617273"></script>
+    <script src="/js/hugo-learn.js?1696617273"></script>
 
-    <link href="/mermaid/mermaid.css?1680277960" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1680277960"></script>
+    <link href="/mermaid/mermaid.css?1696617273" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1696617273"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

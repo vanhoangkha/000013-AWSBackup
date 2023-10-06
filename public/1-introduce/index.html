@@ -12,21 +12,21 @@
     <title>Introduction :: DEPLOY AWS BACKUP TO THE SYSTEM</title>
 
     
-    <link href="/css/nucleus.css?1680277960" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1680277960" rel="stylesheet">
-    <link href="/css/hybrid.css?1680277960" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1680277960" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1680277960" rel="stylesheet">
-    <link href="/css/auto-complete.css?1680277960" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1680277960" rel="stylesheet">
-    <link href="/css/theme.css?1680277960" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1680277960" rel="stylesheet">
+    <link href="/css/nucleus.css?1696617273" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1696617273" rel="stylesheet">
+    <link href="/css/hybrid.css?1696617273" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1696617273" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1696617273" rel="stylesheet">
+    <link href="/css/auto-complete.css?1696617273" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1696617273" rel="stylesheet">
+    <link href="/css/theme.css?1696617273" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1696617273" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1680277960" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1696617273" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1680277960"></script>
+    <script src="/js/jquery-3.3.1.min.js?1696617273"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1680277960"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1680277960"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1696617273"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1696617273"></script>
 <script type="text/javascript">
     
         var baseurl = "";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1680277960"></script>
+<script type="text/javascript" src="/js/search.js?1696617273"></script>
 
     
   </div>
@@ -228,13 +228,13 @@
  
   
     
-    <li data-nav-id="/4-enablenoti/" title="Notification Settings" class="dd-item 
+    <li data-nav-id="/4-enablenoti/" title="Set up notifications" class="dd-item 
         
         
         
         ">
       <a href="/4-enablenoti/">
-           <b> 4. </b> Notification Settings
+           <b> 4. </b> Set up notifications
           
             <i class="fas fa-check read-icon"></i>
           
@@ -389,7 +389,7 @@
     <br>
     <br>
         <b> Last Updated </b> <br>
-        <i><font color=orange>31-03-2023</font></i>
+        <i><font color=orange>06-10-2023</font></i>
     </left>
     <left>
         <br>
@@ -479,19 +479,19 @@
 
 
 	<h4 id="overview">Overview</h4>
-<p>In this exercise, you will become familiar with using <strong>AWS Backup</strong> to create a backup plan for active resources on AWS such as EBS Volumes, RDS Databases, DynamoDB Tables , or EFS File Systems. At the same time, you will also learn how to restore data from backups and automate the whole process.</p>
-<p>For many organizations, the data they own is one of the most valuable assets they have. Regular data backups are vital to the long-term success of any organization. However, a data backup is only valid if the data can be restored/restored from the backup. In the cloud, data backup and recovery testing is easier than in on-premises data centers. Automating this process with appropriate notification systems will ensure that an organization&rsquo;s data is backed up regularly, backups are checked to ensure expected recovery, and the right people notified in the event of an error.</p>
+<p>In this exercise, you will become familiar with using <strong>AWS Backup</strong> to create a backup plan for active resources on AWS such as EBS Volumes, RDS Databases, DynamoDB Tables, or EFS File Systems. You will also learn how to restore data from backups and automate the entire process.</p>
+<p>For many organizations, the data they own is one of the most valuable assets. Regular data backups are vital for the long-term success of any organization. However, a data backup is only valuable if the data can be successfully restored from it. In the cloud, data backup and recovery testing is easier compared to on-premises data centers. Automating this process with appropriate notification systems ensures that an organization&rsquo;s data is regularly backed up, backups are validated for expected recovery, and the right people are notified in case of errors.</p>
 <p><img src="/images/0/architecture.jpeg?featherlight=false&amp;width=60pc" alt="AWS Backup"></p>
 <h4 id="target">Target</h4>
 <ul>
-<li>Create Backup Plan for the system to automate the backup.</li>
-<li>Test backup/restore operation.</li>
-<li>Test notifications when processes are complete.</li>
+<li>Create a Backup Plan to automate the backup system.</li>
+<li>Test backup and restore operations.</li>
+<li>Test notifications upon completion of processes.</li>
 </ul>
 <h4 id="aws-backup">AWS Backup</h4>
-<p><strong>AWS Backup</strong> is an AWS-managed data protection service that allows you to centralize and automate data protection for AWS resources in the cloud and on-prem. With AWS Backup, you can set up and automate your backup policies and backup plans from a single place.</p>
+<p><strong>AWS Backup</strong> is an AWS-managed data protection service that centralizes and automates data protection for AWS resources, both in the cloud and on-premises. With AWS Backup, you can establish and automate backup policies and plans from a single location.</p>
 <h4 id="aws-simple-notification-service-sns">AWS Simple Notification Service (SNS)</h4>
-<p><strong>AWS SNS</strong> is a service that allows you to send notifications from publishers to subscribers. Publisher communicates asynchronously with subscribers through a topic. That is, Publisher will send a notification to the topic, then that topic will send that notice to subscribers who are subscribed to that topic.</p>
+<p><strong>AWS SNS</strong> is a service enabling the sending of notifications from publishers to subscribers. Publishers communicate asynchronously with subscribers through topics. In other words, a publisher sends a notification to a topic, which then relays the notice to subscribers subscribed to that topic.</p>
 
 
 
@@ -683,19 +683,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1680277960"></script>
-    <script src="/js/perfect-scrollbar.min.js?1680277960"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1680277960"></script>
-    <script src="/js/jquery.sticky.js?1680277960"></script>
-    <script src="/js/featherlight.min.js?1680277960"></script>
-    <script src="/js/highlight.pack.js?1680277960"></script>
+    <script src="/js/clipboard.min.js?1696617273"></script>
+    <script src="/js/perfect-scrollbar.min.js?1696617273"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1696617273"></script>
+    <script src="/js/jquery.sticky.js?1696617273"></script>
+    <script src="/js/featherlight.min.js?1696617273"></script>
+    <script src="/js/highlight.pack.js?1696617273"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1680277960"></script>
-    <script src="/js/learn.js?1680277960"></script>
-    <script src="/js/hugo-learn.js?1680277960"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1696617273"></script>
+    <script src="/js/learn.js?1696617273"></script>
+    <script src="/js/hugo-learn.js?1696617273"></script>
 
-    <link href="/mermaid/mermaid.css?1680277960" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1680277960"></script>
+    <link href="/mermaid/mermaid.css?1696617273" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1696617273"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

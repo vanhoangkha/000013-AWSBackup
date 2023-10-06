@@ -9,24 +9,24 @@
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>Notification Settings :: DEPLOY AWS BACKUP TO THE SYSTEM</title>
+    <title>Set up notifications :: DEPLOY AWS BACKUP TO THE SYSTEM</title>
 
     
-    <link href="/css/nucleus.css?1680277960" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1680277960" rel="stylesheet">
-    <link href="/css/hybrid.css?1680277960" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1680277960" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1680277960" rel="stylesheet">
-    <link href="/css/auto-complete.css?1680277960" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1680277960" rel="stylesheet">
-    <link href="/css/theme.css?1680277960" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1680277960" rel="stylesheet">
+    <link href="/css/nucleus.css?1696617273" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1696617273" rel="stylesheet">
+    <link href="/css/hybrid.css?1696617273" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1696617273" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1696617273" rel="stylesheet">
+    <link href="/css/auto-complete.css?1696617273" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1696617273" rel="stylesheet">
+    <link href="/css/theme.css?1696617273" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1696617273" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1680277960" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1696617273" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1680277960"></script>
+    <script src="/js/jquery-3.3.1.min.js?1696617273"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1680277960"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1680277960"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1696617273"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1696617273"></script>
 <script type="text/javascript">
     
         var baseurl = "";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1680277960"></script>
+<script type="text/javascript" src="/js/search.js?1696617273"></script>
 
     
   </div>
@@ -228,13 +228,13 @@
  
   
     
-    <li data-nav-id="/4-enablenoti/" title="Notification Settings" class="dd-item 
+    <li data-nav-id="/4-enablenoti/" title="Set up notifications" class="dd-item 
         parent
         active
         
         ">
       <a href="/4-enablenoti/">
-           <b> 4. </b> Notification Settings
+           <b> 4. </b> Set up notifications
           
             <i class="fas fa-check read-icon"></i>
           
@@ -389,7 +389,7 @@
     <br>
     <br>
         <b> Last Updated </b> <br>
-        <i><font color=orange>31-03-2023</font></i>
+        <i><font color=orange>06-10-2023</font></i>
     </left>
     <left>
         <br>
@@ -435,7 +435,7 @@
             
           
           
-            <a href='/'>Deploy AWS Backup to the System</a> > Notification Settings
+            <a href='/'>Deploy AWS Backup to the System</a> > Set up notifications
           
         
           
@@ -470,7 +470,7 @@
           
             <h1>
               
-              Notification Settings
+              Set up notifications
             </h1>
           
 
@@ -483,16 +483,17 @@
 <ol>
 <li>Open a Terminal with access to the AWS CLI. Make sure that the CLI is up to date and that you have AWS Administrator Permissions to run AWS CLI commands.</li>
 </ol>
-
-<div class="notices note" ><p>To do this step, you need to have <strong>AWS CLI</strong> installed on your machine. Please refer to this <a href="https://000011.awsstudygroup.com/">000011 - Use AWS CLI on Windows/Ubuntu</a> for installation instructions.</p>
-</div>
-
+<blockquote>
+<p><strong>Note:</strong> To do this step, you need to have <strong>AWS CLI</strong> installed on your machine. Please refer to this <a href="https://000011.awsstudygroup.com/">000011 - Use AWS CLI on Windows/Ubuntu</a> for installation instructions.</p>
+</blockquote>
 <ul>
-<li>Edit the following AWS CLI command and include the ARN of the SNS TOPIC you created. Replace with the SNS TOPIC ARN obtained from the CloudFormation Stack output.</li>
-</ul>
-<pre tabindex="0"><code>aws backup put-backup-vault-notifications --region ap-southeast-1 --backup-vault-name BACKUP-LAB-VAULT --backup-vault-events BACKUP_JOB_COMPLETED RESTORE_JOB_COMPLETED --sns-topic-arn &lt;YOUR SNS TOPIC ARN &gt;
-</code></pre><ul>
-<li>After editing, run the above command, it will turn on notifications with messages published to SNS TOPIC every time a backup or restore job is done. This will ensure the Operations Team is aware of any errors when backing up or restoring data.</li>
+<li>
+<p>Edit the following AWS CLI command and include the ARN of the SNS TOPIC you created. Replace with the SNS TOPIC ARN obtained from the CloudFormation Stack output.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>aws backup put-backup-vault-notifications --region ap-southeast-1 --backup-vault-name BACKUP-LAB-VAULT --backup-vault-events BACKUP_JOB_COMPLETED RESTORE_JOB_COMPLETED --sns-topic-arn &lt;YOUR SNS TOPIC ARN&gt;
+</span></span></code></pre></div></li>
+<li>
+<p>After editing, run the above command, it will turn on notifications with messages published to SNS TOPIC every time a backup or restore job is done. This will ensure the Operations Team is aware of any errors when backing up or restoring data.</p>
+</li>
 </ul>
 <p><img src="/images/4-notification/1.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
 <ol start="2">
@@ -500,11 +501,13 @@
 </ol>
 <p><img src="/images/4-notification/2.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
 <ol start="3">
-<li>You can verify that notifications are enabled by running the following command. The output will include a section called SNSTopicArn, followed by the ARN of the generated SNS Topic.</li>
+<li>
+<p>You can verify that notifications are enabled by running the following command. The output will include a section called SNSTopicArn, followed by the ARN of the generated SNS Topic.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>aws backup get-backup-vault-notifications --backup-vault-name BACKUP-LAB-VAULT --region ap-southeast-1
+</span></span></code></pre></div></li>
 </ol>
-<pre tabindex="0"><code>aws backup get-backup-vault-notifications --backup-vault-name BACKUP-LAB-VAULT --region ap-southeast-1
-</code></pre><p><img src="/images/4-notification/3.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
-<p>You have now successfully enabled notifications for BACKUP-LAB-VAULT, ensuring that the Operations team is aware of the completion of the backup and restore operations related to this vault and any associated errors. to those activities.</p>
+<p><img src="/images/4-notification/3.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
+<p>You have now successfully enabled notifications for BACKUP-LAB-VAULT, ensuring that the Operations team is aware of the completion of the backup and restore operations related to this vault and any associated errors.</p>
 
 
 
@@ -699,19 +702,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1680277960"></script>
-    <script src="/js/perfect-scrollbar.min.js?1680277960"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1680277960"></script>
-    <script src="/js/jquery.sticky.js?1680277960"></script>
-    <script src="/js/featherlight.min.js?1680277960"></script>
-    <script src="/js/highlight.pack.js?1680277960"></script>
+    <script src="/js/clipboard.min.js?1696617273"></script>
+    <script src="/js/perfect-scrollbar.min.js?1696617273"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1696617273"></script>
+    <script src="/js/jquery.sticky.js?1696617273"></script>
+    <script src="/js/featherlight.min.js?1696617273"></script>
+    <script src="/js/highlight.pack.js?1696617273"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1680277960"></script>
-    <script src="/js/learn.js?1680277960"></script>
-    <script src="/js/hugo-learn.js?1680277960"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1696617273"></script>
+    <script src="/js/learn.js?1696617273"></script>
+    <script src="/js/hugo-learn.js?1696617273"></script>
 
-    <link href="/mermaid/mermaid.css?1680277960" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1680277960"></script>
+    <link href="/mermaid/mermaid.css?1696617273" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1696617273"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
