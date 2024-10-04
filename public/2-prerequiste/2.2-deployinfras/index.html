@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.99.1" />
+    <meta name="generator" content="Hugo 0.133.0">
     <meta name="description" content="">
 <meta name="author" content="journeyoftheaverageguy@gmail.com">
 
@@ -12,21 +12,21 @@
     <title>Deploy infrastructure :: DEPLOY AWS BACKUP TO THE SYSTEM</title>
 
     
-    <link href="/css/nucleus.css?1704871260" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1704871260" rel="stylesheet">
-    <link href="/css/hybrid.css?1704871260" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1704871260" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1704871260" rel="stylesheet">
-    <link href="/css/auto-complete.css?1704871260" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1704871260" rel="stylesheet">
-    <link href="/css/theme.css?1704871260" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1704871260" rel="stylesheet">
+    <link href="/css/nucleus.css?1728030373" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1728030373" rel="stylesheet">
+    <link href="/css/hybrid.css?1728030373" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1728030373" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1728030373" rel="stylesheet">
+    <link href="/css/auto-complete.css?1728030373" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1728030373" rel="stylesheet">
+    <link href="/css/theme.css?1728030373" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1728030373" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1704871260" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1728030373" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1704871260"></script>
+    <script src="/js/jquery-3.3.1.min.js?1728030373"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1704871260"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1704871260"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1728030373"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1728030373"></script>
 <script type="text/javascript">
     
-        var baseurl = "";
+        var baseurl = "\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1704871260"></script>
+<script type="text/javascript" src="/js/search.js?1728030373"></script>
 
     
   </div>
@@ -168,7 +168,7 @@
   
     
     <li data-nav-id="/2-prerequiste/2.2-deployinfras/" title="Deploy infrastructure" class="dd-item 
-        parent
+        
         active
         
         ">
@@ -389,7 +389,7 @@
     <br>
     <br>
         <b> Last Updated </b> <br>
-        <i><font color=orange>10-01-2024</font></i>
+        <i><font color=orange>04-10-2024</font></i>
     </left>
     <left>
         <br>
@@ -487,7 +487,7 @@
 	<h4 id="deploy-infrastructure">Deploy Infrastructure</h4>
 <p>In this exercise, you will become familiar with using <strong>AWS Backup</strong> to create a backup plan for active resources on AWS such as EBS Volumes, RDS Databases, DynamoDB Tables, or EFS File Systems. You will also learn how to restore data from backups and automate the entire process.</p>
 <p>For many organizations, the data they own is one of the most valuable assets they have. Regular data backups are vital for the long-term success of any organization. However, a data backup is only valid if the data can be successfully restored from the backup. In the cloud, data backup and recovery testing is easier compared to on-premises data centers. Automating this process with appropriate notification systems will ensure that an organization&rsquo;s data is backed up regularly, backups are verified for expected recovery, and the right personnel are notified in the event of an error.</p>
-<p><img src="/images/0/architecture.jpeg?featherlight=false&amp;width=60pc" alt="AWS Backup"></p>
+<p><img alt="AWS Backup" src="/images/0/architecture.jpeg?featherlight=false&width=60pc"></p>
 <ol>
 <li>
 <p>Access the <strong>AWS Management Console</strong> interface.</p>
@@ -496,11 +496,11 @@
 </ul>
 </li>
 </ol>
-<p><img src="/images/2-preparation/22.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
+<p><img alt="AWS Backup" src="/images/2-preparation/22.png?featherlight=false&width=90pc"></p>
 <ol start="2">
 <li>Select <strong>Create stack</strong>.</li>
 </ol>
-<p><img src="/images/2-preparation/23.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
+<p><img alt="AWS Backup" src="/images/2-preparation/23.png?featherlight=false&width=90pc"></p>
 <ol start="3">
 <li>
 <p>In the <strong>Create stack</strong> interface:</p>
@@ -512,7 +512,7 @@
 </ul>
 </li>
 </ol>
-<p><img src="/images/2-preparation/24.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
+<p><img alt="AWS Backup" src="/images/2-preparation/24.png?featherlight=false&width=90pc"></p>
 <ol start="4">
 <li>
 <p>In the <strong>STACK NAME</strong> section, enter <strong>Backup-plan</strong> (or any desired name).</p>
@@ -525,11 +525,11 @@
 </ul>
 </li>
 </ol>
-<p><img src="/images/2-preparation/25.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
+<p><img alt="AWS Backup" src="/images/2-preparation/25.png?featherlight=false&width=90pc"></p>
 <ol start="5">
 <li>In the <strong>CONFIGURE STACK OPTIONS</strong> section, select <strong>Next</strong>.</li>
 </ol>
-<p><img src="/images/2-preparation/26.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
+<p><img alt="AWS Backup" src="/images/2-preparation/26.png?featherlight=false&width=90pc"></p>
 <ol start="6">
 <li>
 <p>For <strong>CAPABILITIES</strong>, select <strong>I acknowledge that AWS CloudFormation might create IAM resources</strong>.</p>
@@ -538,27 +538,27 @@
 </ul>
 </li>
 </ol>
-<p><img src="/images/2-preparation/27.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
+<p><img alt="AWS Backup" src="/images/2-preparation/27.png?featherlight=false&width=90pc"></p>
 <ol start="7">
 <li>Complete the CloudFormation stack creation.</li>
 </ol>
-<p><img src="/images/2-preparation/28.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
+<p><img alt="AWS Backup" src="/images/2-preparation/28.png?featherlight=false&width=90pc"></p>
 <ol start="8">
 <li>Check the <strong>Output</strong> of the CloudFormation stack.</li>
 </ol>
-<p><img src="/images/2-preparation/29.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
+<p><img alt="AWS Backup" src="/images/2-preparation/29.png?featherlight=false&width=90pc"></p>
 <ol start="9">
 <li>Select the <strong>Value</strong> of <strong>ApplicationURL</strong>.</li>
 </ol>
-<p><img src="/images/2-preparation/30.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
+<p><img alt="AWS Backup" src="/images/2-preparation/30.png?featherlight=false&width=90pc"></p>
 <ol start="10">
 <li>Check your email; you will receive a notification email.</li>
 </ol>
-<p><img src="/images/2-preparation/31.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
+<p><img alt="AWS Backup" src="/images/2-preparation/31.png?featherlight=false&width=90pc"></p>
 <ol start="11">
 <li>Perform email confirmation.</li>
 </ol>
-<p><img src="/images/2-preparation/32.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
+<p><img alt="AWS Backup" src="/images/2-preparation/32.png?featherlight=false&width=90pc"></p>
 
 
 
@@ -757,19 +757,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1704871260"></script>
-    <script src="/js/perfect-scrollbar.min.js?1704871260"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1704871260"></script>
-    <script src="/js/jquery.sticky.js?1704871260"></script>
-    <script src="/js/featherlight.min.js?1704871260"></script>
-    <script src="/js/highlight.pack.js?1704871260"></script>
+    <script src="/js/clipboard.min.js?1728030373"></script>
+    <script src="/js/perfect-scrollbar.min.js?1728030373"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1728030373"></script>
+    <script src="/js/jquery.sticky.js?1728030373"></script>
+    <script src="/js/featherlight.min.js?1728030373"></script>
+    <script src="/js/highlight.pack.js?1728030373"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1704871260"></script>
-    <script src="/js/learn.js?1704871260"></script>
-    <script src="/js/hugo-learn.js?1704871260"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1728030373"></script>
+    <script src="/js/learn.js?1728030373"></script>
+    <script src="/js/hugo-learn.js?1728030373"></script>
 
-    <link href="/mermaid/mermaid.css?1704871260" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1704871260"></script>
+    <link href="/mermaid/mermaid.css?1728030373" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1728030373"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

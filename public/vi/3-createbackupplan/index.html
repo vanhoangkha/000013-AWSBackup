@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.99.1" />
+    <meta name="generator" content="Hugo 0.133.0">
     <meta name="description" content="">
 <meta name="author" content="journeyoftheaverageguy@gmail.com">
 
@@ -12,21 +12,21 @@
     <title>Tạo Backup plan :: TRIỂN KHAI AWS BACKUP CHO HỆ THỐNG</title>
 
     
-    <link href="/css/nucleus.css?1704871260" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1704871260" rel="stylesheet">
-    <link href="/css/hybrid.css?1704871260" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1704871260" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1704871260" rel="stylesheet">
-    <link href="/css/auto-complete.css?1704871260" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1704871260" rel="stylesheet">
-    <link href="/css/theme.css?1704871260" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1704871260" rel="stylesheet">
+    <link href="/css/nucleus.css?1728030373" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1728030373" rel="stylesheet">
+    <link href="/css/hybrid.css?1728030373" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1728030373" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1728030373" rel="stylesheet">
+    <link href="/css/auto-complete.css?1728030373" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1728030373" rel="stylesheet">
+    <link href="/css/theme.css?1728030373" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1728030373" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1704871260" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1728030373" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1704871260"></script>
+    <script src="/js/jquery-3.3.1.min.js?1728030373"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1704871260"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1704871260"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1728030373"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1728030373"></script>
 <script type="text/javascript">
     
-        var baseurl = "\/vi";
+        var baseurl = "\/\/vi";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1704871260"></script>
+<script type="text/javascript" src="/js/search.js?1728030374"></script>
 
     
   </div>
@@ -82,13 +82,13 @@
  
   
     
-    <li data-nav-id="/vi/1-introduce/" title="Giới thiệu" class="dd-item 
+    <li data-nav-id="/vi/1-introduce/" title="Giới thiệu" class="dd-item 
         
         
         
         ">
       <a href="/vi/1-introduce/">
-           <b> 1. </b> Giới thiệu
+          <b>1. </b>Giới thiệu
           
             <i class="fas fa-check read-icon"></i>
           
@@ -114,7 +114,7 @@
         
         ">
       <a href="/vi/2-prerequiste/">
-           <b> 2. </b> Các bước chuẩn bị
+          <b>2. </b>Các bước chuẩn bị
           
             <i class="fas fa-check read-icon"></i>
           
@@ -203,7 +203,7 @@
   
     
     <li data-nav-id="/vi/3-createbackupplan/" title="Tạo Backup plan" class="dd-item 
-        parent
+        
         active
         
         ">
@@ -389,7 +389,7 @@
     <br>
     <br>
         <b> Last Updated </b> <br>
-        <i><font color=orange>10-01-2024</font></i>
+        <i><font color=orange>04-10-2024</font></i>
     </left>
     <left>
         <br>
@@ -486,15 +486,15 @@
 <li>Mở <strong>AWS Management Console</strong></li>
 <li>Tìm và chọn <strong>AWS Backup</strong></li>
 </ul>
-<p><img src="/images/3-backupplan/1.png?featherlight=false&amp;width=90pc" alt="Bước 1"></p>
+<p><img alt="Bước 1" src="/images/3-backupplan/1.png?featherlight=false&width=90pc"></p>
 <h4 id="bước-2-chọn-aws-backup-plan">Bước 2: Chọn AWS Backup Plan</h4>
-<p><img src="/images/3-backupplan/2.png?featherlight=false&amp;width=90pc" alt="Bước 2"></p>
+<p><img alt="Bước 2" src="/images/3-backupplan/2.png?featherlight=false&width=90pc"></p>
 <h4 id="bước-3-tạo-kế-hoạch-sao-lưu">Bước 3: Tạo kế hoạch sao lưu</h4>
 <ul>
 <li>Trong giao diện <strong>Create backup plan</strong>, chọn <strong>Build a new plan</strong></li>
 <li>Đối với trường <strong>Backup plan name</strong>, nhập <strong><code>BACKUP-LAB</code></strong></li>
 </ul>
-<p><img src="/images/3-backupplan/3.png?featherlight=false&amp;width=90pc" alt="Bước 3"></p>
+<p><img alt="Bước 3" src="/images/3-backupplan/3.png?featherlight=false&width=90pc"></p>
 <h4 id="bước-4-cấu-hình-quy-tắc-sao-lưu">Bước 4: Cấu hình quy tắc sao lưu</h4>
 <ul>
 <li>Điền <strong>RULE NAME</strong> là <strong>BACKUP-LAB-RULE</strong></li>
@@ -502,24 +502,24 @@
 <li>Chọn <strong>Use backup window defaults - recommended</strong> để sử dụng cài đặt mặc định cho cửa sổ sao lưu</li>
 <li>Đối với <strong>BACKUP VAULT</strong>, chọn <strong>CREATE NEW BACKUP VAULT</strong></li>
 </ul>
-<p><img src="/images/3-backupplan/4.png?featherlight=false&amp;width=90pc" alt="Bước 4"></p>
+<p><img alt="Bước 4" src="/images/3-backupplan/4.png?featherlight=false&width=90pc"></p>
 <h4 id="bước-5-đặt-tên-cho-backup-vault">Bước 5: Đặt tên cho Backup Vault</h4>
 <ul>
 <li>Điền tên <strong>BACKUP VAULT NAME</strong> là <strong>BACKUP-LAB-VAULT</strong></li>
 <li>Chọn <strong>(default) aws/backup</strong></li>
 <li>Chọn <strong>CREATE BACKUP VAULT</strong></li>
 </ul>
-<p><img src="/images/3-backupplan/5.png?featherlight=false&amp;width=90pc" alt="Bước 5"></p>
+<p><img alt="Bước 5" src="/images/3-backupplan/5.png?featherlight=false&width=90pc"></p>
 <h4 id="bước-6-thêm-các-cặp-key-và-value-cho-tag">Bước 6: Thêm các cặp Key và Value cho tag</h4>
 <ul>
 <li>Chọn <strong>Create plan</strong></li>
 </ul>
-<p><img src="/images/3-backupplan/6.png?featherlight=false&amp;width=90pc" alt="Bước 6"></p>
+<p><img alt="Bước 6" src="/images/3-backupplan/6.png?featherlight=false&width=90pc"></p>
 <h3 id="bước-7-hoàn-tất-việc-tạo-backup-plan">Bước 7: Hoàn tất việc tạo Backup Plan</h3>
 <ul>
 <li>Trong phần <strong>RESOURCE ASSIGNMENTS</strong>, chọn <strong>ASSIGN RESOURCES</strong></li>
 </ul>
-<p><img src="/images/3-backupplan/7.png?featherlight=false&amp;width=90pc" alt="Bước 7"></p>
+<p><img alt="Bước 7" src="/images/3-backupplan/7.png?featherlight=false&width=90pc"></p>
 <h4 id="bước-8-gán-tài-nguyên-cho-backup-plan">Bước 8: Gán tài nguyên cho Backup Plan</h4>
 <ul>
 <li>Điền <strong>RESOURCE ASSIGNMENT NAME</strong> là <strong>BACKUP-RESOURCES</strong></li>
@@ -527,14 +527,14 @@
 <li>Thêm <strong>Tag Key</strong> và <strong>Tag Value</strong></li>
 <li>Chọn <strong>ASSIGN RESOURCES</strong></li>
 </ul>
-<p><img src="/images/3-backupplan/8.png?featherlight=false&amp;width=90pc" alt="Bước 8"></p>
+<p><img alt="Bước 8" src="/images/3-backupplan/8.png?featherlight=false&width=90pc"></p>
 <h4 id="bước-9-xác-nhận-và-tiếp-tục">Bước 9: Xác nhận và tiếp tục</h4>
 <ul>
 <li>Xác nhận bằng cách chọn <strong>Continue</strong></li>
 </ul>
-<p><img src="/images/3-backupplan/9.png?featherlight=false&amp;width=90pc" alt="Bước 9"></p>
+<p><img alt="Bước 9" src="/images/3-backupplan/9.png?featherlight=false&width=90pc"></p>
 <h4 id="bước-10-hoàn-tất-việc-gán-tài-nguyên">Bước 10: Hoàn tất việc gán tài nguyên</h4>
-<p><img src="/images/3-backupplan/10.png?featherlight=false&amp;width=90pc" alt="Bước 10"></p>
+<p><img alt="Bước 10" src="/images/3-backupplan/10.png?featherlight=false&width=90pc"></p>
 
 
 
@@ -729,19 +729,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1704871260"></script>
-    <script src="/js/perfect-scrollbar.min.js?1704871260"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1704871260"></script>
-    <script src="/js/jquery.sticky.js?1704871260"></script>
-    <script src="/js/featherlight.min.js?1704871260"></script>
-    <script src="/js/highlight.pack.js?1704871260"></script>
+    <script src="/js/clipboard.min.js?1728030374"></script>
+    <script src="/js/perfect-scrollbar.min.js?1728030374"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1728030374"></script>
+    <script src="/js/jquery.sticky.js?1728030374"></script>
+    <script src="/js/featherlight.min.js?1728030374"></script>
+    <script src="/js/highlight.pack.js?1728030374"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1704871260"></script>
-    <script src="/js/learn.js?1704871260"></script>
-    <script src="/js/hugo-learn.js?1704871260"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1728030374"></script>
+    <script src="/js/learn.js?1728030374"></script>
+    <script src="/js/hugo-learn.js?1728030374"></script>
 
-    <link href="/mermaid/mermaid.css?1704871260" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1704871260"></script>
+    <link href="/mermaid/mermaid.css?1728030374" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1728030374"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

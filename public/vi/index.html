@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.99.1" />
+    <meta name="generator" content="Hugo 0.133.0">
     <meta name="description" content="">
 <meta name="author" content="journeyoftheaverageguy@gmail.com">
 
@@ -12,21 +12,21 @@
     <title>Triển khai AWS Backup cho hệ thống :: TRIỂN KHAI AWS BACKUP CHO HỆ THỐNG</title>
 
     
-    <link href="/css/nucleus.css?1704871260" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1704871260" rel="stylesheet">
-    <link href="/css/hybrid.css?1704871260" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1704871260" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1704871260" rel="stylesheet">
-    <link href="/css/auto-complete.css?1704871260" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1704871260" rel="stylesheet">
-    <link href="/css/theme.css?1704871260" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1704871260" rel="stylesheet">
+    <link href="/css/nucleus.css?1728030373" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1728030373" rel="stylesheet">
+    <link href="/css/hybrid.css?1728030373" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1728030373" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1728030373" rel="stylesheet">
+    <link href="/css/auto-complete.css?1728030373" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1728030373" rel="stylesheet">
+    <link href="/css/theme.css?1728030373" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1728030373" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1704871260" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1728030373" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1704871260"></script>
+    <script src="/js/jquery-3.3.1.min.js?1728030373"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1704871260"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1704871260"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1728030373"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1728030373"></script>
 <script type="text/javascript">
     
-        var baseurl = "\/vi";
+        var baseurl = "\/\/vi";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1704871260"></script>
+<script type="text/javascript" src="/js/search.js?1728030373"></script>
 
     
   </div>
@@ -82,13 +82,13 @@
  
   
     
-    <li data-nav-id="/vi/1-introduce/" title="Giới thiệu" class="dd-item 
+    <li data-nav-id="/vi/1-introduce/" title="Giới thiệu" class="dd-item 
         
         
         
         ">
       <a href="/vi/1-introduce/">
-           <b> 1. </b> Giới thiệu
+          <b>1. </b>Giới thiệu
           
             <i class="fas fa-check read-icon"></i>
           
@@ -114,7 +114,7 @@
         
         ">
       <a href="/vi/2-prerequiste/">
-           <b> 2. </b> Các bước chuẩn bị
+          <b>2. </b>Các bước chuẩn bị
           
             <i class="fas fa-check read-icon"></i>
           
@@ -389,7 +389,7 @@
     <br>
     <br>
         <b> Last Updated </b> <br>
-        <i><font color=orange>10-01-2024</font></i>
+        <i><font color=orange>04-10-2024</font></i>
     </left>
     <left>
         <br>
@@ -430,7 +430,7 @@
 <h4 id="tổng-quan">Tổng quan</h4>
 <p>Trong bài thực hành này, bạn sẽ làm quen với việc sử dụng <strong>AWS Backup</strong> để tạo ra một kế hoạch sao lưu (<em>backup plan</em>) cho các tài nguyên đang hoạt động trên AWS như EBS Volumes, RDS Databases, DynamoDB Tables, hay EFS File Systems. Đồng thời, bạn cũng sẽ biết được làm thế nào để khôi phục lại dữ liệu từ các bản sao lưu và tự động hóa toàn bộ quá trình.</p>
 <p>Đối với nhiều tổ chức, dữ liệu mà họ sở hữu là một trong những tài sản quý giá nhất mà họ có. Sao lưu dữ liệu thường xuyên có tầm quan trọng sống còn đối với sự thành công lâu dài của bất kỳ tổ chức nào. Tuy nhiên, một bản sao lưu dữ liệu chỉ có giá trị nếu dữ liệu có thể được khôi phục / khôi phục từ bản sao lưu. Trong đám mây, việc sao lưu dữ liệu và kiểm tra khôi phục dễ dàng hơn so với các trung tâm dữ liệu tại chỗ. Tự động hóa quy trình này với các hệ thống thông báo thích hợp sẽ đảm bảo rằng dữ liệu của tổ chức được sao lưu thường xuyên, các bản sao lưu được kiểm tra để đảm bảo khôi phục dự kiến và những người thích hợp được thông báo trong trường hợp có lỗi.</p>
-<p><img src="/images/0/architecture.jpeg?featherlight=false&amp;width=60pc" alt="AWS Backup"></p>
+<p><img alt="AWS Backup" src="/images/0/architecture.jpeg?featherlight=false&width=60pc"></p>
 <h4 id="mục-tiêu">Mục tiêu</h4>
 <ul>
 <li>Tạo được <em>Backup Plan</em> cho hệ thống để tự động hóa việc sao lưu.</li>
@@ -443,12 +443,12 @@
 <p><strong>AWS SNS</strong> là dịch vụ cho phép bạn gửi thông báo từ nhà xuất bản (<em>publisher</em>) tới đối tượng đăng ký (<em>subscriber</em>). Publisher giao tiếp không đồng bộ với subscriber thông qua một chủ đề (<em>topic</em>). Có nghĩa là, Publisher sẽ gửi thông báo tới topic, sau đó topic ấy sẽ gửi thông báo ấy tới các subscriber đang đăng ký theo dõi topic đó.</p>
 <h4 id="nội-dung">Nội dung:</h4>
 <ol>
-<li><a href="1-introduce/">Giới thiệu</a></li>
-<li><a href="2-prerequiste/">Chuẩn bị hạ tầng</a></li>
-<li><a href="3-createbackupplan/">Khởi tạo Backup Plan</a></li>
-<li><a href="4-enablenoti/">Thiết lập Notification</a></li>
-<li><a href="5-testrestore/">Kiểm tra hoạt động</a></li>
-<li><a href="6-cleanup/">Dọn dẹp tài nguyên</a></li>
+<li><a href="/vi/1-introduce/">Giới thiệu</a></li>
+<li><a href="/vi/2-prerequiste/">Chuẩn bị hạ tầng</a></li>
+<li><a href="/vi/3-createbackupplan/">Khởi tạo Backup Plan</a></li>
+<li><a href="/vi/4-enablenoti/">Thiết lập Notification</a></li>
+<li><a href="/vi/5-testrestore/">Kiểm tra hoạt động</a></li>
+<li><a href="/vi/6-cleanup/">Dọn dẹp tài nguyên</a></li>
 </ol>
 	
   
@@ -621,7 +621,7 @@
 	 
 		
 		
-			<a class="nav nav-next" href="/vi/1-introduce/" title="Giới thiệu" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/vi/1-introduce/" title="Giới thiệu" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -631,19 +631,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1704871260"></script>
-    <script src="/js/perfect-scrollbar.min.js?1704871260"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1704871260"></script>
-    <script src="/js/jquery.sticky.js?1704871260"></script>
-    <script src="/js/featherlight.min.js?1704871260"></script>
-    <script src="/js/highlight.pack.js?1704871260"></script>
+    <script src="/js/clipboard.min.js?1728030374"></script>
+    <script src="/js/perfect-scrollbar.min.js?1728030374"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1728030374"></script>
+    <script src="/js/jquery.sticky.js?1728030374"></script>
+    <script src="/js/featherlight.min.js?1728030374"></script>
+    <script src="/js/highlight.pack.js?1728030374"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1704871260"></script>
-    <script src="/js/learn.js?1704871260"></script>
-    <script src="/js/hugo-learn.js?1704871260"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1728030374"></script>
+    <script src="/js/learn.js?1728030374"></script>
+    <script src="/js/hugo-learn.js?1728030374"></script>
 
-    <link href="/mermaid/mermaid.css?1704871260" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1704871260"></script>
+    <link href="/mermaid/mermaid.css?1728030374" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1728030374"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

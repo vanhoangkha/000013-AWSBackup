@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.99.1" />
+    <meta name="generator" content="Hugo 0.133.0">
     <meta name="description" content="">
 <meta name="author" content="journeyoftheaverageguy@gmail.com">
 
@@ -12,21 +12,21 @@
     <title>Thiết lập thông báo :: TRIỂN KHAI AWS BACKUP CHO HỆ THỐNG</title>
 
     
-    <link href="/css/nucleus.css?1704871260" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1704871260" rel="stylesheet">
-    <link href="/css/hybrid.css?1704871260" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1704871260" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1704871260" rel="stylesheet">
-    <link href="/css/auto-complete.css?1704871260" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1704871260" rel="stylesheet">
-    <link href="/css/theme.css?1704871260" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1704871260" rel="stylesheet">
+    <link href="/css/nucleus.css?1728030374" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1728030374" rel="stylesheet">
+    <link href="/css/hybrid.css?1728030374" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1728030374" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1728030374" rel="stylesheet">
+    <link href="/css/auto-complete.css?1728030374" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1728030374" rel="stylesheet">
+    <link href="/css/theme.css?1728030374" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1728030374" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1704871260" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1728030374" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1704871260"></script>
+    <script src="/js/jquery-3.3.1.min.js?1728030374"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1704871260"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1704871260"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1728030374"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1728030374"></script>
 <script type="text/javascript">
     
-        var baseurl = "\/vi";
+        var baseurl = "\/\/vi";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1704871260"></script>
+<script type="text/javascript" src="/js/search.js?1728030374"></script>
 
     
   </div>
@@ -82,13 +82,13 @@
  
   
     
-    <li data-nav-id="/vi/1-introduce/" title="Giới thiệu" class="dd-item 
+    <li data-nav-id="/vi/1-introduce/" title="Giới thiệu" class="dd-item 
         
         
         
         ">
       <a href="/vi/1-introduce/">
-           <b> 1. </b> Giới thiệu
+          <b>1. </b>Giới thiệu
           
             <i class="fas fa-check read-icon"></i>
           
@@ -114,7 +114,7 @@
         
         ">
       <a href="/vi/2-prerequiste/">
-           <b> 2. </b> Các bước chuẩn bị
+          <b>2. </b>Các bước chuẩn bị
           
             <i class="fas fa-check read-icon"></i>
           
@@ -229,7 +229,7 @@
   
     
     <li data-nav-id="/vi/4-enablenoti/" title="Thiết lập thông báo" class="dd-item 
-        parent
+        
         active
         
         ">
@@ -389,7 +389,7 @@
     <br>
     <br>
         <b> Last Updated </b> <br>
-        <i><font color=orange>10-01-2024</font></i>
+        <i><font color=orange>04-10-2024</font></i>
     </left>
     <left>
         <br>
@@ -494,17 +494,17 @@
 </span></span></code></pre></div></li>
 <li>
 <p>Sau khi đã chỉnh sửa, thực thi lệnh trên. Điều này sẽ kích hoạt thông báo thông qua SNS TOPIC mỗi khi một công việc sao lưu hoặc khôi phục hoàn thành. Thông tin này giúp nhóm Vận hành nắm bắt được các lỗi có thể xảy ra trong quá trình sao lưu hoặc khôi phục dữ liệu.</p>
-<p><img src="/images/4-notification/1.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
+<p><img alt="AWS Backup" src="/images/4-notification/1.png?featherlight=false&width=90pc"></p>
 </li>
 </ol>
 <h4 id="bước-2-kiểm-tra-giao-diện-sns">Bước 2: Kiểm tra giao diện SNS</h4>
-<p><img src="/images/4-notification/2.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
+<p><img alt="AWS Backup" src="/images/4-notification/2.png?featherlight=false&width=90pc"></p>
 <h4 id="bước-3-xác-minh-thông-báo">Bước 3: Xác minh thông báo</h4>
 <ol>
 <li>
 <p>Để xác minh rằng thông báo đã được kích hoạt thành công, bạn có thể sử dụng lệnh sau. Kết quả đầu ra sẽ bao gồm một phần được gọi là SNSTopicArn, theo sau là ARN của SNS Topic đã được tạo.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>aws backup get-backup-vault-notifications --backup-vault-name BACKUP-LAB-VAULT --region ap-southeast-1
-</span></span></code></pre></div><p><img src="/images/4-notification/3.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
+</span></span></code></pre></div><p><img alt="AWS Backup" src="/images/4-notification/3.png?featherlight=false&width=90pc"></p>
 </li>
 <li>
 <p>Bây giờ, bạn đã kích hoạt thành công thông báo cho BACKUP-LAB-VAULT, đảm bảo rằng nhóm Vận hành biết về việc hoàn thành các hoạt động sao lưu và khôi phục liên quan đến vault này cũng như bất kỳ lỗi nào liên quan đến các hoạt động đó.</p>
@@ -704,19 +704,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1704871260"></script>
-    <script src="/js/perfect-scrollbar.min.js?1704871260"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1704871260"></script>
-    <script src="/js/jquery.sticky.js?1704871260"></script>
-    <script src="/js/featherlight.min.js?1704871260"></script>
-    <script src="/js/highlight.pack.js?1704871260"></script>
+    <script src="/js/clipboard.min.js?1728030374"></script>
+    <script src="/js/perfect-scrollbar.min.js?1728030374"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1728030374"></script>
+    <script src="/js/jquery.sticky.js?1728030374"></script>
+    <script src="/js/featherlight.min.js?1728030374"></script>
+    <script src="/js/highlight.pack.js?1728030374"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1704871260"></script>
-    <script src="/js/learn.js?1704871260"></script>
-    <script src="/js/hugo-learn.js?1704871260"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1728030374"></script>
+    <script src="/js/learn.js?1728030374"></script>
+    <script src="/js/hugo-learn.js?1728030374"></script>
 
-    <link href="/mermaid/mermaid.css?1704871260" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1704871260"></script>
+    <link href="/mermaid/mermaid.css?1728030374" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1728030374"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

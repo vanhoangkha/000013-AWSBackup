@@ -140,3 +140,5 @@ Trong workshop này, chúng ta sẽ sử dụng Region Singapore (ap-southeast-1
 21. Sao chép thông tin **Object URL** của file **backup-lab.yaml**.
 
 ![AWS Backup](/images/2-preparation/21.png?featherlight=false&width=90pc)
+
+

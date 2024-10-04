@@ -1,8 +1,8 @@
 ---
-title : "Triển khai AWS Backup cho hệ thống"
-date :  "`r Sys.Date()`" 
-weight : 1 
-chapter : false
+title: "Triển khai AWS Backup cho hệ thống"
+date: "`r Sys.Date()`"
+weight: 1
+chapter: false
 ---
 
 # Triển khai AWS Backup cho hệ thống

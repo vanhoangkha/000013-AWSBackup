@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.99.1" />
+    <meta name="generator" content="Hugo 0.133.0">
     <meta name="description" content="">
 <meta name="author" content="journeyoftheaverageguy@gmail.com">
 
@@ -12,21 +12,21 @@
     <title>Triển khai hạ tầng :: TRIỂN KHAI AWS BACKUP CHO HỆ THỐNG</title>
 
     
-    <link href="/css/nucleus.css?1704871260" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1704871260" rel="stylesheet">
-    <link href="/css/hybrid.css?1704871260" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1704871260" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1704871260" rel="stylesheet">
-    <link href="/css/auto-complete.css?1704871260" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1704871260" rel="stylesheet">
-    <link href="/css/theme.css?1704871260" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1704871260" rel="stylesheet">
+    <link href="/css/nucleus.css?1728030374" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1728030374" rel="stylesheet">
+    <link href="/css/hybrid.css?1728030374" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1728030374" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1728030374" rel="stylesheet">
+    <link href="/css/auto-complete.css?1728030374" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1728030374" rel="stylesheet">
+    <link href="/css/theme.css?1728030374" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1728030374" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1704871260" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1728030374" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1704871260"></script>
+    <script src="/js/jquery-3.3.1.min.js?1728030374"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1704871260"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1704871260"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1728030374"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1728030374"></script>
 <script type="text/javascript">
     
-        var baseurl = "\/vi";
+        var baseurl = "\/\/vi";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1704871260"></script>
+<script type="text/javascript" src="/js/search.js?1728030374"></script>
 
     
   </div>
@@ -82,13 +82,13 @@
  
   
     
-    <li data-nav-id="/vi/1-introduce/" title="Giới thiệu" class="dd-item 
+    <li data-nav-id="/vi/1-introduce/" title="Giới thiệu" class="dd-item 
         
         
         
         ">
       <a href="/vi/1-introduce/">
-           <b> 1. </b> Giới thiệu
+          <b>1. </b>Giới thiệu
           
             <i class="fas fa-check read-icon"></i>
           
@@ -114,7 +114,7 @@
         
         ">
       <a href="/vi/2-prerequiste/">
-           <b> 2. </b> Các bước chuẩn bị
+          <b>2. </b>Các bước chuẩn bị
           
             <i class="fas fa-check read-icon"></i>
           
@@ -168,7 +168,7 @@
   
     
     <li data-nav-id="/vi/2-prerequiste/2.2-deployinfras/" title="Triển khai hạ tầng" class="dd-item 
-        parent
+        
         active
         
         ">
@@ -389,7 +389,7 @@
     <br>
     <br>
         <b> Last Updated </b> <br>
-        <i><font color=orange>10-01-2024</font></i>
+        <i><font color=orange>04-10-2024</font></i>
     </left>
     <left>
         <br>
@@ -487,7 +487,7 @@
 	<h4 id="triển-khai-hạ-tầng">Triển khai hạ tầng</h4>
 <p>Trong bài thực hành này, bạn sẽ làm quen với việc sử dụng <strong>AWS Backup</strong> để tạo ra một kế hoạch sao lưu (backup plan) cho các tài nguyên đang hoạt động trên AWS như EBS Volumes, RDS Databases, DynamoDB Tables, hay EFS File Systems. Đồng thời, bạn cũng sẽ biết được làm thế nào để khôi phục lại dữ liệu từ các bản sao lưu và tự động hóa toàn bộ quá trình.</p>
 <p>Đối với nhiều tổ chức, dữ liệu mà họ sở hữu là một trong những tài sản quý giá nhất mà họ có. Sao lưu dữ liệu thường xuyên có tầm quan trọng sống còn đối với sự thành công lâu dài của bất kỳ tổ chức nào. Tuy nhiên, một bản sao lưu dữ liệu chỉ có giá trị nếu dữ liệu có thể được khôi phục / khôi phục từ bản sao lưu. Trong đám mây, việc sao lưu dữ liệu và kiểm tra khôi phục dễ dàng hơn so với các trung tâm dữ liệu tại chỗ. Tự động hóa quy trình này với các hệ thống thông báo thích hợp sẽ đảm bảo rằng dữ liệu của tổ chức được sao lưu thường xuyên, các bản sao lưu được kiểm tra để đảm bảo khôi phục dự kiến ​​và những người thích hợp được thông báo trong trường hợp có lỗi.</p>
-<p><img src="/images/0/architecture.jpeg?featherlight=false&amp;width=60pc" alt="AWS Backup"></p>
+<p><img alt="AWS Backup" src="/images/0/architecture.jpeg?featherlight=false&width=60pc"></p>
 <ol>
 <li>
 <p>Truy cập giao diện <strong>AWS Management Console</strong></p>
@@ -496,11 +496,11 @@
 </ul>
 </li>
 </ol>
-<p><img src="/images/2-preparation/22.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
+<p><img alt="AWS Backup" src="/images/2-preparation/22.png?featherlight=false&width=90pc"></p>
 <ol start="2">
 <li>Chọn <strong>Create stack</strong></li>
 </ol>
-<p><img src="/images/2-preparation/23.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
+<p><img alt="AWS Backup" src="/images/2-preparation/23.png?featherlight=false&width=90pc"></p>
 <ol start="3">
 <li>
 <p>Trong giao diện <strong>Create stack</strong></p>
@@ -512,7 +512,7 @@
 </ul>
 </li>
 </ol>
-<p><img src="/images/2-preparation/24.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
+<p><img alt="AWS Backup" src="/images/2-preparation/24.png?featherlight=false&width=90pc"></p>
 <ol start="4">
 <li>
 <p>Trong phần <strong>STACK NAME</strong>, nhập <strong>Buckup-plan</strong> (nhập tùy ý bạn)</p>
@@ -525,11 +525,11 @@
 </ul>
 </li>
 </ol>
-<p><img src="/images/2-preparation/25.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
+<p><img alt="AWS Backup" src="/images/2-preparation/25.png?featherlight=false&width=90pc"></p>
 <ol start="5">
 <li>Trong phần <strong>CONFIGURE STACK OPTIONS</strong>, Chọn <strong>Next</strong></li>
 </ol>
-<p><img src="/images/2-preparation/26.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
+<p><img alt="AWS Backup" src="/images/2-preparation/26.png?featherlight=false&width=90pc"></p>
 <ol start="6">
 <li>
 <p>Đối với <strong>CAPABILITIES</strong>, Chọn <strong>I acknowledge that AWS CloudFormation might create IAM resources.</strong></p>
@@ -538,27 +538,27 @@
 </ul>
 </li>
 </ol>
-<p><img src="/images/2-preparation/27.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
+<p><img alt="AWS Backup" src="/images/2-preparation/27.png?featherlight=false&width=90pc"></p>
 <ol start="7">
 <li>Hoàn thành tạo stack Cloudformation</li>
 </ol>
-<p><img src="/images/2-preparation/28.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
+<p><img alt="AWS Backup" src="/images/2-preparation/28.png?featherlight=false&width=90pc"></p>
 <ol start="8">
 <li>Kiểm tra lại <strong>Output</strong> của stack CloudFormation</li>
 </ol>
-<p><img src="/images/2-preparation/29.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
+<p><img alt="AWS Backup" src="/images/2-preparation/29.png?featherlight=false&width=90pc"></p>
 <ol start="9">
 <li>Chọn vào <strong>Value</strong> của <strong>ApplicationURL</strong></li>
 </ol>
-<p><img src="/images/2-preparation/30.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
+<p><img alt="AWS Backup" src="/images/2-preparation/30.png?featherlight=false&width=90pc"></p>
 <ol start="10">
 <li>Kiểm tra mail sẽ nhận được mail thông báo.</li>
 </ol>
-<p><img src="/images/2-preparation/31.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
+<p><img alt="AWS Backup" src="/images/2-preparation/31.png?featherlight=false&width=90pc"></p>
 <ol start="11">
 <li>Thực hiện xác nhận mail.</li>
 </ol>
-<p><img src="/images/2-preparation/32.png?featherlight=false&amp;width=90pc" alt="AWS Backup"></p>
+<p><img alt="AWS Backup" src="/images/2-preparation/32.png?featherlight=false&width=90pc"></p>
 
 
 
@@ -757,19 +757,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1704871260"></script>
-    <script src="/js/perfect-scrollbar.min.js?1704871260"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1704871260"></script>
-    <script src="/js/jquery.sticky.js?1704871260"></script>
-    <script src="/js/featherlight.min.js?1704871260"></script>
-    <script src="/js/highlight.pack.js?1704871260"></script>
+    <script src="/js/clipboard.min.js?1728030374"></script>
+    <script src="/js/perfect-scrollbar.min.js?1728030374"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1728030374"></script>
+    <script src="/js/jquery.sticky.js?1728030374"></script>
+    <script src="/js/featherlight.min.js?1728030374"></script>
+    <script src="/js/highlight.pack.js?1728030374"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1704871260"></script>
-    <script src="/js/learn.js?1704871260"></script>
-    <script src="/js/hugo-learn.js?1704871260"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1728030374"></script>
+    <script src="/js/learn.js?1728030374"></script>
+    <script src="/js/hugo-learn.js?1728030374"></script>
 
-    <link href="/mermaid/mermaid.css?1704871260" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1704871260"></script>
+    <link href="/mermaid/mermaid.css?1728030374" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1728030374"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
