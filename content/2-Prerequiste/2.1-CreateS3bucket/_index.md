@@ -98,7 +98,11 @@ In this section, we will use **CloudFormation** to create resources for the lab.
 
     ![AWS Backup](/images/2-preparation/16.png?featherlight=false&width=90pc)
 
-17. In the **Edit bucket policy** interface, enter the following code and replace `Bucket-Name` with your **Bucket ARN**.
+17. In the **Edit bucket policy** interface, enter the following code and replace `Bucket-Name` with your **Bucket name**.
+
+    {{% notice warning %}}
+**Lab-only configuration.** The policy below makes the bucket publicly readable so the lab can fetch `lambda_function.zip` and `backup-lab.yaml` over HTTP. In production, never grant `Principal: "*"` on S3 — use a presigned URL, CloudFront with Origin Access Control (OAC), or a VPC endpoint instead. Delete the bucket during the **Clean up** step (chapter 6) so this configuration does not outlive the lab.
+{{% /notice %}}
 
     ```json
     {
@@ -111,7 +115,7 @@ In this section, we will use **CloudFormation** to create resources for the lab.
                 "Action": [
                     "s3:GetObject"
                 ],
-                "Resources": [
+                "Resource": [
                     "arn:aws:s3:::Bucket-Name/*"
                 ]
             }

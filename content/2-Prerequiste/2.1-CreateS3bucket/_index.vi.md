@@ -102,7 +102,11 @@ Trong workshop này, chúng ta sẽ sử dụng Region Singapore (ap-southeast-1
 
 17. Trong giao diện **Edit bucket policy**:
 
-    - Nhập đoạn code sau và thay bằng **Bucket ARN** của bạn.
+    - Nhập đoạn code sau và thay `Bucket-Name` bằng **tên Bucket** của bạn.
+
+    {{% notice warning %}}
+**Cấu hình chỉ dành cho lab.** Policy bên dưới cho phép ai cũng đọc được bucket để lab có thể tải `lambda_function.zip` và `backup-lab.yaml` qua HTTP. Trong môi trường production, **không bao giờ** dùng `Principal: "*"` cho S3 — hãy dùng presigned URL, CloudFront với Origin Access Control (OAC), hoặc VPC endpoint. Nhớ xoá bucket ở bước **Clean up** (chương 6) để cấu hình này không tồn tại sau khi lab kết thúc.
+{{% /notice %}}
 
     ```json
     {
